@@ -93,7 +93,13 @@ class PDFAnalyzer:
         try:
             response_text = self.ai_client.generate_text(user_prompt, system_prompt, model="claude")
             # Cleanup json
-            json_str = response_text.replace("```json", "").replace("```", "").strip()
+            # Cleanup output to find valid JSON
+            import re
+            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+            if json_match:
+                json_str = json_match.group(0)
+            else:
+                json_str = response_text.replace("```json", "").replace("```", "").strip()
             return json.loads(json_str)
         except Exception as e:
             self.logger.error(f"LLM analysis failed: {e}")

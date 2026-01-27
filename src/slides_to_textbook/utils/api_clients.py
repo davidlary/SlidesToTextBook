@@ -28,43 +28,22 @@ class AIClient:
         model: 'claude' (default) or 'gemini'
         """
         if model == "claude" and self.anthropic_client:
-            try:
-                return self._call_claude(prompt, system_prompt)
-            except Exception as e:
-                logging.warning(f"Claude call failed: {e}. Falling back to mock.")
-                return self._mock_response(prompt)
+            return self._call_claude(prompt, system_prompt)
         elif model == "gemini" and self.gemini_configured:
-            try:
+            return self._call_gemini(prompt, system_prompt)
+        else:
+            # Fallback logic or error
+            if self.anthropic_client:
+                return self._call_claude(prompt, system_prompt)
+            elif self.gemini_configured:
                 return self._call_gemini(prompt, system_prompt)
-            except Exception as e:
-                logging.warning(f"Gemini call failed: {e}. Falling back to mock.")
-                return self._mock_response(prompt)
-        else:
-             logging.warning("No AI client available. Using mock response.")
-             return self._mock_response(prompt)
-
-    def _mock_response(self, prompt: str) -> str:
-        """Return structured mock data based on prompt context."""
-        if "JSON" in prompt or "json" in prompt:
-            return '''
-            {
-                "title": "Introduction to Machine Learning",
-                "description": "An overview of ML concepts.",
-                "sections": ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning"],
-                "concepts": ["Training Data", "Model", "Loss Function"],
-                "people": ["Arthur Samuel", "Alan Turing"],
-                "equations": ["y = f(x)", "L(w)"]
-            }
-            '''
-        else:
-            return "This is a placeholder content generated because the AI API keys were missing or invalid. " \
-                   "It follows the structure requested but lacks real generated prose. " \
-                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            else:
+                raise RuntimeError("No AI clients configured (missing API keys)")
 
     def _call_claude(self, prompt: str, system_prompt: str) -> str:
         if not self.anthropic_client: raise ValueError("Client not set")
         message = self.anthropic_client.messages.create(
-            model="claude-3-sonnet-20240229",
+            model="claude-3-haiku-20240307",
             max_tokens=4096,
             temperature=0,
             system=system_prompt,
