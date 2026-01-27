@@ -1,0 +1,46 @@
+{
+  "book_name": "MachineLearning",
+  "version": "1.0",
+  "started": "2026-01-27T00:00:00Z",
+  "updated": "2026-01-27T00:00:00Z",
+  "status": "not_started",
+  "current_phase": "planning",
+  "current_chunk": "Chunk 1: Project Setup",
+
+  "phases": {
+    "topic_analysis": {
+      "status": "pending",
+      "lectures_total": 14,
+      "lectures_processed": 0,
+      "topics_identified": 0,
+      "user_approved": false
+    },
+    "content_generation": {
+      "status": "pending",
+      "chapters_completed": 0,
+      "chapters_total": 0,
+      "figures_created": 0,
+      "figures_total": 0,
+      "portraits_created": 0,
+      "portraits_total": 0
+    },
+    "validation": {
+      "status": "pending"
+    },
+    "finalization": {
+      "status": "pending"
+    }
+  },
+
+  "chapters": [],
+
+  "errors": [],
+  "warnings": [],
+
+  "recovery_checkpoint": {
+    "module": null,
+    "chapter": null,
+    "section": null,
+    "timestamp": "2026-01-27T00:00:00Z"
+  }
+}
