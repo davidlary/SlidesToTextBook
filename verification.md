@@ -1158,23 +1158,48 @@ rm -rf /tmp/slides-audit
 
 ---
 
-## Environment Setup
+## Environment Setup (CRITICAL)
 
-**Required Environment Variables**:
+### ⚠️ MANDATORY: Activate Base Environment FIRST
+
+**Before running ANY tests or commands, activate the base environment**:
+
 ```bash
-export GOOGLE_API_KEY='your-google-api-key'
-export ANTHROPIC_API_KEY='your-anthropic-api-key'
-export GITHUB_TOKEN='your-github-token'
-export GITHUB_USER='davidlary'
-export GITHUB_EMAIL='your-email@example.com'
+# 1. Navigate to Environments directory
+cd /Users/davidlary/Dropbox/Environments/
+
+# 2. Activate base virtual environment (sets ALL credentials)
+source /Users/davidlary/Dropbox/Environments/base-env/.venv/bin/activate
+
+# 3. Navigate to project directory
+cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
 ```
 
-**Verify Setup**:
+**This activation automatically sets**:
+- `GITHUB_TOKEN`, `GITHUB_USER`, `GITHUB_EMAIL`
+- `ANTHROPIC_API_KEY`
+- `GOOGLE_API_KEY`
+- `GROK_API_KEY`
+- `CHATGPT_API_KEY`
+
+**See [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md) for complete details.**
+
+---
+
+### Verify Setup
+
 ```bash
-# Check environment variables
-echo $GOOGLE_API_KEY | cut -c1-10  # Should show first 10 chars
-echo $ANTHROPIC_API_KEY | cut -c1-10
-echo $GITHUB_TOKEN | cut -c1-10
+# Check environment is activated
+echo "Virtual Env: $(basename $VIRTUAL_ENV)"  # Should show ".venv"
+
+# Check credentials are set (show first 10 chars only)
+echo "Google API Key: ${GOOGLE_API_KEY:0:10}..."
+echo "Anthropic API Key: ${ANTHROPIC_API_KEY:0:10}..."
+echo "GitHub Token: ${GITHUB_TOKEN:0:10}..."
+echo "GitHub User: $GITHUB_USER"
+
+# Verify all API keys configured
+echo "Total API keys: $(env | grep -E '_API_KEY' | wc -l)"  # Should be >= 4
 
 # Check GitHub CLI authentication
 gh auth status
@@ -1182,6 +1207,8 @@ gh auth status
 # Check repository access
 gh repo view davidlary/SlidesToTextBook
 ```
+
+**If any check fails, see [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md) troubleshooting section.**
 
 ---
 

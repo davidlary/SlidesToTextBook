@@ -1316,12 +1316,52 @@ gh issue comment <issue-number> --repo davidlary/SlidesToTextBook \
 
 ---
 
+## Environment Setup (CRITICAL - READ FIRST)
+
+### ⚠️ MANDATORY: Base Environment Activation
+
+**Before ANY work on this project, you MUST activate the base environment**:
+
+```bash
+# 1. Navigate to Environments directory
+cd /Users/davidlary/Dropbox/Environments/
+
+# 2. Activate base virtual environment
+source /Users/davidlary/Dropbox/Environments/base-env/.venv/bin/activate
+
+# 3. Navigate to project directory
+cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
+```
+
+**Why?** The base-env activation script automatically sets ALL required environment variables:
+- `GITHUB_TOKEN`, `GITHUB_USER`, `GITHUB_EMAIL` - for git operations
+- `ANTHROPIC_API_KEY` - for Claude API
+- `GOOGLE_API_KEY` - for Gemini API and SICE package
+- `GROK_API_KEY` - optional AI provider
+- `CHATGPT_API_KEY` - optional AI provider
+
+**Verification**:
+```bash
+# Check environment is activated
+echo $VIRTUAL_ENV  # Should show base-env path
+
+# Check credentials are set
+echo "GitHub: $GITHUB_USER"
+echo "Anthropic: ${ANTHROPIC_API_KEY:0:10}..."
+echo "Google: ${GOOGLE_API_KEY:0:10}..."
+```
+
+**See [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md) for complete setup guide.**
+
+---
+
 ## Dependencies
 
 ### Core Dependencies
 - **Python**: 3.8+ (test on 3.8, 3.9, 3.10, 3.11)
 - **LaTeX**: XeLaTeX (for compilation)
 - **System**: tesseract-ocr (for OCR)
+- **Environment**: base-env activation (for credentials)
 
 ### Python Packages
 ```
@@ -1456,22 +1496,26 @@ sphinx-rtd-theme>=1.3.0
 
 ### Immediate Actions (Once Approved)
 
-1. **Verify Environment Variables Set**:
+1. **Activate Base Environment** (REQUIRED FIRST):
    ```bash
-   echo $GOOGLE_API_KEY
-   echo $ANTHROPIC_API_KEY
-   echo $GITHUB_TOKEN
+   cd /Users/davidlary/Dropbox/Environments/
+   source base-env/.venv/bin/activate
+   cd Code/SlidesToLatex
    ```
 
-2. **Initialize Git Repository**:
+2. **Verify Environment Variables Set**:
    ```bash
-   cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
-   git init
-   git remote add origin https://github.com/davidlary/SlidesToTextBook.git
+   echo "GitHub User: $GITHUB_USER"
+   echo "GitHub Token: ${GITHUB_TOKEN:0:10}..."
+   echo "Anthropic Key: ${ANTHROPIC_API_KEY:0:10}..."
+   echo "Google Key: ${GOOGLE_API_KEY:0:10}..."
    ```
 
-3. **Create .gitignore**:
-   - Copy content from this plan
+3. **Verify Git Repository** (already initialized):
+   ```bash
+   git status
+   git remote -v  # Should show GitHub remote
+   ```
 
 4. **Begin Chunk 1: Project Setup**:
    - Follow implementation order above

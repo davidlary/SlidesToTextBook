@@ -41,10 +41,41 @@ This system automatically transforms PDF lecture slides into high-quality LaTeX 
 
 ## Installation
 
+### ⚠️ CRITICAL: Environment Setup FIRST
+
+**Before any installation or usage, you MUST activate the base environment**:
+
+```bash
+# 1. Navigate to Environments directory
+cd /Users/davidlary/Dropbox/Environments/
+
+# 2. Activate base virtual environment (sets ALL credentials)
+source /Users/davidlary/Dropbox/Environments/base-env/.venv/bin/activate
+
+# 3. Navigate to project directory
+cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
+
+# 4. Verify credentials are set
+echo "GitHub: $GITHUB_USER | APIs configured: $(env | grep -E '_API_KEY' | wc -l)"
+```
+
+**This activation automatically sets**:
+- GitHub credentials (GITHUB_TOKEN, GITHUB_USER, GITHUB_EMAIL)
+- ANTHROPIC_API_KEY (Claude)
+- GOOGLE_API_KEY (Gemini)
+- GROK_API_KEY
+- CHATGPT_API_KEY
+
+**See [ENVIRONMENT_SETUP.md](ENVIRONMENT_SETUP.md) for complete details.**
+
+---
+
 ### Standard Python
 
 ```bash
-# Clone repository
+# AFTER activating base-env (see above), then:
+
+# Clone repository (if not already cloned)
 git clone https://github.com/davidlary/SlidesToTextBook.git
 cd SlidesToTextBook
 
@@ -58,10 +89,12 @@ pip install -e ".[dev]"
 ### Anaconda
 
 ```bash
+# AFTER activating base-env (see above), then:
+
 # Create environment from environment.yml
 conda env create -f environment.yml
 
-# Activate environment
+# Activate conda environment
 conda activate slides-to-textbook
 
 # Install package
@@ -74,11 +107,11 @@ pip install -e .
 
 ### Prerequisites
 
-1. **Environment Variables** (required):
+1. **Environment Activation** (REQUIRED - see above):
    ```bash
-   export GOOGLE_API_KEY='your-google-api-key'
-   export ANTHROPIC_API_KEY='your-anthropic-api-key'
-   export GITHUB_TOKEN='your-github-token'
+   cd /Users/davidlary/Dropbox/Environments/
+   source base-env/.venv/bin/activate
+   cd Code/SlidesToLatex
    ```
 
 2. **System Requirements**:
