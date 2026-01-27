@@ -1,0 +1,51 @@
+\documentclass[letterpaper,11pt,twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{marginnote}
+
+% Geometry for margin notes
+\geometry{
+    letterpaper,
+    inner=1in,
+    outer=2in, % Wide margin
+    top=1in,
+    bottom=1in,
+    marginparwidth=1.5in,
+    marginparsep=0.25in
+}
+
+% Colors
+\definecolor{SectionColor}{RGB}{52,177,201}
+
+% Custom commands
+\newcommand{\automarginnote}[1]{\marginnote{\footnotesize #1}}
+\newcommand{\topimage}[1]{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=north, inner sep=0] at (current page.north) {\includegraphics[width=\paperwidth, height=3cm, keepaspectratio=false, clip]{#1}};
+    \end{tikzpicture}
+    \vspace{2cm}
+}
+
+\title{ {{ book_title }} }
+\author{David Lary}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+{% for chapter in chapters %}
+\include{ {{ chapter.file_name }} }
+{% endfor %}
+
+\bibliographystyle{plainnat}
+\bibliography{bibliography}
+
+\end{document}
