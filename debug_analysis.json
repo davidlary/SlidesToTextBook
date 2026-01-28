@@ -1,0 +1,347 @@
+{
+  "file_name": "Lecture-1.pdf",
+  "raw_content": {
+    "pages": [
+      {
+        "page_number": 1,
+        "text": "Machine Learning\nProf. David J. Lary"
+      },
+      {
+        "page_number": 2,
+        "text": "What is Machine Learning?"
+      },
+      {
+        "page_number": 3,
+        "text": "What is Machine Learning?\nMachine\nLearning\nMachine learning is an automated\napproach to building empirical models Supervised\nfrom the data alone.\nRegression Classification Unsupervised Reinforcement\nLinear, Ridge, K-Means,\nSupport Vector Value-Based\nAs Arthur Samuel coined the Lasso and Elastic Classification K-mediods, Algorithms\nNet Regression Fuzzy C-Means\nterm Machine Learning in\nGeneralized Neural Network Hierarchical Policy-Based\nLinear Models Classification Clustering Algorithms\n1959. He said machine\nLogistic K-Nearest Actor-Critic\nDBSCAN\nRegression Neighbors Algorithms\nlearning gives \u2018computers the\nability to learn without being Support Vector Decision Tree Gaussian Mixture Model-Based\nRegression Classification Classification Algorithms\nexplicitly programmed.\u2019\nDecision Tree Ensemble Self Organizing Monte Carlo\nRegression Methods Maps Methods\nArthur Lee Samuel\n1901-1990 Generative Temporal\nRandom Forest Discriminant\nTopographic Difference (TD)\nRegression Analysis\nMapping Learning\nGradient Logistic\nSpectral\nBoosting Regression\nClustering\nRegression Classifiers\nJust as humans learn by experience,\nGaussian\nProcess Naive Bayes\nmachine learning algorithms let\nRegression\ncomputers learn from data. Neural Network Gaussian\nProcess\nRegression\nClassification\nEnsemble\nMethods"
+      },
+      {
+        "page_number": 4,
+        "text": "Machine Learning\nMachines have been used to learn and make data driven\npredictions for decades now. However, it is only relatively\nrecently that machine learning has received widespread\nnotoriety. Some of the now well established applications of\nmachine learning include email spam filtering and optical\ncharacter recognition.\nThe full potential of machine learning has yet to be reached. We\nare already seeing applications such as translation from one\nlanguage to another, and creative and artistic applications such\nas machine \u2018hallucinations\u2019 of visual art, or machine learning\nbacked musical composition, or composition of Shakespearian\nstyle plays."
+      },
+      {
+        "page_number": 5,
+        "text": "Machine Learning\nMachine learning is being routinely used to work with large volumes of data in a\nvariety of formats such as, images, videos, audio streams, sensor data, textual data,\nhealth records, etc. Machine learning can be used in understanding this data and\ncreating predictive and classification tools.\nWhen machine learning is used for regression, empirical models are built to predict\ncontinuous data, facilitating the prediction of previously unseen data points, e.g.\nalgorithmic trading and electricity load forecasting.\nWhen machine learning is used for classification, empirical models are built to\nclassify the data into different categories. Applications of classification include facial\nrecognition, credit scoring, and cancer detection.\nWhen machine learning is used for clustering, or unsupervised classification, it\naids in finding the natural groupings and patterns in a dataset. Applications of\nclustering include medical imaging, object recognition, and pattern mining."
+      },
+      {
+        "page_number": 6,
+        "text": "Learn from the Data\nA key advantage of this approach is that we do not always have to make apriori\nassumptions about the data, it\u2019s functional form, or probability distributions.\nIt is an empirical approach, so we do not need to provide a functional form for a\ntheoretical model of the relationship between the model inputs and outputs.\nFor machine learning to provide the best performance we do need a\ncomprehensive representative set of examples, that spans as much of the\nparameter space as possible. This comprehensive set of examples is referred to as\nthe training data.\nIn machine learning we provide the learning algorithm with examples of the input and\noutput variables in the training dataset. The input variables are variously termed\npredictors, independent variables or features. The outputs are called the\nresponses or dependent variables. The output variables can be quantitative or\nqualitative values. The output variables are estimated using the input variables."
+      },
+      {
+        "page_number": 7,
+        "text": "Two Key Ingredients\nFor a successful application of machine learning we have 1\ntwo key ingredients, both of which are essential:\n\u2022 A machine learning algorithm,\n\u2022 A comprehensive training dataset that the algorithm can\nlearn from.\n2\nOnce the training has been performed, the empirical model\nshould always be tested using an independent validation\ndataset to see how well it performs when presented with\ndata that the algorithm has not previously seen, i.e. we\nneed to test the generalization. This can be, for example,\na randomly selected subset of the training data that was\nheld back and then utilized for independent validation."
+      },
+      {
+        "page_number": 8,
+        "text": "Two Key Ingredients\nMachine\nIt should be noted, that with a given machine Learning\nlearning algorithm, the performance can go\nSupervised\nfrom poor to outstanding with the provision\nof a progressively more complete training\nRegression Classification Unsupervised Reinforcement\ndata set. Machine learning really is learning\nLinear, Ridge, K-Means,\nby example, so it is critical to provide as Support Vector Value-Based\nLasso and Elastic K-mediods,\nClassification Algorithms\nNet Regression Fuzzy C-Means\ncomplete a training data set as possible. At\nGeneralized Neural Network Hierarchical Policy-Based\nLinear Models Classification Clustering Algorithms\ntimes, this can be a labor intensive\nendeavor. When using machine learning we Logistic K-Nearest DBSCAN Actor-Critic\nRegression Neighbors Algorithms\nare typically performing one of three tasks:\nSupport Vector Decision Tree Gaussian Mixture Model-Based\nRegression Classification Classification Algorithms\nDecision Tree Ensemble Self Organizing Monte Carlo\n\u2022 Multivariate non-linear non-parametric Regression Methods Maps Methods\nGenerative Temporal\nregression. Random Forest Discriminant\nTopographic Difference (TD)\nRegression Analysis\nMapping Learning\n\u2022 Supervised classification. Gradient Logistic\nSpectral\nBoosting Regression\nClustering\nRegression Classifiers\n\u2022 Unsupervised classification.\nGaussian\nProcess Naive Bayes\nRegression\nGaussian\nNeural Network\nProcess\nEach of these tasks can be achieved by a Regression\nClassification\nvariety of different algorithms. Ensemble\nMethods"
+      },
+      {
+        "page_number": 9,
+        "text": "The Machine Learning Workflow\nThe machine learning workflow is\nintended to take us from raw data to Data Sources\npredictions and insights. Preparing the 1\n2\ntraining data for use by machine learning\nRaw Data\nSelect & Merge,\n3 Clean & Transform\nalgorithms often takes more than 90% of\nFeature Selection\nFeature selection, Feature\nthe time and effort. The Figure shows the Dim En e g n i s n io e n er a i l n it g y , R S e c d a u lin c g tio , n,\nn Improve Principal C S o a m m p p o l n in e g n t Analysis,\ntypical steps used in preparing and using\ndata for machine learning. The flow chart Model Evaluation Training Data\nScatter Diagram for Regression,\nConfusion Matrix for Classification,\nwas deliberately drawn as a circle to Re G la o ti o v d e n Im es p s o o rt f a F n i c t e M o e f t r I i n c p s u , ts Independent\nValidation Data\nillustrate that often the choice of input\nfeatures that we use in our machine Insights C Pe r r e fo a rm ti a n n g ce M Me o tr d ic e s, l\nCross-Validation,\nModel Selection\nlearning models is iterative.\nPrediction Using\nPreviously Unseen Data\nFeature engineering approaches help us\nidentify the best input features to use for a\ngiven application."
+      },
+      {
+        "page_number": 10,
+        "text": "Data Sources\n1\n2\nRaw Data\nSelect & Merge,\n3 Clean & Transform\nFeature Selection\nFeature selection, Feature\nEngineering, Scaling,\nDimensionality Reduction,\nn Principal Component Analysis,\nImprove Sampling\nModel Evaluation Training Data\nScatter Diagram for Regression,\nConfusion Matrix for Classification,\nGoodness of Fit Metrics,\nIndependent\nRelative Importance of Inputs\nValidation Data\nCreating Model\nInsights\nPerformance Metrics,\nCross-Validation,\nModel Selection\nPrediction Using\nPreviously Unseen Data"
+      },
+      {
+        "page_number": 11,
+        "text": "Independent Verification\nIt is critical to emphasize\nthat before using a machine\nlearning model operationally,\nor for key decision making\ntasks, the model\u2019s\nperformance should always\nbe independently verified.\nOften the training data will be\nrandomly split up into two portions.\nOne portion is used for training, the\nother is not used in the training but\nreserved for an independent validation\nonce the training is complete."
+      },
+      {
+        "page_number": 12,
+        "text": "Machine Learning Regression\nx x x x x x y\n(cid:1)\n1 2 3 4 5 n\nstupnI stupnI stupnI stupnI stupnI stupnI stupnI\n)s(tuptuO\nRegression\ny = f (x , x , x , x , x ,\u2026, x )\n1 2 3 4 5 n\nTraining Data\nMultivariate, nonlinear, nonparametric\nn can be very large"
+      },
+      {
+        "page_number": 13,
+        "text": "Machine Learning\nClassification\nSupervised Classification\nx x x x x x y\n(cid:1)\n1 2 3 4 5 n\nMultivariate, non-linear, non-parametric\nn can be very large\nstupnI stupnI stupnI stupnI stupnI stupnI stupnI\n)s(tuptuO\nTraining Data"
+      },
+      {
+        "page_number": 14,
+        "text": "Machine Learning\nClustering (Unsupervised Classification)\nUnsupervised Classification\nx x x x x x\n(cid:1)\n1 2 3 4 5 n\nMultivariate, non-linear, non-parametric\nn can be very large\nstupnI stupnI stupnI stupnI stupnI stupnI stupnI\n)s(tuptuO\nTraining Data"
+      },
+      {
+        "page_number": 15,
+        "text": "The Seven \u201cV\u201ds of Data\nVolume, Veracity, Variety, Variability, Velocity,\nVisualization, and Value.\nVolume is how much data we have \u2013 what used to be\nmeasured in Gigabytes is now measured in Zettabytes\n(ZB) or even Yottabytes (YB). The IoT (Internet of\nThings) is creating exponential growth in data.\n6 9\nKilo = 10 3 Mega = 10 Giga = 10 Tera = 10 12\n15 18 21 24\nPeta = 10 Exa = 10 Zeta = 10 Yota = 10"
+      },
+      {
+        "page_number": 16,
+        "text": "6 9\nKilo = 10 3 Mega = 10 Giga = 10 Tera = 10 12\n15 18 21 24\nPeta = 10 Exa = 10 Zeta = 10 Yota = 10"
+      },
+      {
+        "page_number": 17,
+        "text": "The Seven \u201cV\u201ds of Data\nVeracity is all about making sure the data is accurate,\nwhich requires processes to keep the bad data from\naccumulating in your systems. A simple example is\ncontacts that enter a marketing automation system with\nfalse names and inaccurate contact information. It\u2019s the\nclassic \u201cgarbage in, garbage out\u201d challenge.\nVariety describes one of the biggest challenges of big\ndata. It can be unstructured and it can include so many\ndifferent types of data from XML to video to SMS.\nOrganizing the data in a meaningful way is no simple task,\nespecially when the data itself changes rapidly."
+      },
+      {
+        "page_number": 18,
+        "text": "The Seven \u201cV\u201ds of Data\nVariability is different from variety. A coffee shop may\noffer 6 different blends of coffee, but if you get the same\nblend every day and it tastes different every day, that is\nvariability. Quality control is an important issue. The\nsame is true of data, if the meaning is constantly\nchanging it can have a huge impact on your data\nhomogenization.\nVelocity is the speed in which data is accessible.\nNightly batches used to be the norm, now if it\u2019s not real-\ntime it\u2019s usually not fast enough."
+      },
+      {
+        "page_number": 19,
+        "text": "The Seven \u201cV\u201ds of Data\nVisualization is critical in today\u2019s world. Using charts\nand graphs to visualize large amounts of complex data\nis much more effective in conveying meaning than\nspreadsheets and reports chock-full of numbers and\nformulas.\nValue is the end game. After addressing volume,\nvelocity, variety, variability, veracity, and visualization \u2013\nwhich takes a lot of time, effort and resources \u2013 you\nwant to be sure that you are getting value from the\ndata."
+      },
+      {
+        "page_number": 20,
+        "text": "Overview\n\u2022 To the best of our knowledge this is the broadest survey\navailable of Machine Learning to give you a \u201cBig Picture\u201d\nintroduction. You can then choose which areas are of\ninterest to you personally.\n\u2022 Multiple Languages:\n\u2022 Matlab \u201cmatrix laboratory\u201d: Excellent Manual, many\nexamples and datasets, wide range of toolboxes,\nspeed, support of GPU & parallel processing, interface\nwith array of hardware\n\u2022 Python: Free, widely used system administration\nfeatures\n\u2022 R: Free, wide range of statistical learning approaches"
+      },
+      {
+        "page_number": 21,
+        "text": "Some Helpful Matlab Features\nDeep learning on CPU, GPU, multi-GPU and clusters\nMore GPUs\n33\nsUPC\neroM"
+      },
+      {
+        "page_number": 22,
+        "text": "A Brief History of Machine Learning\nBinary System Concept - Leibniz\n1646\u20131716\nAlgorithms, Muhammad ibn M s al-Khw rizm Bayesian Probability Theory - Thomas Bayes\nAD 813 \u2013 AD 833 1763\nLogical Inference - Aristotle Mechanical Automata, Hero of Alexandria Ockham's Razor, William of Ockham Logic and Computation - Boole & De Morgan\n384 BCE \u2013 322 BCE AD 60 1300\u20131349 1806\u20131871\n250 BC AD 1 AD 250 AD 500 AD 750 AD 1000 AD 1250 AD 1500 AD 1750 AD 2000"
+      },
+      {
+        "page_number": 23,
+        "text": "A Brief History of Machine Learning\nInformation Theory - Shannon\n1948\nDonald Hebb -- Hebbian learning\n1949\nLogic Theorist - Newell, Simon & Shaw Decision Trees & Random Forests - Leo Breiman et al.\n1956 1984\nCondition Reflexes -- Ivan Pavlov McCulloch-Pitts Neuron Model The Perceptron - Rosenblatt Support Vector Machines (SVM) - Vapnik & Chervonenkis\n1927 1943 1958 1992\nFormalism in Mathematics - Hilbert Cybernetics - Wiener Term 'Machine Learning' -- Arthur Lee Samuel Backpropagation - Rumelhart, Hinton, and Williams Deep Learning Revolution - Hinton, Bengio & LeCun\n1928 1948 1959 1986 2006\nAutomata Theory - Turing & Church Turing Test - Turing Least Mean Squares (LMS) Algorithm - Widrow & Hoff Self-Organizing Maps -- Teuvo Kohonen Convolutional Neural Networks (CNNs) - Yann LeCun Transformer Model (2017) - Vaswani et al.\n1930\u20131950 1950 1960 1982 1998 2017\n1930 1935 1940 1945 1950 1955 1960 1965 1970 1975 1980 1985 1990 1995 2000 2005 2010 2015 2020"
+      },
+      {
+        "page_number": 24,
+        "text": ""
+      },
+      {
+        "page_number": 25,
+        "text": ""
+      },
+      {
+        "page_number": 26,
+        "text": ""
+      },
+      {
+        "page_number": 27,
+        "text": ""
+      },
+      {
+        "page_number": 28,
+        "text": ""
+      },
+      {
+        "page_number": 29,
+        "text": ""
+      },
+      {
+        "page_number": 30,
+        "text": ""
+      },
+      {
+        "page_number": 31,
+        "text": ""
+      },
+      {
+        "page_number": 32,
+        "text": ""
+      },
+      {
+        "page_number": 33,
+        "text": "1900 \u2014 1960"
+      },
+      {
+        "page_number": 34,
+        "text": ""
+      },
+      {
+        "page_number": 35,
+        "text": ""
+      },
+      {
+        "page_number": 36,
+        "text": ""
+      },
+      {
+        "page_number": 37,
+        "text": ""
+      },
+      {
+        "page_number": 38,
+        "text": ""
+      },
+      {
+        "page_number": 39,
+        "text": ""
+      },
+      {
+        "page_number": 40,
+        "text": ""
+      },
+      {
+        "page_number": 41,
+        "text": ""
+      },
+      {
+        "page_number": 42,
+        "text": ""
+      },
+      {
+        "page_number": 43,
+        "text": ""
+      },
+      {
+        "page_number": 44,
+        "text": "Since 1980"
+      },
+      {
+        "page_number": 45,
+        "text": ""
+      },
+      {
+        "page_number": 46,
+        "text": ""
+      },
+      {
+        "page_number": 47,
+        "text": ""
+      },
+      {
+        "page_number": 48,
+        "text": ""
+      },
+      {
+        "page_number": 49,
+        "text": ""
+      },
+      {
+        "page_number": 50,
+        "text": ""
+      },
+      {
+        "page_number": 51,
+        "text": ""
+      },
+      {
+        "page_number": 52,
+        "text": "Portfolio of Examples\nCase Studies"
+      },
+      {
+        "page_number": 53,
+        "text": "A Satellite Runs out of Cryogen\nNeural network non-linear non-parametric regression"
+      },
+      {
+        "page_number": 54,
+        "text": "Upper Atmosphere Research Satellite\nThe Upper Atmosphere Research\nSatellite (UARS) was a NASA orbital\nobservatory with ten instruments on\nboard whose mission was to study the\nEarth\u2019s atmosphere, particularly the\nprotective ozone layer. The 5,900-\nkilogram (13,000 lb) satellite was\ndeployed from the Space Shuttle\nDiscovery during the STS-48 mission\non 15 September 1991. It entered Earth\norbit at an operational altitude of 600\nkilometers (370 mi), with an orbital\ninclination of 57 degrees."
+      },
+      {
+        "page_number": 55,
+        "text": "Cryogenic Limb Array Etalon Spectrometer (CLAES)\nCLAES was a spectrometer that determined the concentrations and\ndistributions of nitrogen and chlorine compounds, ozone, water vapor\nand methane. It did this by inferring the amount of gases in the\natmosphere by measuring the unique infrared signature of each gas.\nIn order to differentiate the relatively weak signature of trace gases from\nthe background radiation in the atmosphere, CLAES had to have high\nresolution and sensitivity. To achieve this, the instrument combined a\ntelescope with an infrared spectrometer. The whole instrument was\ncryogenically cooled to keep heat from the instrument from interfering\nwith the readings. The cryogenics system consisted of an inner tank of\nsolid neon at \u2212257 \u00b0C (\u2212430 \u00b0F) and an outer tank of solid carbon\ndioxide at \u2212150 \u00b0C (\u2212238 \u00b0F). As the neon and carbon dioxide\nevaporated, they kept the instrument cool for a planned 19 months. The\nfinal cryogens evaporated from the instrument on May 5, 1993 and\nthe instrument warmed up, ending its useful life.\nThe instrument looked sideways out of the UARS platform to allow the\ninstrument to look through the stratosphere and the lower mesosphere.\nCLAES produced a 19-month global database showing the vertical\ndistributions of important ozone-layer gases in the stratosphere and their\nvariation with time of day, season, latitude, and longitude."
+      },
+      {
+        "page_number": 56,
+        "text": "Upper Atmosphere Research Satellite"
+      },
+      {
+        "page_number": 57,
+        "text": "Upper Atmosphere Research Satellite\nCH \u0278 P t N O\n4 2\nstupnI stupnI stupnI stupnI\n)s(tuptuO\nN O = f (CH ,\u03c6,P,t )\n2 4\nTraining Data"
+      },
+      {
+        "page_number": 58,
+        "text": "Upper Atmosphere Research Satellite\nObjectively optimized design of neural networks\nusing a genetic algorithm"
+      },
+      {
+        "page_number": 59,
+        "text": "Upper Atmosphere Research Satellite\nThe original UARS mission duration was to be only\nthree years, but was extended several times. When the\nmission finally ended in June 2005 due to funding cuts,\n14 years after the satellite's launch, six of its ten\ninstruments were still operational. A final orbit-lowering\nburn was performed in early December 2005 to prepare\nthe satellite for deorbit. On 26 October 2010, the\nInternational Space Station performed a debris-\navoidance maneuver in response to a conjunction with\nUARS.\nThe decommissioned satellite re-entered Earth's\natmosphere on 24 September 2011. Considerable\nmedia attention surrounded the event, largely due to\nNASA's predictions that substantial parts of the satellite\nmight reach the ground, potentially endangering\ninhabited areas. However, the satellite ultimately\nimpacted in a remote area of the Pacific Ocean."
+      },
+      {
+        "page_number": 60,
+        "text": "Ozone Hole Recipe\nNeural network non-linear non-parametric regression"
+      },
+      {
+        "page_number": 61,
+        "text": "A stoma (plural stomata) is Ozone\na pore, found in the leaf and\nstem epidermis that is used\nfor gas exchange.\nThe ozone layer in the upper atmosphere Ozone can inflame\nthe lung's lining. The\nfilters potentially damaging ultraviolet light\nleft photo shows a\nfrom reaching the Earth\u2019s surface. Ozone healthy lung air way,\nthe right photo\nis most abundant in the stratosphere shows an inflamed\nlung air way.\nwith concentrations up to 10 ppm. The\nabsorption of ultraviolet light by ozone is\nso strong that it warms 40 km of the\natmosphere, the stratosphere.\nIn the lower atmosphere (troposphere), Ambient ozone injury Ambient ozone injury\nin a pumpkin leaf to sensitive and\nozone is a powerful oxidizing agent that tolerant snap beans\ncauses more damage to plants than all\nother air pollutants combined."
+      },
+      {
+        "page_number": 62,
+        "text": "Recipe for an Ozone Hole\nThe polar winter leads to the formation of the\npolar vortex which isolates the air within it.\nCold temperatures form inside the vortex; cold\nenough for the formation of Polar\nStratospheric Clouds (PSCs). As the vortex air\nis isolated, the cold temperatures and the PSCs\npersist.\nOnce the PSCs form, heterogeneous reactions\ntake place and convert the inactive chlorine\nHCl + ClONO \u2192HNO + Cl and bromine reservoirs to more active forms\n2 3 2\nClONO + HO\u2192HNO + HOCl\n2 2 3 of chlorine and bromine.\nHCl + HOCl\u2192HO + Cl\n2 2\nNO + HCl\u2192HNO + ClONO\n2 5 3\nNO + HO\u21922 HNO No ozone loss occurs until sunlight returns to\n2 5 2 3\nthe air inside the polar vortex and allows the\nproduction of active chlorine and initiates the\ncatalytic ozone destruction cycles. Ozone loss\nis rapid. The ozone hole currently covers a\ngeographic region a little bigger than Antarctica\nand extends nearly 10 km in altitude in the\nlower stratosphere."
+      },
+      {
+        "page_number": 63,
+        "text": "The Challenge!\nTo critically test atmospheric chemistry-climate\nmodels simulating the ozone hole and its recovery\nwe need to know accurately the total amount of\ninorganic reactive chlorine, Cl , in the\ny\natmosphere to:\n\u2022 Attribute changes in stratospheric ozone to\nchanges in halogens.\n\u2022 Assess the realism of chemistry-climate models."
+      },
+      {
+        "page_number": 64,
+        "text": "21stCENTURY OZONE LAYER\n50 hPa 80\u00b0S October 50 hPa 80\u00b0S October\nFigure 6-8. October zonal mean values of total inorganic chlorine (Cl in ppb) at 50 hPa and 80\u00b0S from CCMs.\ny\nPanel (a) shows Cl and panel (b) difference in Cl from that in 1980. The symbols in (a) show estimates of Cl\ny y y\nin the Antarctic lower stratosphere in spring from measurements from the UARS satellite in 1992 and the Aura\nsatellite in 2005, yielding values around 3 ppb (Douglass et al., 1995; Santee et al., 1996) and around 3.3 ppb\n(see Figure 4-8), respectively.\nozone reductions there (SOCOLand E39C), and the model recovery due to declining ODSs, we place importance on\nwith the largest cold bias in the Antarctic lower strato- the models\u2019ability to correctly simulate stratospheric Cl\ny\nsphere in spring (LMDZrepro) simulates very low ozone. as well as the representation of transport characteristics\nCCMs show a large range of ozone trends over the and polar temperatures. Therefore, more credence is given\npast 25 years (see left panels in Figure 3-26 of Chapter 3) to those models that realistically simulate these processes.\nand large differences from observations. Some of these Figure 6-7 shows a subset of the diagnostics used to eval-\ndifferences may in part be related to differences in the sim- uate these processes and CCMs shown with solid curves\nulated Cl, e.g., E39C and SOCOLshow a trend smaller in Figures 6-7, 6-8, 6-10 and 6-12 to 6-14 are those that\ny\nthan observed, whereas AMTRAC and UMETRAC show are in good agreement with the observations in Figure\na trend larger than observed in extrapolar area weighted 6-7. However, these line styles should not be over-\nmean column ozone. However, other factors also con- interpreted as both the ability of the CCMs to represent\ntribute, e.g., biases in tropospheric ozone (Austin and these processes as well as the relative importance of Cl,\ny\nWilson, 2006). temperature, and transport vary between different regions\nThe CCM evaluation discussed above and in Eyring and altitudes. Also, analyses of model dynamics in the\net al. (2006) has guided the level of confidence we place Arctic, and differences in the chlorine budget/partitioning\non each model simulation. The CCMs vary in their skill in these models, when available, might change this evalu-\nin representing different processes and characteristics of ation for some regions and altitudes.\nthe atmosphere. Because the focus here is on ozone\n6.26\n)vbpp(\nlC y\n)vbpp(\n)0891(\nlC\u2013\nlC\ny\ny\nConstrained by a limited A large range of Cl in\ny\nnumber of Cl observations the model simulations\ny\nYear Year"
+      },
+      {
+        "page_number": 65,
+        "text": "Long time-series Long time-series Seldom Observed\nSporadic Since 2004\nSeldom Observed\nCl =HCl+ClONO +ClO+HOCl+2Cl O +2Cl\ny 2 2 2 2\nEstimating Cl is hampered by lack of observations\ny\nEstimating Cl is hampered by inter-instrument biases\ny\n0.1\n0.09\n0.08\n0.07\n0.06\n0.05\n0.04\n0.03\n0.02\n0.01\n0\n0.8 1 1.2 1.4 1.6 1.8 2\nHCl v.m.r. x 10\u22129\nycneuqerF\nevitaleR\n2005/01 (460 K<\u03b8< 590 K, 49o<\u03c6 < 61o)\nel\nACE v2.2 HCl (75)\nHALOE Aura MLS HCl (1544)\nHALOE v19 HCl (101)\nIf we now repeat this globally\nfor all periods of overlap\nUsing PDFs for Bias Detection"
+      },
+      {
+        "page_number": 66,
+        "text": "Plan of Action\nUse machine learning to:\n1. Correct the inter-instrument bias between\nremotely sensed observations of HCl and\nestimate the uncertainty introduced due to\ninter-instrument bias.\n2. Learn the mapping from HCl to Cl and also\ny\ncharacterize the associated uncertainty in the\nCl estimates due to the inter-instrument bias.\ny"
+      },
+      {
+        "page_number": 67,
+        "text": "3\n2\n1\n0\n0 1 2 3\nHALOE HCl (ppbv)\n)vbpp(\nlCH\nSLM\nSlope = 1.09\nIntercept = 0.070 ppbv\n3\n2\n1\nData\n1:1\nWeighted Fit\nFit\n0\n0 1 2 3\nHALOE HCl (ppbv) NN adjusted\n)vbpp(\nlCH\nSLM\nSlope = 0.995\nIintercept = 0.0093 ppbv\nData\n1:1\nWeighted Fit"
+      },
+      {
+        "page_number": 68,
+        "text": "Re-calibration using a Neural Network\nx 10\u22129\n3.5\n3\n2.5\n2\n1.5\n1\n0.5\n0.5 1 1.5 2 2.5 3 3.5 Targets T x 10\u22129\n)11\u2212e5(+T)79.0(=A\n:tiF\nraeniL\n,A\nstuptuO\nHCl Training Outputs vs. Targets, R=0.98739 x 10\u22129\nTraining Data Points Best Linear Fit 3.5\nA = T\n3\n2.5\n2\n1.5\n1\n0.5\n0.5 1 1.5 2 2.5 3 3.5\nTargets T x 10\u22129\n)11\u2212e9.2(+T)89.0(=A\n:tiF\nraeniL\n,A\nstuptuO\nHCl Validation Outputs vs. Targets, R=0.99232\nValidation Data Points\nBest Linear Fit A = T\nTotally independent\nvalidation"
+      },
+      {
+        "page_number": 69,
+        "text": "Long-term Continuity\nAny given satellite instrument has a finite service life, so for\nlong time series we are always dealing with multiple instruments\nso inter-instrument bias correction is always an issue."
+      },
+      {
+        "page_number": 70,
+        "text": "21stCENTURY OZONE LAYER\n50 hPa 80\u00b0S October 50 hPa 80\u00b0S October\nFigure 6-8. October zonal mean values of total inorganic chlorine (Cl in ppb) at 50 hPa and 80\u00b0S from CCMs.\ny\nPanel (a) shows Cl and panel (b) difference in Cl from that in 1980. The symbols in (a) show estimates of Cl\ny y y in the Antarctic lower stratosphere in spring from measurements from the UARS satellite in 1992 and the Aura\nsatellite in 2005, yielding values around 3 ppb (Douglass et al., 1995; Santee et al., 1996) and around 3.3 ppb\n(see Figure 4-8), respectively.\nozone reductions there (SOCOLand E39C), and the model recovery due to declining ODSs, we place importance on\nwith the largest cold bias in the Antarctic lower strato- the models\u2019ability to correctly simulate stratospheric Cl\ny\nsphere in spring (LMDZrepro) simulates very low ozone. as well as the representation of transport characteristics\nCCMs show a large range of ozone trends over the and polar temperatures. Therefore, more credence is given\npast 25 years (see left panels in Figure 3-26 of Chapter 3) to those models that realistically simulate these processes.\nand large differences from observations. Some of these Figure 6-7 shows a subset of the diagnostics used to eval-\ndifferences may in part be related to differences in the sim- uate these processes and CCMs shown with solid curves\nulated Cl, e.g., E39C and SOCOLshow a trend smaller in Figures 6-7, 6-8, 6-10 and 6-12 to 6-14 are those that y\nthan observed, whereas AMTRAC and UMETRAC show are in good agreement with the observations in Figure\na trend larger than observed in extrapolar area weighted 6-7. However, these line styles should not be over-\nmean column ozone. However, other factors also con- interpreted as both the ability of the CCMs to represent\ntribute, e.g., biases in tropospheric ozone (Austin and these processes as well as the relative importance of Cl,\ny\nWilson, 2006). temperature, and transport vary between different regions\nThe CCM evaluation discussed above and in Eyring and altitudes. Also, analyses of model dynamics in the\net al. (2006) has guided the level of confidence we place Arctic, and differences in the chlorine budget/partitioning\non each model simulation. The CCMs vary in their skill in these models, when available, might change this evalu-\nin representing different processes and characteristics of ation for some regions and altitudes.\nthe atmosphere. Because the focus here is on ozone\n6.26\n)vbpp(\nlC y\n)vbpp(\n)0891(\nlC\u2013\nlC\ny\ny\nInitially we were constrained by a limited number of Cl observations\ny\nA large range of Cl in the model simulations\ny\n\u22129\nx 10\n4\n3.5\n3\n2.5\n2\n1.5\n1\n0.5\n0\n1995 2000 2005\nYear Year Year\nlC y\no\nMonthly average 2\n800 K\n525 K\n6 Year Age\n5 Year Age\n4 Year Age\n3 Year Age\n2 Year Age\n\u22129\nx 10\n4\n3.5\n3\n2.5\n2\n1.5\n1\n0.5\n0\n1995 2000 2005\nYear\nlC y\nNow we have a continuous estimate of\nCl and its associated uncertainty\ny\no\nMonthly average 61\n800 K\n525 K\n6 Year Age\n5 Year Age\n4 Year Age\n3 Year Age\n2 Year Age"
+      },
+      {
+        "page_number": 71,
+        "text": "The World Bank & Drought Aid\nNeural network non-linear non-parametric regression"
+      },
+      {
+        "page_number": 72,
+        "text": "Context\nArid and Semi Arid Lands (ASAL) residents, particularly in Africa live in harsh and\nvolatile environments with a high level of risk from droughts, diseases, and conflict.\nThe risk and shock of livestock mortality due to drought imposes considerable economic\nand welfare costs on pastoralists, so sustainable insurance can mitigate this risk and\nshock, but conventional insurance cannot be sustainable.\nA new innovation in insurance avoids problems that make traditional insurance\nunprofitable for small and remote clients by using index based insurance. The policy\nholders are paid based on an external \u201cindex\u201d that triggers indemnity payouts to all\ninsured clients. This is suited for risks affecting a large number of people simultaneously\nand for which a suitable index exists. One such index that can be measured from space\nby remote sensing satellites is the normalized difference vegetation index (NDVI).\n( )\nNIR-Red\nNDVI =\n( )\nNIR+Red\nHowever, substantial inter instrument biases exist."
+      },
+      {
+        "page_number": 73,
+        "text": ""
+      },
+      {
+        "page_number": 74,
+        "text": "AVHRR NDVI 01/2003 MODIS NDVI 01/2003\neal r TY 7. , j 7 a \u00a5 Te\n\nNN NDVI 01/2003\n\n"
+      }
+    ]
+  },
+  "analysis": {
+    "title": "Machine Learning",
+    "description": "A broad introduction to machine learning, covering key concepts, algorithms, and applications.",
+    "sections": [
+      "What is Machine Learning?",
+      "Learn from the Data",
+      "Two Key Ingredients",
+      "The Machine Learning Workflow",
+      "The Seven 'V's of Data",
+      "Overview",
+      "Some Helpful Matlab Features",
+      "A Brief History of Machine Learning",
+      "Portfolio of Examples"
+    ],
+    "concepts": [
+      "Supervised Learning (Regression, Classification)",
+      "Unsupervised Learning (Clustering)",
+      "Reinforcement Learning",
+      "Feature Engineering",
+      "Model Evaluation",
+      "Independent Verification",
+      "Volume, Veracity, Variety, Variability, Velocity, Visualization, Value"
+    ],
+    "people": [
+      "Arthur Lee Samuel",
+      "Thomas Bayes",
+      "William of Ockham",
+      "Claude Shannon",
+      "Donald Hebb",
+      "Allen Newell, Herbert Simon, and J.C. Shaw",
+      "Leo Breiman",
+      "Warren McCulloch and Walter Pitts",
+      "Frank Rosenblatt",
+      "Vladimir Vapnik and Alexey Chervonenkis",
+      "Donald Hebb",
+      "David Rumelhart, Geoffrey Hinton, and Ronald Williams",
+      "Yann LeCun",
+      "Ashish Vaswani"
+    ],
+    "equations": [
+      "NDVI = (NIR - Red) / (NIR + Red)",
+      "y = f(x1, x2, x3, ..., xn)"
+    ]
+  }
+}

@@ -1,51 +1,147 @@
 \documentclass[letterpaper,11pt,twoside]{book}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{amsmath}
+
+%-------------------------------------------------------------------
+% Packages
+\usepackage[flushmargin]{footmisc}
+\usepackage[round,authoryear,sort&compress]{natbib}
+\usepackage{afterpage}
+\usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{natbib}
-\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{colortbl}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
 \usepackage{geometry}
-\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{ifoddpage}
+\usepackage{layouts}
+\usepackage{mathtools}
+\usepackage{mhchem}
+\usepackage{microtype}
+\usepackage{morefloats} 
+\usepackage{pdfpages}
+\usepackage[english]{babel}
+\usepackage{stackengine}
+\usepackage{textcomp}
+\usepackage{textgreek}
 \usepackage{tikz}
-\usepackage{marginnote}
+\usepackage{titletoc}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage{xcolor}
 
-% Geometry for margin notes
+\usetikzlibrary{calc}
+
+%-------------------------------------------------------------------
+\graphicspath{{Figures/}}
+\newcommand{\singlequote}[1]{`#1'}
+
+%-------------------------------------------------------------------
+% Colors and Styles
+\definecolor{ocre}{RGB}{52,177,201}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{SectionColor}{RGB}{44, 173, 216}
+\definecolor{RoyalBlue}{RGB}{44, 173, 216}
+
+\newcolumntype{g}{>{\columncolor{LightCyan}}c}
+\newcommand\xrowht[1][0]{\addstackgap[.5\dimexpr#1\relax]{\vphantom{#1}}}
+
+%-------------------------------------------------------------------
+% Bibliography
+\bibliographystyle{abbrvnat}
+
+%-------------------------------------------------------------------
+\setlist{nolistsep}
+
+%-------------------------------------------------------------------
+% Margin notes
+\newcommand{\automarginnote}[1]{%
+  \checkoddpage
+  \ifoddpage
+    \marginpar{\raggedright\small #1}
+  \else
+    \marginpar{\raggedleft\small #1}
+  \fi
+}
+
+%-------------------------------------------------------------------
+% Page geometry
 \geometry{
+    top=3cm,
+    bottom=3cm,
+    left=2.5cm,
+    right=5.5cm,
+    headsep=10pt,
     letterpaper,
-    inner=1in,
-    outer=2in, % Wide margin
-    top=1in,
-    bottom=1in,
-    marginparwidth=1.5in,
-    marginparsep=0.25in
 }
 
-% Colors
-\definecolor{SectionColor}{RGB}{52,177,201}
-
-% Custom commands
-\newcommand{\automarginnote}[1]{\marginnote{\footnotesize #1}}
-\newcommand{\topimage}[1]{
-    \begin{tikzpicture}[remember picture, overlay]
-        \node[anchor=north, inner sep=0] at (current page.north) {\includegraphics[width=\paperwidth, height=3cm, keepaspectratio=false, clip]{#1}};
-    \end{tikzpicture}
-    \vspace{2cm}
+%-------------------------------------------------------------------
+\newlength{\imageheight}
+\newcommand{\topimage}[1]{%
+    \vspace*{-10pt}
+    \noindent\begin{tikzpicture}[remember picture, overlay]
+      \node[anchor=north] at (current page.north) 
+        {
+            \includegraphics[width=\paperwidth]{#1}
+        };
+    \end{tikzpicture}%
+    \setlength{\imageheight}{\heightof{\includegraphics[width=\paperwidth]{#1}}}%
+    \vspace{\imageheight}\par
+    \vspace{-20pt}
 }
 
-\title{ {{ book_title }} }
-\author{David Lary}
+%-------------------------------------------------------------------
+% Headings
+\titleclass{\chapter}{straight}
+\titlespacing*{\chapter}{0pt}{-50pt}{20pt}
+
+\titleformat{\chapter}[block]
+  {\normalfont\huge\bfseries\sffamily\color{SectionColor}}
+  {\chaptertitlename\ \thechapter: }{-0.1em}{}
+
+\titleformat{\section}
+  {\normalfont\Large\sffamily\bfseries\color{SectionColor}}
+  {\thesection.}{0.5em}{}  
+
+\titleformat{\subsection}
+  {\normalfont\large\sffamily\bfseries\color{SectionColor}}
+  {\thesubsection.}{0.5em}{}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\sffamily\bfseries\color{SectionColor}}
+  {\thesubsubsection.}{0.5em}{}
+
+%-------------------------------------------------------------------
+% Header/Footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[LO]{\itshape \nouppercase{\leftmark}}
+\fancyhead[LE]{\itshape \nouppercase{\rightmark}}
+\fancyhead[RO]{\thepage}
+\fancyhead[RE]{\thepage}
+
+\title{\Huge \textbf{\textcolor{SectionColor}{ << title >> }}}
+\author{\LARGE << author >>}
+\date{\today}
 
 \begin{document}
 
 \maketitle
 \tableofcontents
+\newpage
 
-{% for chapter in chapters %}
-\include{ {{ chapter.file_name }} }
-{% endfor %}
+((* for chapter in chapters *))
+\input{<< chapter['file_name'] >>}
+((* endfor *))
 
-\bibliographystyle{plainnat}
+\newpage
 \bibliography{bibliography}
 
 \end{document}

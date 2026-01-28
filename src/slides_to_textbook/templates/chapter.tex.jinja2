@@ -1,4 +1,9 @@
-\chapter{ {{ chapter.title }} }
-\label{ch:{{ chapter.safe_title }}}
+% Chapter Template
 
-{{ chapter.content }}
+% Optional Banner if available (TODO: Generate specific banners)
+% \topimage{Figures/TitleBanner.png} 
+
+\chapter{ << chapter['title'] >> }
+\label{chap:<< chapter['title']|lower|replace(' ', '-') >>}
+
+<< chapter['content'] >>

@@ -43,8 +43,12 @@ class BibliographyManager:
         authors = entry.get('author', ['Unknown'])
         if isinstance(authors, list):
             first_author = authors[0].split()[-1] # Last name
+        elif isinstance(authors, str):
+             # Handle "Name, Name; Name" format if present
+             first_part = authors.split(';')[0]
+             first_author = first_part.split()[-1]
         else:
-            first_author = str(authors).split()[-1]
+            first_author = "Unknown"
             
         year = str(entry.get('year', '2026'))
         # Clean
@@ -65,8 +69,18 @@ class BibliographyManager:
             
             for field, value in e.items():
                 if field in ['ID', 'entry_type']: continue
-                if value:
-                     # Escape tex special chars if needed, simplified here
+                if field == 'author':
+                    # Ensure "Name1 and Name2" format
+                    if isinstance(value, list):
+                        bib_content += f"  author = {{' and '.join(value)}},\n"
+                    elif '; ' in str(value):
+                        # Fix "Name; Name" -> "Name and Name"
+                        fixed_val = str(value).replace('; ', ' and ')
+                        bib_content += f"  author = {{{fixed_val}}},\n"
+                    else:
+                        bib_content += f"  author = {{{value}}},\n"
+                else:
+                    # Escape tex special chars if needed, simplified here
                     bib_content += f"  {field} = {{{value}}},\n"
             
             bib_content += "}\n\n"

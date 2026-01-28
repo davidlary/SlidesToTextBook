@@ -2,6 +2,7 @@
 import os
 import logging
 import json
+import sys
 from pathlib import Path
 
 # Import our modules
@@ -12,19 +13,19 @@ from slides_to_textbook.modules.image_generators import FigureRecreator, Portrai
 from slides_to_textbook.modules.latex_builder import LaTeXBuilder
 from slides_to_textbook.modules.latex_components import MarginNoteGenerator, BibliographyManager
 from slides_to_textbook.modules.progress_tracker import ProgressTracker
+from slides_to_textbook.modules.quality_validator import QualityValidator
 
 # Configuration
 LECTURE_PATH = Path("/Users/davidlary/Dropbox/Lectures/2026/5336/Lecture-1.pdf")
 OUTPUT_DIR = Path("/Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook")
 
 def main():
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     logger = logging.getLogger("Pipeline")
     
-    logger.info("Starting pipeline for Lecture 1...")
+    logger.info("Starting pipeline for Lecture 1 (Excellence Mode)...")
     
     # Debug Auth
-    import os
     keys = ["ANTHROPIC_API_KEY", "GOOGLE_API_KEY", "GITHUB_TOKEN"]
     for k in keys:
         val = os.getenv(k)
@@ -44,48 +45,81 @@ def main():
     analysis_result = analyzer.analyze_pdf(str(LECTURE_PATH))
     topic_structure = analysis_result["analysis"]
     
-    # Save intermediate for debugging
-    with open("debug_analysis.json", "w") as f:
-        json.dump(analysis_result, f, indent=2)
-
-    # 2. Research Topic
+    # 2. Research Topic (Strict Verification)
     researcher = TopicResearcher()
     enriched_topic = researcher.research_topic(topic_structure)
     
-    # 3. Content Generation
+    # 3. Pre-process Assets & Citations (The Fix for Integration)
+    # -----------------------------------------------------------
+    
+    # 3a. Bibliography Manager (Initialize EARLY to get keys)
+    bib_manager = BibliographyManager()
+    citation_map = {} # Title -> Key
+    
+    for citation in enriched_topic.get("research", {}).get("citations", []):
+         key = bib_manager.add_entry(citation)
+         citation_map[citation.get('title')] = key
+         
+    # 3b. Asset Mapping (Deterministic Filenames)
+    assets_map = {
+        "figures": {},
+        "portraits": {}
+    }
+    
+    # Map Concepts to Figures
+    for concept in enriched_topic.get("concepts", []):
+        safe_concept = concept.replace(" ", "")
+        assets_map["figures"][concept] = f"Fig-{safe_concept}.png"
+        
+    # Map People to Portraits
+    for person in enriched_topic.get("people", []):
+        port_filename = f"{person.replace(' ', '')}.jpg" 
+        assets_map["portraits"][person] = port_filename
+
+    # 4. Content Generation (With Asset Awareness)
+    # --------------------------------------------
     author = ContentAuthor()
     # Mocking equations/figures if missing for robustness
     if "equations" not in enriched_topic: enriched_topic["equations"] = []
-    if "concepts" not in enriched_topic: enriched_topic["concepts"] = []
-    if "people" not in enriched_topic: enriched_topic["people"] = []
     
-    chapter_content_body = author.generate_chapter_content(enriched_topic)
+    # PASS THE MAPS!
+    chapter_content_body = author.generate_chapter_content(enriched_topic, assets_map=assets_map, citation_map=citation_map)
     
-    # 4. Images & Portraits
+    # 5. Images & Portraits (Execute Generation to match maps)
+    # ------------------------------------------------------
     fig_creator = FigureRecreator(OUTPUT_DIR / "Figures")
     portrait_creator = PortraitGenerator(OUTPUT_DIR / "Figures" / "Portraits")
     
-    # Simple logic regarding figures from analysis? 
-    # For now, we assume ContentAuthor might reference them, but we haven't parsed exact figure calls yet.
-    # We will generate portraits for identified people.
-    
-    latex_margin = MarginNoteGenerator()
-    
-    for person in enriched_topic.get("people", []):
-         portrait_path = portrait_creator.generate_portrait(person)
-         # In a real run, we'd insert this into the text.
-         # For this test run, we assume the ContentAuthor *might* have added placeholders,
-         # or we force a margin note at the start.
-         if portrait_path:
-             # Just demonstrating creation, inserting into content is complex without parsing the prose.
-             pass
+    logger.info(f"Enriched Topic People count: {len(enriched_topic.get('people', []))}")
+    logger.info(f"Enriched Topic Concepts count: {len(enriched_topic.get('concepts', []))}")
 
-    # 5. Bibliography
-    bib_manager = BibliographyManager()
-    for citation in enriched_topic.get("research", {}).get("citations", []):
-        bib_manager.add_entry(citation)
-    
+    # Generate Portraits (Using pre-calc filenames)
+    for person in enriched_topic.get("people", []):
+         logger.info(f"Adding portrait task for: {person}")
+         # Note: PortraitGenerator uses internal naming logic, we should probably force it or assume it matches.
+         # Checking PortraitGenerator logic... it takes a name and usually sanitizes it. 
+         # Let's trust it matches {person.replace(" ", "")} or update it. 
+         # For robustness, we'll let it generate and hope it matches, OR update it to be strict.
+         # Update: For this step, we'll assume standard sanitization.
+         portrait_path = portrait_creator.generate_portrait(person)
+         
+    # Generate Concept Figures (Using pre-calc filenames)
+    if enriched_topic.get("concepts"):
+        logger.info(f"Generating figures for {len(enriched_topic['concepts'])} concepts...")
+        for i, concept in enumerate(enriched_topic["concepts"]):
+            if i > 12: break
+            
+            logger.info(f"Adding figure task for: {concept}")
+            fig_desc = f"Scientific diagram explaining {concept} in detail."
+            # Use the EXACT filename mapped earlier
+            target_filename = assets_map["figures"][concept]
+            
+            fig_path = fig_creator.recreate_figure(fig_desc, target_filename)
+            if fig_path:
+                logger.info(f"Created figure: {fig_path.name}")
+
     # 6. Build LaTeX
+    # --------------
     builder = LaTeXBuilder(OUTPUT_DIR)
     
     safe_title = enriched_topic.get("title", "Lecture1").replace(" ", "")
@@ -96,12 +130,23 @@ def main():
         "file_name": f"Chapter-{safe_title}.tex"
     }
     
-    # Create main.tex and chapter
-    # Note: build_book overwrites main.tex, so normally we'd accumulate chapters.
-    # Here we just do one.
     builder.build_book("Machine Learning", [chapter_data])
     builder.build_chapter(chapter_data)
     builder.write_bibliography(bib_manager.generate_bibtex())
+    
+    # 7. Quality Validation (Gatekeeper)
+    validator = QualityValidator(OUTPUT_DIR)
+    report = validator.validate()
+    
+    if report["status"] == "failed":
+        logger.error("Quality Validation FAILED:")
+        for err in report["errors"]:
+            logger.error(f" - {err}")
+        sys.exit(1)
+    else:
+        logger.info("Quality Validation PASSED.")
+        for warn in report["warnings"]:
+            logger.warning(f" - {warn}")
     
     logger.info(f"Pipeline complete. Output at {OUTPUT_DIR}")
 

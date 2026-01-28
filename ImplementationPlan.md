@@ -3,7 +3,7 @@
 **Version:** 1.0
 **Date:** January 27, 2026
 **Author:** Dr. David Lary
-**Repository:** https://github.com/davidlary/SlidesToTextBook.git
+**Repository:** <https://github.com/davidlary/SlidesToTextBook.git>
 
 ---
 
@@ -12,6 +12,7 @@
 This implementation plan details the creation of a robust, test-driven system to convert PDF lecture slides into professionally-formatted LaTeX textbooks. The system will be modular, reusable, and fully automated (except for topic analysis approval), producing textbooks that match the pedagogical excellence, accuracy, and aesthetic beauty of the Air Quality reference book.
 
 ### Goals
+
 - **Excellence in Pedagogy**: Engaging, accessible writing style with historical context
 - **Great Accuracy**: Precise mathematical notation, proper citations, validated content
 - **Aesthetic Beauty**: High-quality figures, proper typography, consistent styling
@@ -24,12 +25,14 @@ This implementation plan details the creation of a robust, test-driven system to
 ## Book Projects
 
 ### Book 1: Machine Learning
+
 - **Target Directory**: `/Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/`
 - **Source PDFs**: `/Users/davidlary/Dropbox/Lectures/2026/5336/Lecture-*.pdf` (14 lectures)
 - **Implementation Code**: `/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/MachineLearning/`
 - **Progress Tracking**: `MachineLearning/progress.json`
 
 ### Book 2: Computational Methods
+
 - **Target Directory**: `/Users/davidlary/Dropbox/Apps/Overleaf/ComputationalMethodsBook/`
 - **Source PDFs**: `/Users/davidlary/Dropbox/Lectures/2025/5315/Lecture*.pdf` (12+ lectures)
 - **Implementation Code**: `/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/ComputationalPhysics/`
@@ -40,9 +43,11 @@ This implementation plan details the creation of a robust, test-driven system to
 ## Reference Materials
 
 ### Book Structure Reference
+
 **Path**: `/Users/davidlary/Dropbox/Apps/Overleaf/AirQualityV3/`
 
 **Key Components**:
+
 - `main.tex` - Document class, packages, geometry, formatting, chapter inclusion
 - `Chapter-*.tex` - Individual chapter files (separate includes)
 - `bibliography.bib` - Complete citation database
@@ -57,9 +62,11 @@ This implementation plan details the creation of a robust, test-driven system to
 - `journals.tex` - Journal abbreviations
 
 ### Writing Style Reference
+
 **Path**: `/Users/davidlary/Dropbox/Apps/Overleaf/AirQualityV3/BookWritingStyle.md`
 
 **Key Principles**:
+
 - Accessible yet authoritative tone
 - Context before technical details
 - Historical figures, etymology, citations
@@ -68,9 +75,11 @@ This implementation plan details the creation of a robust, test-driven system to
 - Active voice, engaging narrative flow
 
 ### SICE Package (Scientific Image Creation)
+
 **Path**: `/Users/davidlary/Dropbox/Environments/Code/Scientific_Image_Creation_and_Validation/`
 
 **Capabilities**:
+
 - AI-powered image generation (Google Gemini)
 - Portrait generation (sepia pre-1900, color post-1900, 900×1200px)
 - Scientific figure creation and validation
@@ -83,6 +92,7 @@ This implementation plan details the creation of a robust, test-driven system to
 ### Core Modules (Bite-Sized Chunks)
 
 #### Module 1: PDFAnalyzer
+
 **Purpose**: Extract topics, concepts, equations, figures from PDF slides
 **Input**: PDF file path
 **Output**: Structured JSON with topics, equations, figures, concepts
@@ -90,34 +100,43 @@ This implementation plan details the creation of a robust, test-driven system to
 **Test Coverage Target**: 95%
 
 #### Module 2: TopicResearcher
+
 **Purpose**: Research historical context, key figures, citations for topics
 **Input**: Topic list from PDFAnalyzer
 **Output**: Historical figures, etymology, citations, dates
 **Dependencies**: Claude/Gemini API, scholarly library, Wikipedia API
+**Key Feature**: **Strict Citation Validation**. Every citation must be verified against Google Scholar/CrossRef. No "Unknown" or hallucinated sources allowed.
 **Test Coverage Target**: 90%
 
 #### Module 3: ContentAuthor
+
 **Purpose**: Generate engaging textbook prose matching Air Quality style
 **Input**: Topics, research, equations from previous modules
 **Output**: LaTeX chapter sections with narrative flow
+**Key Feature**: **Automatic Structuring**. Automatically generates `\section{}`, `\subsection{}`, and `\subsubsection{}` based on topic depth.
 **Dependencies**: Claude/Gemini API, LaTeX validation
 **Test Coverage Target**: 85%
 
 #### Module 4: FigureRecreator
+
 **Purpose**: Interface to SICE package for figure generation
 **Input**: Figure description from PDFAnalyzer
 **Output**: High-quality scientific figure (PDF/PNG/EPS)
-**Dependencies**: SICE package, Google Gemini API
+**Key Feature**: **Visual Excellence**. Uses SICE/Gemini `gemini-3-pro-image-preview` with "High Thinking Mode" for cleaner, accurate scientific diagrams. No colored blocks/placeholders.
+**Dependencies**: SICE package (`create_scientific_image`), Google Gemini API
 **Test Coverage Target**: 95%
 
 #### Module 5: PortraitGenerator
+
 **Purpose**: Create historical figure portraits
 **Input**: Person name, birth/death dates
 **Output**: Portrait (900×1200px, sepia pre-1900, color post-1900)
-**Dependencies**: SICE package, Google Gemini API
+**Key Feature**: **SICE Integration**. Uses established SICE prompts for "sepia-toned aesthetic," "formal portrait style," and "soft vignette" to match the Air Quality book standard.
+**Dependencies**: SICE package (`create_scientific_image`), Google Gemini API
 **Test Coverage Target**: 95%
 
 #### Module 6: MarginNoteGenerator
+
 **Purpose**: Create margin notes with portraits, key terms, takeaways
 **Input**: Content, key terms, historical figures
 **Output**: LaTeX margin note commands with formatting
@@ -125,6 +144,7 @@ This implementation plan details the creation of a robust, test-driven system to
 **Test Coverage Target**: 90%
 
 #### Module 7: LaTeXBuilder
+
 **Purpose**: Assemble complete LaTeX structure (main.tex, chapters, figures)
 **Input**: All content from previous modules
 **Output**: Complete book directory ready for XeLaTeX compilation
@@ -132,13 +152,16 @@ This implementation plan details the creation of a robust, test-driven system to
 **Test Coverage Target**: 95%
 
 #### Module 8: BibliographyManager
+
 **Purpose**: Build and manage bibliography.bib from citations
 **Input**: Citation list from TopicResearcher
 **Output**: Properly formatted bibliography.bib
+**Key Feature**: **Double-Check Validation**. Before writing `.bib`, verify existence of every entry. If validation fails, attempt broad search to find correct DOI/BibTeX. Zero tolerance for broken citations.
 **Dependencies**: bibtexparser, scholarly library
 **Test Coverage Target**: 95%
 
 #### Module 9: ProgressTracker
+
 **Purpose**: Log progress, enable recovery from interruptions
 **Input**: Module events (start, complete, error)
 **Output**: progress.json with state, timestamps, checkpoints
@@ -146,9 +169,15 @@ This implementation plan details the creation of a robust, test-driven system to
 **Test Coverage Target**: 100%
 
 #### Module 10: QualityValidator
+
 **Purpose**: Verify LaTeX compiles, figures exist, citations valid
 **Input**: Book directory path
 **Output**: Validation report with errors/warnings
+**Key Feature**: **Strict Gatekeeper**. Fails if:
+    - Any placeholder text ("Lorem Ipsum") remains.
+    - Any figure is < 100KB or solid color.
+    - Any citation is missing fields.
+    - LaTeX compilation throws any error (not just warnings).
 **Dependencies**: subprocess (xelatex), bibtex, os.path
 **Test Coverage Target**: 95%
 
@@ -157,6 +186,7 @@ This implementation plan details the creation of a robust, test-driven system to
 ## LaTeX Book Structure (Exact Replication of Air Quality Book)
 
 ### Directory Structure
+
 ```
 MachineLearningBook/  (or ComputationalMethodsBook/)
 ├── main.tex
@@ -186,6 +216,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 ```
 
 ### main.tex Structure
+
 - Document class: `\documentclass[letterpaper,11pt,twoside]{book}`
 - Packages: amsmath, graphicx, natbib, mhchem, hyperref, tikz, etc.
 - Geometry: Wide right margin for margin notes
@@ -193,6 +224,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 - Fonts: Polyglossia for multi-language support
 - Custom commands: `\automarginnote{}`, `\topimage{}`
 - Chapter inclusion pattern:
+
   ```latex
   \newpage
   \topimage{Head-ChapterName.pdf}
@@ -201,6 +233,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
   ```
 
 ### Chapter File Structure
+
 - Starts with `\section{Introduction}` or `\section{Context}`
 - Uses `\subsection{}`, `\subsubsection{}`
 - Figures: `\begin{figure}[t!]` with detailed captions
@@ -210,6 +243,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 - Cross-references: `\ref{label}`, `\label{label}`
 
 ### Chapter Naming Convention
+
 - **Named, not numbered**: `Chapter-SupervisedLearning.tex` NOT `Chapter-1.tex`
 - **Rationale**: Allows reordering without renaming files
 - **Pattern**: `Chapter-{TopicName}.tex` (CamelCase, no spaces)
@@ -219,6 +253,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 ## Workflow Pipeline
 
 ### Phase 1: Topic Analysis (Human-in-the-Loop)
+
 **Goal**: Identify topics, get user approval before proceeding
 
 1. **For each lecture PDF**:
@@ -232,6 +267,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 2. **Progress Checkpoint**: Save approved topics to `approved_topics.json`
 
 ### Phase 2: Content Generation (Fully Automated)
+
 **Goal**: Generate all book content
 
 **For each approved topic/chapter**:
@@ -263,6 +299,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
    - Progress: Update progress.json with validation results
 
 ### Phase 3: Finalization (Fully Automated)
+
 **Goal**: Package and commit
 
 1. **Git Operations**:
@@ -279,6 +316,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 ## Progress Tracking System
 
 ### progress.json Schema
+
 ```json
 {
   "book_name": "MachineLearning",
@@ -353,6 +391,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 ```
 
 ### Progress Update Requirements
+
 - **Every module completion**: Update progress.json
 - **Every chapter completion**: Update chapters array
 - **Every figure creation**: Increment figure counters
@@ -366,6 +405,7 @@ MachineLearningBook/  (or ComputationalMethodsBook/)
 ### Unit Tests (per module)
 
 **Test Files Structure**:
+
 ```
 tests/
 ├── unit/
@@ -396,6 +436,7 @@ tests/
 ### Test Data Creation
 
 **Sample Test PDF**: Create `tests/fixtures/sample_lecture.pdf` with:
+
 - Title slide: "Introduction to Machine Learning"
 - Content slides: 5 slides with equations, bullet points, figures
 - Topics: supervised learning, training, testing
@@ -434,12 +475,14 @@ tests/
 ### Coverage Requirements
 
 **Target: 90%+ overall**
+
 - Core modules (1-8): 95%+ each
 - ProgressTracker: 100%
 - Integration tests: 85%+
 - E2E tests: Coverage reporting disabled (manual verification)
 
 ### Running Tests
+
 ```bash
 # Run all tests with coverage
 pytest tests/ --cov=src --cov-report=html --cov-report=term
@@ -462,6 +505,7 @@ pytest tests/unit/test_pdf_analyzer.py -v
 ## Python Package Structure
 
 ### Directory Layout
+
 ```
 SlidesToLatex/
 ├── README.md
@@ -521,6 +565,7 @@ SlidesToLatex/
 ```
 
 ### Package Metadata (setup.py)
+
 ```python
 from setuptools import setup, find_packages
 
@@ -577,6 +622,7 @@ setup(
 ```
 
 ### Anaconda Environment (environment.yml)
+
 ```yaml
 name: slides-to-textbook
 channels:
@@ -609,6 +655,7 @@ dependencies:
 ### Security Requirements
 
 **Environment Variables** (MUST be set):
+
 ```bash
 export GOOGLE_API_KEY='your-google-api-key'
 export ANTHROPIC_API_KEY='your-anthropic-api-key'
@@ -618,6 +665,7 @@ export GITHUB_EMAIL='your-email@example.com'
 ```
 
 **Never Commit**:
+
 - API keys
 - Credentials
 - Large PDFs (source lectures)
@@ -626,6 +674,7 @@ export GITHUB_EMAIL='your-email@example.com'
 - `.env` files
 
 ### .gitignore
+
 ```gitignore
 # Security - API keys and credentials
 *.key
@@ -700,6 +749,7 @@ temp/
 ### Git Workflow
 
 **Initial Setup**:
+
 ```bash
 cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
 git init
@@ -709,6 +759,7 @@ git config user.email "${GITHUB_EMAIL}"
 ```
 
 **Commit Pattern**:
+
 ```bash
 # After each bite-sized chunk completion
 git add <relevant-files>
@@ -725,6 +776,7 @@ git push origin main
 ```
 
 **Commit Types**:
+
 - `feat:` - New module or feature
 - `test:` - New tests
 - `docs:` - Documentation
@@ -737,11 +789,13 @@ git push origin main
 ## SLSA3 Provenance
 
 ### Goal
+
 Generate SLSA Level 3 provenance for releases to ensure supply chain security.
 
 ### Implementation
 
 **GitHub Actions Workflow** (`.github/workflows/slsa.yml`):
+
 ```yaml
 name: SLSA3 Provenance
 
@@ -798,6 +852,7 @@ jobs:
 ```
 
 ### Verification
+
 ```bash
 # Download release artifacts
 gh release download v1.0.0
@@ -847,6 +902,7 @@ slides2tex resume --book MachineLearning
 ```
 
 ### verification.md (Optimized Prompts)
+
 See separate section below.
 
 ---
@@ -854,6 +910,7 @@ See separate section below.
 ## Bite-Sized Implementation Chunks
 
 ### Chunk Size Guidelines
+
 - **Time**: 1-2 hours per chunk
 - **Scope**: One module or one test suite
 - **Verification**: Must have passing tests before next chunk
@@ -862,6 +919,7 @@ See separate section below.
 ### Implementation Order (25 Chunks)
 
 #### **Chunk 1**: Project Setup (1-2 hours)
+
 - Create directory structure
 - Initialize git repository
 - Set up GitHub remote
@@ -872,6 +930,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 2**: ProgressTracker Module (1-2 hours)
+
 - Implement ProgressTracker class
 - JSON schema definition
 - Read/write methods
@@ -882,6 +941,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 3**: PDFAnalyzer Module - Basic (1-2 hours)
+
 - Implement PDFAnalyzer class skeleton
 - PDF text extraction (pdfplumber)
 - Topic identification (keyword extraction)
@@ -890,6 +950,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 4**: PDFAnalyzer Module - Advanced (1-2 hours)
+
 - Equation extraction (LaTeX detection)
 - Figure extraction (images)
 - Concept extraction (NLP/AI)
@@ -898,6 +959,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 5**: TopicResearcher Module - API Integration (1-2 hours)
+
 - Implement TopicResearcher class
 - Claude/Gemini API client setup
 - Wikipedia API integration
@@ -906,6 +968,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 6**: TopicResearcher Module - Historical Context (1-2 hours)
+
 - Historical figure identification
 - Etymology research
 - Citation generation
@@ -914,6 +977,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 7**: ContentAuthor Module - Style Templates (1-2 hours)
+
 - Implement ContentAuthor class
 - Load Air Quality writing style guidelines
 - Create prompt templates for AI
@@ -923,6 +987,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 8**: ContentAuthor Module - Full Generation (1-2 hours)
+
 - Chapter introduction generation
 - Section/subsection generation
 - Equation integration
@@ -932,6 +997,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 9**: FigureRecreator Module (1-2 hours)
+
 - Implement FigureRecreator class
 - Interface to SICE package
 - Figure prompt generation
@@ -941,6 +1007,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 10**: PortraitGenerator Module (1-2 hours)
+
 - Implement PortraitGenerator class
 - Interface to SICE portrait generation
 - Sepia/color logic (pre-1900/post-1900)
@@ -950,6 +1017,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 11**: MarginNoteGenerator Module (1-2 hours)
+
 - Implement MarginNoteGenerator class
 - Key term extraction
 - Key takeaway generation
@@ -960,6 +1028,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 12**: BibliographyManager Module (1-2 hours)
+
 - Implement BibliographyManager class
 - BibTeX parsing/generation
 - Citation deduplication
@@ -969,6 +1038,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 13**: LaTeXBuilder Module - Templates (1-2 hours)
+
 - Implement LaTeXBuilder class
 - Create Jinja2 templates (main.tex)
 - Create Jinja2 templates (chapter.tex)
@@ -978,6 +1048,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 14**: LaTeXBuilder Module - Assembly (1-2 hours)
+
 - Directory structure creation
 - File copying (abbrev.tex, journals.tex)
 - Figure organization
@@ -987,6 +1058,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 15**: QualityValidator Module (1-2 hours)
+
 - Implement QualityValidator class
 - XeLaTeX compilation test
 - Figure existence check
@@ -997,6 +1069,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 16**: CLI Interface (1-2 hours)
+
 - Implement cli.py with Click
 - Commands: analyze, approve, generate, validate, pipeline, progress, resume
 - Argument parsing
@@ -1006,6 +1079,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 17**: Test Fixtures (1-2 hours)
+
 - Create sample_lecture.pdf (test PDF)
 - Create expected_topics.json
 - Create expected_chapter.tex
@@ -1014,6 +1088,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 18**: Integration Tests - Phase 1 (1-2 hours)
+
 - Implement test_pipeline_phase1.py
 - Test: PDFAnalyzer → TopicResearcher
 - Mock user approval
@@ -1021,18 +1096,21 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 19**: Integration Tests - Phase 2 (1-2 hours)
+
 - Implement test_pipeline_phase2.py
 - Test: ContentAuthor → FigureRecreator → LaTeXBuilder
 - **Verification**: Tests pass, generates chapter
 - **Progress**: Update progress.json
 
 #### **Chunk 20**: Integration Tests - Phase 3 (1-2 hours)
+
 - Implement test_pipeline_phase3.py
 - Test: QualityValidator → Git operations
 - **Verification**: Tests pass
 - **Progress**: Update progress.json
 
 #### **Chunk 21**: End-to-End Tests (2 hours)
+
 - Implement test_sample_lecture.py
 - Full pipeline test with sample_lecture.pdf
 - Verify compiled output
@@ -1040,6 +1118,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 22**: Package Configuration (1-2 hours)
+
 - Create setup.py
 - Create setup.cfg
 - Create pyproject.toml
@@ -1049,6 +1128,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 23**: GitHub Actions - Testing (1-2 hours)
+
 - Create .github/workflows/test.yml
 - Multi-Python version testing (3.8, 3.9, 3.10, 3.11)
 - Coverage reporting
@@ -1056,6 +1136,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 24**: GitHub Actions - SLSA3 (1-2 hours)
+
 - Create .github/workflows/slsa.yml
 - Configure SLSA generic generator
 - Test with pre-release
@@ -1063,6 +1144,7 @@ See separate section below.
 - **Progress**: Update progress.json
 
 #### **Chunk 25**: Documentation (2 hours)
+
 - Complete README.md
 - Create docs/ directory with detailed guides
 - Update ImplementationPlan.md (this file)
@@ -1077,6 +1159,7 @@ See separate section below.
 ### For Claude Code
 
 **Prompt 1: Module Testing**
+
 ```
 Please test Module X (PDFAnalyzer, TopicResearcher, etc.) from the SlidesToTextBook repository at /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex.
 
@@ -1089,6 +1172,7 @@ Steps:
 ```
 
 **Prompt 2: Integration Testing**
+
 ```
 Please run the integration tests for Phase X (1, 2, or 3) from the SlidesToTextBook repository.
 
@@ -1100,6 +1184,7 @@ Steps:
 ```
 
 **Prompt 3: End-to-End Testing**
+
 ```
 Please run the end-to-end test for a sample lecture from the SlidesToTextBook repository.
 
@@ -1111,6 +1196,7 @@ Steps:
 ```
 
 **Prompt 4: Package Testing (Multiple Python Versions)**
+
 ```
 Please test the SlidesToTextBook package installation across multiple Python versions.
 
@@ -1123,6 +1209,7 @@ Steps:
 ```
 
 **Prompt 5: Anaconda Package Testing**
+
 ```
 Please test the SlidesToTextBook package with Anaconda package management.
 
@@ -1136,6 +1223,7 @@ Steps:
 ```
 
 **Prompt 6: SLSA3 Provenance Verification**
+
 ```
 Please verify SLSA3 provenance for the SlidesToTextBook release.
 
@@ -1152,6 +1240,7 @@ Steps:
 ### For Gemini Antigravity
 
 **Prompt 1: Module Code Review**
+
 ```
 Review Module X from the SlidesToTextBook repository (https://github.com/davidlary/SlidesToTextBook).
 
@@ -1166,6 +1255,7 @@ Provide specific suggestions for improvements.
 ```
 
 **Prompt 2: Test Coverage Analysis**
+
 ```
 Analyze test coverage for the SlidesToTextBook repository.
 
@@ -1180,6 +1270,7 @@ Suggest additional tests to reach 90%+ coverage.
 ```
 
 **Prompt 3: Documentation Review**
+
 ```
 Review documentation for the SlidesToTextBook repository.
 
@@ -1194,6 +1285,7 @@ Provide specific improvements.
 ```
 
 **Prompt 4: Writing Style Validation**
+
 ```
 Validate that generated textbook content matches the Air Quality book writing style.
 
@@ -1208,6 +1300,7 @@ Provide detailed feedback.
 ```
 
 **Prompt 5: Figure Quality Assessment**
+
 ```
 Assess quality of generated scientific figures.
 
@@ -1222,6 +1315,7 @@ Suggest improvements.
 ```
 
 **Prompt 6: End-to-End Pipeline Test**
+
 ```
 Test the complete pipeline from PDF to LaTeX textbook.
 
@@ -1240,6 +1334,7 @@ Report comprehensive results.
 ### For GitHub CLI
 
 **Command 1: Repository Status**
+
 ```bash
 # Check repository status
 gh repo view davidlary/SlidesToTextBook
@@ -1255,6 +1350,7 @@ gh pr list --repo davidlary/SlidesToTextBook
 ```
 
 **Command 2: Test Workflow Status**
+
 ```bash
 # View workflow runs
 gh run list --repo davidlary/SlidesToTextBook --workflow=test.yml
@@ -1267,6 +1363,7 @@ gh run download --repo davidlary/SlidesToTextBook <run-id>
 ```
 
 **Command 3: Release and SLSA Provenance**
+
 ```bash
 # List releases
 gh release list --repo davidlary/SlidesToTextBook
@@ -1282,6 +1379,7 @@ gh run list --repo davidlary/SlidesToTextBook --workflow=slsa.yml
 ```
 
 **Command 4: Package Installation Test**
+
 ```bash
 # Install from GitHub
 pip install git+https://github.com/davidlary/SlidesToTextBook.git
@@ -1294,6 +1392,7 @@ slides2tex --help
 ```
 
 **Command 5: Issue Creation for Test Failures**
+
 ```bash
 # Create issue for failing test
 gh issue create --repo davidlary/SlidesToTextBook \
@@ -1303,6 +1402,7 @@ gh issue create --repo davidlary/SlidesToTextBook \
 ```
 
 **Command 6: Performance Benchmarking**
+
 ```bash
 # Time full pipeline execution
 time slides2tex pipeline \
@@ -1334,6 +1434,7 @@ cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
 ```
 
 **Why?** The base-env activation script automatically sets ALL required environment variables:
+
 - `GITHUB_TOKEN`, `GITHUB_USER`, `GITHUB_EMAIL` - for git operations
 - `ANTHROPIC_API_KEY` - for Claude API
 - `GOOGLE_API_KEY` - for Gemini API and SICE package
@@ -1341,6 +1442,7 @@ cd /Users/davidlary/Dropbox/Environments/Code/SlidesToLatex
 - `CHATGPT_API_KEY` - optional AI provider
 
 **Verification**:
+
 ```bash
 # Check environment is activated
 echo $VIRTUAL_ENV  # Should show base-env path
@@ -1358,12 +1460,14 @@ echo "Google: ${GOOGLE_API_KEY:0:10}..."
 ## Dependencies
 
 ### Core Dependencies
+
 - **Python**: 3.8+ (test on 3.8, 3.9, 3.10, 3.11)
 - **LaTeX**: XeLaTeX (for compilation)
 - **System**: tesseract-ocr (for OCR)
 - **Environment**: base-env activation (for credentials)
 
 ### Python Packages
+
 ```
 # PDF Processing
 pdfplumber>=0.9.0
@@ -1412,18 +1516,21 @@ sphinx-rtd-theme>=1.3.0
 ## Success Criteria
 
 ### Module-Level Success
+
 - ✅ All unit tests pass with 90%+ coverage
 - ✅ Module documented with clear docstrings
 - ✅ Module integrated into CLI
 - ✅ Progress tracked in progress.json
 
 ### Integration-Level Success
+
 - ✅ All integration tests pass
 - ✅ Pipelines execute end-to-end
 - ✅ No data loss between modules
 - ✅ Error handling robust
 
 ### System-Level Success
+
 - ✅ Complete textbook generated from PDFs
 - ✅ Book compiles with XeLaTeX (no errors)
 - ✅ Figures high quality and properly referenced
@@ -1442,11 +1549,13 @@ sphinx-rtd-theme>=1.3.0
 ## Timeline Estimates
 
 ### Per-Module Development
+
 - **Each bite-sized chunk**: 1-2 hours
 - **25 chunks total**: 25-50 hours
 - **Parallelization potential**: Some chunks can be done concurrently
 
 ### Per-Book Generation (After Implementation)
+
 - **Phase 1 (Topic Analysis)**: 30 min - 1 hour (includes human review)
 - **Phase 2 (Content Generation)**: 2-4 hours (automated, 12-14 chapters)
 - **Phase 3 (Validation & Finalization)**: 30 min - 1 hour
@@ -1459,11 +1568,13 @@ sphinx-rtd-theme>=1.3.0
 ### If Interrupted During Implementation
 
 1. **Check progress.json**:
+
    ```bash
    cat MachineLearning/progress.json | jq '.recovery_checkpoint'
    ```
 
 2. **Resume from last checkpoint**:
+
    ```bash
    slides2tex resume --book MachineLearning
    ```
@@ -1476,11 +1587,13 @@ sphinx-rtd-theme>=1.3.0
 ### If Interrupted During Book Generation
 
 1. **Check progress.json**:
+
    ```bash
    slides2tex progress --book MachineLearning
    ```
 
 2. **Resume pipeline**:
+
    ```bash
    slides2tex resume --book MachineLearning
    ```
@@ -1497,6 +1610,7 @@ sphinx-rtd-theme>=1.3.0
 ### Immediate Actions (Once Approved)
 
 1. **Activate Base Environment** (REQUIRED FIRST):
+
    ```bash
    cd /Users/davidlary/Dropbox/Environments/
    source base-env/.venv/bin/activate
@@ -1504,6 +1618,7 @@ sphinx-rtd-theme>=1.3.0
    ```
 
 2. **Verify Environment Variables Set**:
+
    ```bash
    echo "GitHub User: $GITHUB_USER"
    echo "GitHub Token: ${GITHUB_TOKEN:0:10}..."
@@ -1512,6 +1627,7 @@ sphinx-rtd-theme>=1.3.0
    ```
 
 3. **Verify Git Repository** (already initialized):
+
    ```bash
    git status
    git remote -v  # Should show GitHub remote
@@ -1534,6 +1650,7 @@ sphinx-rtd-theme>=1.3.0
 ---
 
 **Version History**:
+
 - v1.0 (2026-01-27): Initial comprehensive implementation plan
 
 **Last Updated**: January 27, 2026

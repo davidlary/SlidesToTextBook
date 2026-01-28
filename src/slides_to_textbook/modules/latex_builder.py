@@ -14,8 +14,10 @@ class LaTeXBuilder:
         template_dir = Path(__file__).parent.parent / "templates"
         self.env = jinja2.Environment(
             loader=jinja2.FileSystemLoader(str(template_dir)),
-            variable_start_string='{{',
-            variable_end_string='}}',
+            variable_start_string='<<',
+            variable_end_string='>>',
+            block_start_string='((*',
+            block_end_string='*))',
             comment_start_string='<#',
             comment_end_string='#>'
         )

@@ -7,7 +7,7 @@ class ContentAuthor:
         self.logger = logging.getLogger(__name__)
         self.ai_client = AIClient()
 
-    def generate_chapter_content(self, topic_data: Dict[str, Any]) -> str:
+    def generate_chapter_content(self, topic_data: Dict[str, Any], assets_map: Dict[str, Any] = None, citation_map: Dict[str, str] = None) -> str:
         """
         Generate the full LaTeX content for a chapter based on topic data.
         """
@@ -15,34 +15,103 @@ class ContentAuthor:
         self.logger.info(f"Generating content for chapter: {title}")
         
         # 1. Generate Intro/Context
-        intro = self._generate_section("Introduction", topic_data, context="historical_context")
+        intro = self._generate_section("Introduction", topic_data, context="historical_context", assets_map=assets_map, citation_map=citation_map)
         
         # 2. Generate Main Sections
         sections_content = []
         for section_title in topic_data.get("sections", []):
-            content = self._generate_section(section_title, topic_data)
+            content = self._generate_section(section_title, topic_data, assets_map=assets_map, citation_map=citation_map)
             sections_content.append(content)
             
-        # 3. Assemble
-        # Note: The actual LaTeX wrapping (chapter, imports) happens in LaTeXBuilder.
-        # This module produces the *body* content.
-        
         full_content = f"\\section{{Introduction}}\n{intro}\n\n"
         full_content += "\n\n".join(sections_content)
         
+        # 4. Deterministic Injection (The "Flawless" Guarantee)
+        full_content = self._inject_missing_assets(full_content, assets_map)
+        
         return full_content
 
-    def _generate_section(self, section_title: str, topic_data: Dict[str, Any], context: str = "") -> str:
+    def _inject_missing_assets(self, content: str, assets_map: Dict[str, Any]) -> str:
+        """
+        Post-process content to ensure all relevant assets are included.
+        If a concept/person is mentioned but the asset code is missing, append it.
+        """
+        if not assets_map: return content
+        
+        # 1. Figures
+        for concept, filename in assets_map.get("figures", {}).items():
+            # Check if concept is in text (case insensitive)
+            if concept.lower() in content.lower():
+                # Check if figure is already included
+                if f"Figures/{filename}" not in content:
+                    self.logger.info(f"Injecting missing figure for concept: {concept}")
+                    # Simple injection: Append to the end of the section/text or near the first mention?
+                    # Appending to the text block avoids breaking paragraphs.
+                    # Ideally, we'd split paragraphs, but for robustness, let's append.
+                    figure_code = f"\n\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=0.9\\linewidth]{{Figures/{filename}}}\n\\caption{{{concept}}}\n\\label{{fig:{concept.replace(' ', '')}}}\n\\end{{figure}}\n"
+                    
+                    # Try to insert after the paragraph containing the first mention
+                    import re
+                    # Split by double newline (paragraphs)
+                    paragraphs = content.split("\n\n")
+                    new_paragraphs = []
+                    inserted = False
+                    for p in paragraphs:
+                        new_paragraphs.append(p)
+                        if not inserted and concept.lower() in p.lower():
+                            new_paragraphs.append(figure_code)
+                            inserted = True
+                    
+                    if not inserted:
+                        # Append to the end of the text if not inserted inline
+                        # But typically we want it near the text. 
+                        # Let's try to append to the last paragraph that contains the keyword, 
+                        # or just append to end of section if logical.
+                        # Simple robust fallback: Append to the end.
+                        content += figure_code
+                    else:
+                        content = "\n\n".join(new_paragraphs)
+
+        # 2. Portraits (Margin Notes)
+        for person, filename in assets_map.get("portraits", {}).items():
+             if person.lower() in content.lower():
+                 if f"Figures/Portraits/{filename}" not in content:
+                     self.logger.info(f"Injecting missing portrait for: {person}")
+                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{Figures/Portraits/{filename}}} \\textbf{{{person}}}}}"
+                     # Find first mention and replace name with Name + Note? 
+                     # Or just insert unique note. Margin notes float, so placement matters less but should be close.
+                     # Let's simple replace the first occurrence of the name with "Name\automarginnote{...}"
+                     # But name might be part of a sentence.
+                     
+                     # Regex replace first occurrence ensuring word boundary
+                     try:
+                         pattern = re.compile(re.escape(person), re.IGNORECASE)
+                         # Use lambda to avoid backslash escaping issues in the replacement string
+                         content = pattern.sub(lambda m: f"{m.group(0)} {note_code}", content, count=1)
+                     except Exception as e:
+                         self.logger.error(f"Failed to inject portrait for {person}: {e}")
+
+        return content
+
+    def _generate_section(self, section_title: str, topic_data: Dict[str, Any], context: str = "", assets_map: Dict[str, Any] = None, citation_map: Dict[str, str] = None) -> str:
         """
         Generate text for a specific section.
         """
+        assets_map = assets_map or {}
+        citation_map = citation_map or {}
+        
+        # Format available assets for the prompt
+        figures_info = "\n".join([f"- Concept '{k}': Use \\begin{{figure}}[h] \\centering \\includegraphics[width=0.9\\linewidth]{{Figures/{v}}} \\caption{{{k}}} \\label{{fig:{k.replace(' ', '')}}} \\end{{figure}}" for k, v in assets_map.get('figures', {}).items()])
+        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{Figures/Portraits/{v}}} \\textbf{{{k}}}}}" for k, v in assets_map.get('portraits', {}).items()])
+        citations_info = "\n".join([f"- {title}: use \\citep{{{key}}}" for title, key in citation_map.items()])
+
         system_prompt = """
         You are an expert textbook author. Write engaging, accessible, and mathematically precise content.
         Follow these rules:
         - Use LaTeX formatting for math ($...$ or $$...$$) and emphasis (\\textit{}, \\textbf{}).
-        - Use \\citep{...} for citations (if you know them, otherwise leave a placeholder [CITATION]).
+        - **MANDATORY**: You MUST include the specific Figures and Margin Notes listed in the prompt if the text mentions the concept or person. 
+        - **MANDATORY**: Use the specific Citation Keys provided. Do NOT invent citation keys.
         - Do NOT include section headers (like \\section{...}) in the output, just the body text.
-        - Tone: authoritative but inviting, similar to a high-quality academic textbook.
         """
         
         topic_context = ""
@@ -58,7 +127,12 @@ class ContentAuthor:
         
         Key Concepts to cover: {', '.join(topic_data.get('concepts', []))}
         Key People: {', '.join(topic_data.get('people', []))}
-        Equations to include/explain: {', '.join(topic_data.get('equations', []))}
+        
+        # REQUIRED ASSETS REMOVED TO PREVENT HALLUCINATIONS
+        # We will inject them deterministically in post-processing.
+        
+        Use these Citations:
+        {citations_info}
         
         Write approximately 500-800 words.
         """
