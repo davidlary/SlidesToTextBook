@@ -1,0 +1,103 @@
+2026-01-29 11:47:04,951 - Pipeline - INFO - Starting pipeline for Lecture 1 (Excellence Mode)...
+2026-01-29 11:47:04,952 - Pipeline - INFO - Key ANTHROPIC_API_KEY: SET (sk-an...)
+2026-01-29 11:47:04,952 - Pipeline - INFO - Key GOOGLE_API_KEY: SET (AIzaS...)
+2026-01-29 11:47:04,952 - Pipeline - INFO - Key GITHUB_TOKEN: MISSING (N/A)
+2026-01-29 11:47:05,467 - slides_to_textbook.modules.pdf_analyzer - INFO - Analyzing PDF: Lecture-1.pdf
+2026-01-29 11:47:27,410 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 11:47:27,449 - slides_to_textbook.modules.topic_researcher - INFO - Researching topic: Machine Learning
+2026-01-29 11:47:33,283 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 11:47:35,371 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 11:47:35,373 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Perceptrons: An Introduction to Computational Geometry
+2026-01-29 11:47:35,373 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Learning Representations by Back-Propagating Errors
+2026-01-29 11:47:35,373 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Reinforcement Learning: An Introduction
+2026-01-29 11:47:35,373 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Unsupervised Learning of Finite Mixture Models
+2026-01-29 11:47:35,373 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): A Mathematical Theory of Communication
+2026-01-29 11:47:35,374 - Pipeline - INFO - loading hardcoded topic analysis (Bypass AI)
+2026-01-29 11:47:35,374 - Pipeline - INFO - Overriding topic title to 'Introduction' per user request (EARLY).
+2026-01-29 11:47:35,400 - slides_to_textbook.modules.content_author - INFO - Generating content for chapter: Introduction
+2026-01-29 11:47:48,150 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: What is Machine Learning?
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Supervised Learning
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Unsupervised Learning
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Reinforcement Learning
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Regression
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Classification
+2026-01-29 11:47:48,151 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Clustering
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Machine Learning Workflow
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Feature Engineering
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Model Evaluation
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Training Data
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Overfitting
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Underfitting
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Bias-Variance Tradeoff
+2026-01-29 11:47:48,152 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Neural Networks
+2026-01-29 11:47:48,153 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Deep Learning
+2026-01-29 11:47:48,153 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Arthur Samuel
+2026-01-29 11:47:48,153 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Tom Mitchell
+2026-01-29 11:47:48,153 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Geoffrey Hinton
+2026-01-29 11:47:48,153 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Yann LeCun
+2026-01-29 11:47:48,153 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Yoshua Bengio
+2026-01-29 11:47:48,154 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Vladimir Vapnik
+2026-01-29 11:47:48,154 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Alexey Chervonenkis
+2026-01-29 11:47:48,500 - Pipeline - INFO - Enriched Topic People count: 19
+2026-01-29 11:47:48,500 - Pipeline - INFO - Enriched Topic Concepts count: 17
+2026-01-29 11:47:48,500 - Pipeline - INFO - Adding portrait task for: Arthur Samuel
+2026-01-29 11:47:48,500 - Pipeline - INFO - Adding portrait task for: Tom Mitchell
+2026-01-29 11:47:48,500 - Pipeline - INFO - Adding portrait task for: Geoffrey Hinton
+2026-01-29 11:47:48,500 - Pipeline - INFO - Adding portrait task for: Yann LeCun
+2026-01-29 11:47:48,500 - Pipeline - INFO - Adding portrait task for: Yoshua Bengio
+2026-01-29 11:47:48,500 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Yoshua Bengio
+2026-01-29 11:47:48,909 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Yoshua Bengio (Mode: Vertical (3:4))
+2026-01-29 11:47:48,910 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['STYLE', 'REQUIREMENTS', 'NO', 'Close', 'COMPOSITION', 'ASPECT', 'Bengio', 'RATIO', 'DESCRIPTION']
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 11:47:48,924 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 11:47:48,924 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 11:47:48,925 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 11:47:48,925 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 11:48:04,491 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 11:48:04,698 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 235
+2026-01-29 11:48:04,723 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 15.8s
+2026-01-29 11:48:04,767 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp9i0mjn6i.png (15.8s)
+2026-01-29 11:48:04,767 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 11:48:05,170 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 11:48:05,209 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/YoshuaBengio.jpg
+2026-01-29 11:48:05,209 - Pipeline - INFO - Adding portrait task for: Vladimir Vapnik
+2026-01-29 11:48:05,209 - Pipeline - INFO - Adding portrait task for: Alexey Chervonenkis
+2026-01-29 11:48:05,209 - Pipeline - INFO - Adding portrait task for: J.C. Shaw
+2026-01-29 11:48:05,209 - Pipeline - INFO - Adding portrait task for: Herbert Simon
+2026-01-29 11:48:05,209 - Pipeline - INFO - Adding portrait task for: Allen Newell
+2026-01-29 11:48:05,209 - Pipeline - INFO - Adding portrait task for: Frank Rosenblatt
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: Donald Hebb
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: Marvin Minsky
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: David Rumelhart
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: Claude Shannon
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: George Boole
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: Thomas Bayes
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: Augustus De Morgan
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding portrait task for: Ashish Vaswani
+2026-01-29 11:48:05,210 - Pipeline - INFO - Generating figures for 17 concepts...
+2026-01-29 11:48:05,210 - Pipeline - INFO - Adding figure task for: What is Machine Learning?
+2026-01-29 11:48:05,210 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-WhatisMachineLearning?.png
+2026-01-29 11:48:05,210 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-WhatisMachineLearning?.png
+2026-01-29 11:48:05,210 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - INFO - Detected 14 chemical formulas in prompt: ['STRICT', 'STYLE', 'REQUIREMENTS', 'Nature', 'TYPOGRAPHY', 'NO', 'SYNTHESIS', 'COMPOSITION', 'Clean', 'PHYSICS', 'VISUAL', 'Colored', 'EXCELLENCE', 'DESCRIPTION']
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: STRICT - Invalid chemical element(s): T, R, T
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: TYPOGRAPHY - Invalid chemical element(s): T, Y, G, R, A, Y
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: SYNTHESIS - Invalid chemical element(s): Y, T, E
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: PHYSICS - Invalid chemical element(s): Y
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: VISUAL - Invalid chemical element(s): V, U, A, L
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: EXCELLENCE - Invalid chemical element(s): E, X, E, L, L, E, E
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 11:48:05,226 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 11:48:05,226 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 11:48:05,226 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 11:48:05,227 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.

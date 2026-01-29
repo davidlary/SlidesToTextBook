@@ -21,6 +21,8 @@ class ContentAuthor:
         sections_content = []
         for section_title in topic_data.get("sections", []):
             content = self._generate_section(section_title, topic_data, assets_map=assets_map, citation_map=citation_map)
+            # Clean the content to remove duplicate headers and fix markdown
+            content = self._clean_content(content, section_title)
             # WRAPPER FIX: Explicitly add the section header
             sections_content.append(f"\\section{{{section_title}}}\n{content}")
             
@@ -79,7 +81,7 @@ class ContentAuthor:
                  # Check path using correct Portraits root
                  if f"Portraits/{filename}" not in content:
                      self.logger.info(f"Injecting missing portrait for: {person}")
-                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{filename}}} \\textbf{{{person}}}}}"
+                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{filename}}}}}"
                      # Find first mention and replace name with Name + Note? 
                      # Or just insert unique note. Margin notes float, so placement matters less but should be close.
                      # Let's simple replace the first occurrence of the name with "Name\automarginnote{...}"
@@ -89,7 +91,7 @@ class ContentAuthor:
                      try:
                          pattern = re.compile(re.escape(person), re.IGNORECASE)
                          # Use lambda to avoid backslash escaping issues in the replacement string
-                         content = pattern.sub(lambda m: f"{m.group(0)} {note_code}", content, count=1)
+                         content = pattern.sub(lambda m: f"{m.group(0)}{note_code}", content, count=1)
                      except Exception as e:
                          self.logger.error(f"Failed to inject portrait for {person}: {e}")
 
@@ -136,7 +138,10 @@ class ContentAuthor:
         Use these Citations:
         {citations_info}
         
-        Write approximately 500-800 words.
+        Write an EXTREMELY DETAILED, COMPREHENSIVE textbook chapter section.
+        Aim for at least 1500 words PER SECTION. 
+        Deeply explain every concept with historical context, mathematical derivation, and practical examples.
+        DO NOT SUMMARIZE. EXPAND on every detail.
         """
         
         try:
@@ -144,3 +149,33 @@ class ContentAuthor:
         except Exception as e:
             self.logger.error(f"Failed to generate section {section_title}: {e}")
             return f"% Error generating section {section_title}"
+
+    def _clean_content(self, content: str, section_title: str) -> str:
+        """
+        Clean the raw AI output:
+        1. Remove duplicate section headers at the start.
+        2. Convert markdown bolding (**text**) to LaTeX (\\textbf{text}).
+        """
+        import re
+        
+        # 1. Remove duplicate header if strictly at the start
+        # Check for "Section Title" or "\section{Section Title}" or "# Section Title"
+        # Normalize: strip whitespace
+        content = content.strip()
+        
+        # Simple check: does it start with the title?
+        if content.lower().startswith(section_title.lower()):
+            # Remove it (case insensitive match, but preserve case of rest)
+            content = content[len(section_title):].strip()
+            
+        # Also check for repeated title on second line if first is empty
+        lines = content.split('\n')
+        if lines and lines[0].strip().lower() == section_title.lower():
+             content = "\n".join(lines[1:]).strip()
+             
+        # 2. Fix Markdown Bold (**text**)
+        # Regex: \*\*(.*?)\*\* -> \textbf{\1}
+        # Non-greedy match for content inside asterisks
+        content = re.sub(r'\*\*(.*?)\*\*', r'\\textbf{\1}', content)
+        
+        return content

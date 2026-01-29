@@ -1,0 +1,38 @@
+2026-01-29 09:41:06,158 - Pipeline - INFO - Starting pipeline for Lecture 1 (Excellence Mode)...
+2026-01-29 09:41:06,158 - Pipeline - INFO - Key ANTHROPIC_API_KEY: MISSING (N/A)
+2026-01-29 09:41:06,158 - Pipeline - INFO - Key GOOGLE_API_KEY: SET (AIzaS...)
+2026-01-29 09:41:06,158 - Pipeline - INFO - Key GITHUB_TOKEN: MISSING (N/A)
+2026-01-29 09:41:06,633 - slides_to_textbook.modules.pdf_analyzer - INFO - Analyzing PDF: Lecture-1.pdf
+Traceback (most recent call last):
+  File "/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/run_lecture1.py", line 162, in <module>
+    main()
+    ~~~~^^
+  File "/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/run_lecture1.py", line 45, in main
+    analysis_result = analyzer.analyze_pdf(str(LECTURE_PATH))
+  File "/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/src/slides_to_textbook/modules/pdf_analyzer.py", line 26, in analyze_pdf
+    raw_content = self.extract_content(path)
+  File "/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/src/slides_to_textbook/modules/pdf_analyzer.py", line 43, in extract_content
+    text = page.extract_text() or ""
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/page.py", line 530, in extract_text
+    return self.get_textmap(**tuplify_list_kwargs(kwargs)).as_string
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/page.py", line 507, in _get_textmap
+    return utils.chars_to_textmap(self.chars, **full_kwargs)
+                                  ^^^^^^^^^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/container.py", line 52, in chars
+    return self.objects.get("char", [])
+           ^^^^^^^^^^^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/page.py", line 346, in objects
+    self._objects: Dict[str, T_obj_list] = self.parse_objects()
+                                           ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/page.py", line 443, in parse_objects
+    for obj in self.iter_layout_objects(self.layout._objs):
+               ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/page.py", line 439, in iter_layout_objects
+    yield self.process_object(obj)
+          ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/davidlary/.pyenv/versions/3.13.1/lib/python3.13/site-packages/pdfplumber/page.py", line 375, in process_object
+    if hasattr(obj, cs):
+       ~~~~~~~^^^^^^^^^
+KeyboardInterrupt

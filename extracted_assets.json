@@ -1,0 +1,357 @@
+{
+  "figures": [
+    {
+      "captions": [
+        "Decadal average global surface temperature, reconstructed 1-2000 AD, observed 1850-2020 AD, from SPM1 (a) of \\citep{IPCC2021"
+      ],
+      "images": [
+        "Temperature.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "When human activities release more carbon dioxide than the natural Earth system can remove, the atmospheric CO$_2$ concentration rises. In 2020, despite lower emissions during the pandemic, the concentration still rose by \\hbox{2.4 parts per million"
+      ],
+      "images": [
+        "HistoricCO2.eps",
+        "HistoricCO2Increase.eps"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic representation of the key facets of global change observed over the last few decades (based on \\citet{IPCC2021"
+      ],
+      "images": [
+        "Effects.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "HistoricSeaLevelChange.eps",
+        "HistoricTemperatureByContinent.eps"
+      ]
+    },
+    {
+      "captions": [
+        "Globally, a small change in average temperatures makes a big difference to the extreme temperatures. (Redrawn from  a BBC graphic). \\label{SmallShiftBigDifference"
+      ],
+      "images": [
+        "SmallShiftBigDifference.pdf",
+        "SmallShiftBigDifference.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Arctic temperatures have risen more rapidly than the global averages. \\label{ArcticTemperatureAnomaly"
+      ],
+      "images": [
+        "ArcticTemperatureAnomaly.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "HeatDome.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "A schematic showing how hot air is trapped in an area of high pressure, causing temperatures to soar over an entire continent in a so-called heat dome. Such conditions have a direct impact on the ambient air quality. (Redrawn from  a BBC graphic). \\label{HeatDome"
+      ],
+      "images": [
+        "HeatDome.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic illustrating how higher temperatures can cause extreme rainfall. \\label{ExtremeRainfall"
+      ],
+      "images": [
+        "ExtremeRainfall.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic illustrating how higher temperatures can cause extreme rainfall. \\label{ExtremeRainfall"
+      ],
+      "images": [
+        "ExtremeRainfall.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "RADAR imagery of the west coast of the United States shows an example of an atmospheric river in the upper panel. An atmospheric river of water vapor, depicted in the lower panel, is curling off from humid air over the tropics and moving into the western United States and Mexico. Credit: NASA Worldview. \\label{AtmosphericRiver"
+      ],
+      "images": [
+        "AtmosphericRiver.pdf",
+        "LargeAtmosphericRiver.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic diagrams of El Ni\\~{n"
+      ],
+      "images": [
+        "ENSO.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "TimeSeries_elnino.png",
+        "heatwave_map.png"
+      ]
+    },
+    {
+      "captions": [
+        "Mosquito disease transmission risk as a function of temperature \\citep{Mordecai2017"
+      ],
+      "images": [
+        "MosquitoesTransmissionRisk.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The number of cases of Lyme disease reported in the United States between 1991 and 2018.\\label{LymeDiseaseIncidence"
+      ],
+      "images": [
+        "LymeDiseaseIncidence.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Landsat-5 acquired this image on October 5, 2011. Vibrant green filaments stretch out from the northern shore. Great Lakes Environmental Research Laboratory reports the bloom is primarily microcystis aeruginosa, a toxic algae to mammals. Several days of calm winds and warm temperatures allowed algae to accumulate on the surface. \\label{LakeErieHAB"
+      ],
+      "images": [
+        "lakeerie_tm5_2011278_lrg.jpg"
+      ]
+    },
+    {
+      "captions": [
+        "An illustration of the mechanisms associated with cyanotoxin incorporation in spray aerosols. \\label{HAB_Aerosols"
+      ],
+      "images": [
+        "HAB_Aerosols.jpeg"
+      ]
+    },
+    {
+      "captions": [
+        "The threat posed by climate change to coral reefs is significant. Human development and population growth in coastal areas alter the landscape, increasing land-based pollution and endangering coral reefs. Based on infographics from the NOAA National Ocean Service. \\label{CoralReefs"
+      ],
+      "images": [
+        "CoralReefs.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The total number of lightning strikes accumulated from 2008 to 2017, represented as annual strokes per square kilometer on a 0.1\u00b0 x 0.1\u00b0 grid. The data comes from the World Wide Lightning Location Network, and the map is an upgrade of the 0.25\u00b0 x 0.25\u00b0 global climatology published by Virts et al. [2013]. \\label{lightning"
+      ],
+      "images": [
+        "number-lightning-strokes-2008-2017-essential-climate-variable.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic representation some of the key primary and secondary air pollutants and some of their sources. \\label{Pollutants"
+      ],
+      "images": [
+        "PollutionSchematic.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The stratospheric ozone hole forms within the polar vortex. The upper panel shows a visualization of the vortex surrounded by the  polar jet stream. The lower panels show example maps of the total ozone hole, potential vorticity (PV) and temperature where the vortex is clearly evident in the ozone amount, PV and temperature. \\label{OzoneHole"
+      ],
+      "images": [
+        "OzoneHole.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The average size of the ozone hole in millions of square km for the southern hemisphere spring (September 7 -- October 13) from 1979 -- 2021. Courtesy of NASA Earth Observatory.\\label{SizeOfOzoneHole"
+      ],
+      "images": [
+        "ozone_avg_1979-2021_lrg.png"
+      ]
+    },
+    {
+      "captions": [
+        "Key scientists involved in explaining the formation of the ozone hole. \\label{OzoneScientists"
+      ],
+      "images": [
+        "OzoneScientists.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "From gaseous precursors, sulfate (H$_2$SO$_4$) aerosols are formed in the atmosphere by chemical reactions. There exists a layer of sulfate aerosols in the lower stratosphere ($\\approx$ 20 km). Sulfur dioxide (SO$_2$) from anthropogenic sources and volcanoes, and dimethyl sulfide (DMS) from biogenic sources, especially marine plankton, are the two main sulfate precursors. After the eruption of Mount Pinatubo in the Philippines in 1991, SO$_2$ was injected directly into the stratosphere, enhancing the sulfate aerosol layer and causing a cooling in the  two years following the eruption.  \\label{SulfateAerosols"
+      ],
+      "images": [
+        "SulfateAerosols.pdf",
+        "Pinatubo.png"
+      ]
+    },
+    {
+      "captions": [
+        "Arid regions can be significant sources of aoelian (wind blown) dust.  \\label{Aeolian"
+      ],
+      "images": [
+        "Aeolian.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The upper panel shows the movement of dust from the Sahara to the Amazon basin as seen from space by NASA CALIPSO. The lower panel shows smoke from southern California fires seen from space. \\label{DustFireFromSpace"
+      ],
+      "images": [
+        "DustFromSpace.pdf",
+        "CalfiorniaFiresSpace.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Acid rain is caused by emissions of sulphur dioxide and nitrogen oxide, which react with the water molecules in the atmosphere to produce acids.  \\label{AcidRain"
+      ],
+      "images": [
+        "AcidRain.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic of general mold categories. \\label{Molds"
+      ],
+      "images": [
+        "Molds.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic of general mold categories. \\label{Molds"
+      ],
+      "images": [
+        "Molds.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Approximate annual life cycle of common ragweed across the United States. In most places ragweed flowers from August to end of October and the seeds produced stay dormant until they germinate in March."
+      ],
+      "images": [
+        "RagWeedLifeCycle.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The Cycle of Microplastics \u2013 The flow of microplastics through the atmosphere.  \\label{MiucroPlastics"
+      ],
+      "images": [
+        "MiucroPlastics.png"
+      ]
+    },
+    {
+      "captions": [
+        "The left panel depicts, by nation, where the majority of the world's CO$_2$ emissions originate, using the most recent data from the Global Carbon Atlas. The right-hand panel displays greenhouse gas emissions by industry sector. The four broad categories that account for the majority of global greenhouse gas emissions are energy, agriculture, industry, and waste. Our energy consumption accounts for roughly three-quarters of total greenhouse gas emissions. \\label{global-emissions-4"
+      ],
+      "images": [
+        "GHG-and-CarbonEmissions"
+      ]
+    },
+    {
+      "captions": [
+        "A schematic representation of the six primary sources of the greenhouse gas methane (CH$_4$) and its subsequent atmospheric oxidation to carbon dioxide (CO$_2$) \\citep{Lary:1997"
+      ],
+      "images": [
+        "MethaneOxidation.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Schematic of how air quality interacts with climate change. \\label{AirQualityClimateChange"
+      ],
+      "images": [
+        "AirQualityClimateChange.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "There are various biotic and abiotic stresses that plants face, both above and below ground. There are biogenic volatile organic compounds (BVOCs) generated by plant leaves, roots, and flowers. These compounds may be a constitutive characteristic, or they may be induced by biotic and abiotic stresses \\citep{Loreto2014"
+      ],
+      "images": [
+        "PlantStressesVOCs_V2_WithVOCS.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Street level air quality survey of from May 23, 2014. Color scale indicates PM$_{2.5"
+      ],
+      "images": [
+        "StreetLevelSurvey-May23-2014.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Overview of neighborhood scale study with key features including size spectrum, PM$_{2.5"
+      ],
+      "images": [
+        "NeighboorhoodScaleSummary.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "SilentKiller.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "AirBornePollutants.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "The epidemiological and toxicological evidence suggest that particulate matter acts as a carcinogenic factor in humans, causing high rates of genomic alterations \\citep{Santibanez2017"
+      ],
+      "images": [
+        "PMGenomicAlterations.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "BloodBrainBarrier.pdf"
+      ]
+    },
+    {
+      "captions": [
+        "Major neuronal and inflammatory mechanisms implicated in stroke, Alzheimer's disease and Parkinson's disease in comparison to non-diseased condition as demonstrated in animal models. All of the three diseases lead to gut microbiome dybiosis, neuronal death, behavioral deficits, microglia activation, pro-inflammatory milieu in the gut, intestinal motility impairment and/or increased gut permeability \\citep{Benakis2020"
+      ],
+      "images": [
+        "Gut-Brain-Axis-And-Pathology.jpeg"
+      ]
+    },
+    {
+      "captions": [
+        "Environmental endocrine disrupting chemicals \\citep{Grindler2015"
+      ],
+      "images": [
+        "EndocrineDisruptingChemicals.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "PhysicsBasedML.pdf"
+      ]
+    },
+    {
+      "captions": [],
+      "images": [
+        "Overcoming-sustainability-challenges-with-digital-twins.pdf",
+        "DigitalTwin.pdf"
+      ]
+    }
+  ],
+  "portraits": []
+}

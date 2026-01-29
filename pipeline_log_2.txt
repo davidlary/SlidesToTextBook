@@ -1,0 +1,571 @@
+2026-01-29 09:30:41,512 - Pipeline - INFO - Starting pipeline for Lecture 1 (Excellence Mode)...
+2026-01-29 09:30:41,512 - Pipeline - INFO - Key ANTHROPIC_API_KEY: SET (sk-an...)
+2026-01-29 09:30:41,512 - Pipeline - INFO - Key GOOGLE_API_KEY: SET (AIzaS...)
+2026-01-29 09:30:41,512 - Pipeline - INFO - Key GITHUB_TOKEN: SET (ghp_h...)
+2026-01-29 09:30:41,944 - slides_to_textbook.modules.pdf_analyzer - INFO - Analyzing PDF: Lecture-1.pdf
+2026-01-29 09:31:04,939 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:04,980 - slides_to_textbook.modules.topic_researcher - INFO - Researching topic: Machine Learning
+2026-01-29 09:31:11,231 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:13,283 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:13,286 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Perceptrons: An Introduction to Computational Geometry
+2026-01-29 09:31:13,286 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Learning Representations by Back-Propagating Errors
+2026-01-29 09:31:13,286 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Reinforcement Learning: An Introduction
+2026-01-29 09:31:13,286 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Unsupervised Learning of Finite Mixture Models
+2026-01-29 09:31:13,286 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): A Mathematical Theory of Communication
+2026-01-29 09:31:13,314 - slides_to_textbook.modules.content_author - INFO - Generating content for chapter: Machine Learning
+2026-01-29 09:31:19,512 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:27,039 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:34,330 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:41,033 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:47,659 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:31:53,725 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:00,201 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:04,874 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:11,980 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:19,230 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:19,233 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Reinforcement Learning
+2026-01-29 09:32:19,233 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Feature Engineering
+2026-01-29 09:32:19,233 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Model Evaluation
+2026-01-29 09:32:19,234 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Independent Verification
+2026-01-29 09:32:19,234 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Arthur Lee Samuel
+2026-01-29 09:32:19,234 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Thomas Bayes
+2026-01-29 09:32:19,234 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: William of Ockham
+2026-01-29 09:32:19,235 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: George Boole
+2026-01-29 09:32:19,235 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Augustus De Morgan
+2026-01-29 09:32:19,235 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Claude Shannon
+2026-01-29 09:32:19,235 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Donald Hebb
+2026-01-29 09:32:19,236 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Allen Newell
+2026-01-29 09:32:19,236 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Herbert Simon
+2026-01-29 09:32:19,236 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: J.C. Shaw
+2026-01-29 09:32:19,237 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Frank Rosenblatt
+2026-01-29 09:32:19,237 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Vladimir Vapnik
+2026-01-29 09:32:19,237 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Alexey Chervonenkis
+2026-01-29 09:32:19,238 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: David Rumelhart
+2026-01-29 09:32:19,238 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Geoffrey Hinton
+2026-01-29 09:32:19,238 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Yann LeCun
+2026-01-29 09:32:19,238 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Ashish Vaswani
+2026-01-29 09:32:19,308 - Pipeline - INFO - Enriched Topic People count: 17
+2026-01-29 09:32:19,308 - Pipeline - INFO - Enriched Topic Concepts count: 7
+2026-01-29 09:32:19,308 - Pipeline - INFO - Adding portrait task for: Arthur Lee Samuel
+2026-01-29 09:32:19,308 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Arthur Lee Samuel
+2026-01-29 09:32:19,630 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Arthur Lee Samuel (Mode: Vertical (3:4))
+2026-01-29 09:32:19,630 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['COMPOSITION', 'Arthur', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:32:19,644 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:32:19,644 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:32:19,645 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:32:19,646 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:32:37,536 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:32:37,722 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 254
+2026-01-29 09:32:37,747 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 18.1s
+2026-01-29 09:32:37,797 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpgi2qqy46.png (18.1s)
+2026-01-29 09:32:37,797 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:32:39,626 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:39,668 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/ArthurLeeSamuel.jpg
+2026-01-29 09:32:39,668 - Pipeline - INFO - Adding portrait task for: Thomas Bayes
+2026-01-29 09:32:39,668 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Thomas Bayes
+2026-01-29 09:32:39,668 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Thomas Bayes (Mode: Vertical (3:4))
+2026-01-29 09:32:39,668 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Bayes', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:32:39,685 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:32:39,685 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:32:39,685 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:32:39,686 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:32:58,906 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:32:59,113 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 182
+2026-01-29 09:32:59,138 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 19.5s
+2026-01-29 09:32:59,198 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpn99qa5o9.png (19.5s)
+2026-01-29 09:32:59,198 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:32:59,753 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:32:59,772 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/ThomasBayes.jpg
+2026-01-29 09:32:59,772 - Pipeline - INFO - Adding portrait task for: William of Ockham
+2026-01-29 09:32:59,772 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: William of Ockham
+2026-01-29 09:32:59,773 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: William of Ockham (Mode: Vertical (3:4))
+2026-01-29 09:32:59,773 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:32:59,786 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:32:59,786 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:32:59,787 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:32:59,787 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:33:20,603 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:33:20,794 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 302
+2026-01-29 09:33:20,818 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 21.0s
+2026-01-29 09:33:20,864 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpvs27ldxz.png (21.0s)
+2026-01-29 09:33:20,864 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:33:21,385 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:33:21,421 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/WilliamofOckham.jpg
+2026-01-29 09:33:21,421 - Pipeline - INFO - Adding portrait task for: George Boole
+2026-01-29 09:33:21,421 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: George Boole
+2026-01-29 09:33:21,421 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: George Boole (Mode: Vertical (3:4))
+2026-01-29 09:33:21,421 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:33:21,436 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:33:21,436 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:33:21,437 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:33:21,437 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:33:39,940 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:33:40,236 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 348
+2026-01-29 09:33:40,310 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 18.9s
+2026-01-29 09:33:40,401 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp27ohg1ff.png (18.9s)
+2026-01-29 09:33:40,401 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:33:40,897 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:33:40,919 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/GeorgeBoole.jpg
+2026-01-29 09:33:40,919 - Pipeline - INFO - Adding portrait task for: Augustus De Morgan
+2026-01-29 09:33:40,919 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Augustus De Morgan
+2026-01-29 09:33:40,919 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Augustus De Morgan (Mode: Vertical (3:4))
+2026-01-29 09:33:40,919 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:33:40,935 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:33:40,935 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:33:40,936 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:33:40,936 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:34:03,691 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:34:03,877 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 167
+2026-01-29 09:34:03,905 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 23.0s
+2026-01-29 09:34:03,958 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmph36aus50.png (23.0s)
+2026-01-29 09:34:03,958 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:34:04,509 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:34:04,539 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/AugustusDeMorgan.jpg
+2026-01-29 09:34:04,539 - Pipeline - INFO - Adding portrait task for: Claude Shannon
+2026-01-29 09:34:04,539 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Claude Shannon
+2026-01-29 09:34:04,539 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Claude Shannon (Mode: Vertical (3:4))
+2026-01-29 09:34:04,539 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'Claude', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:34:04,557 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:34:04,557 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:34:04,560 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:34:04,560 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:34:21,035 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:34:21,235 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 236
+2026-01-29 09:34:21,263 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 16.7s
+2026-01-29 09:34:21,311 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpxz9_kt_q.png (16.7s)
+2026-01-29 09:34:21,311 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:34:21,791 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:34:21,821 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/ClaudeShannon.jpg
+2026-01-29 09:34:21,821 - Pipeline - INFO - Adding portrait task for: Donald Hebb
+2026-01-29 09:34:21,821 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Donald Hebb
+2026-01-29 09:34:21,821 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Donald Hebb (Mode: Vertical (3:4))
+2026-01-29 09:34:21,821 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'Hebb', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:34:21,835 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:34:21,835 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:34:21,836 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:34:21,836 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:34:42,459 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:34:42,635 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 206
+2026-01-29 09:34:42,661 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 20.8s
+2026-01-29 09:34:42,711 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmptyd8g75u.png (20.8s)
+2026-01-29 09:34:42,711 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:34:43,113 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:34:43,138 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/DonaldHebb.jpg
+2026-01-29 09:34:43,139 - Pipeline - INFO - Adding portrait task for: Allen Newell
+2026-01-29 09:34:43,139 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Allen Newell
+2026-01-29 09:34:43,139 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Allen Newell (Mode: Vertical (3:4))
+2026-01-29 09:34:43,139 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - INFO - Detected 10 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'Allen', 'REQUIREMENTS', 'Newell']
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:34:43,153 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:34:43,153 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:34:43,154 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:34:43,154 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:35:03,284 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:35:03,480 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 307
+2026-01-29 09:35:03,509 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 20.4s
+2026-01-29 09:35:03,562 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpy9nw79rt.png (20.4s)
+2026-01-29 09:35:03,562 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:35:04,036 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:35:04,065 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/AllenNewell.jpg
+2026-01-29 09:35:04,065 - Pipeline - INFO - Adding portrait task for: Herbert Simon
+2026-01-29 09:35:04,065 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Herbert Simon
+2026-01-29 09:35:04,065 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Herbert Simon (Mode: Vertical (3:4))
+2026-01-29 09:35:04,065 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - INFO - Detected 10 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'Simon', 'REQUIREMENTS', 'Herbert']
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:35:04,081 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:35:04,081 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:35:04,082 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:35:04,082 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:35:28,074 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:35:28,267 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 281
+2026-01-29 09:35:28,302 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 24.2s
+2026-01-29 09:35:28,357 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpn0k_1yf_.png (24.2s)
+2026-01-29 09:35:28,357 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:35:28,799 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:35:28,828 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/HerbertSimon.jpg
+2026-01-29 09:35:28,828 - Pipeline - INFO - Adding portrait task for: J.C. Shaw
+2026-01-29 09:35:28,829 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: J.C. Shaw
+2026-01-29 09:35:28,829 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: J.C. Shaw (Mode: Vertical (3:4))
+2026-01-29 09:35:28,829 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'C', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:35:28,845 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:35:28,845 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:35:28,845 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:35:28,845 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:35:48,016 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:35:48,207 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 263
+2026-01-29 09:35:48,231 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 19.4s
+2026-01-29 09:35:48,282 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp2wj5m5da.png (19.4s)
+2026-01-29 09:35:48,282 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:35:48,801 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:35:48,827 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/J.C.Shaw.jpg
+2026-01-29 09:35:48,827 - Pipeline - INFO - Adding portrait task for: Frank Rosenblatt
+2026-01-29 09:35:48,827 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Frank Rosenblatt
+2026-01-29 09:35:48,827 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Frank Rosenblatt (Mode: Vertical (3:4))
+2026-01-29 09:35:48,827 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:35:48,842 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:35:48,842 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:35:48,843 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:35:48,843 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:36:08,774 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:36:08,961 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 220
+2026-01-29 09:36:08,986 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 20.1s
+2026-01-29 09:36:09,036 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpwdgy5cz3.png (20.1s)
+2026-01-29 09:36:09,036 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:36:09,696 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:36:09,747 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/FrankRosenblatt.jpg
+2026-01-29 09:36:09,747 - Pipeline - INFO - Adding portrait task for: Vladimir Vapnik
+2026-01-29 09:36:09,747 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Vladimir Vapnik
+2026-01-29 09:36:09,747 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Vladimir Vapnik (Mode: Vertical (3:4))
+2026-01-29 09:36:09,747 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:36:09,766 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:36:09,766 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:36:09,767 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:36:09,767 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:36:27,185 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:36:27,367 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 242
+2026-01-29 09:36:27,390 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 17.6s
+2026-01-29 09:36:27,449 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp7x_wbpe8.png (17.6s)
+2026-01-29 09:36:27,449 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:36:27,896 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:36:27,922 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/VladimirVapnik.jpg
+2026-01-29 09:36:27,922 - Pipeline - INFO - Adding portrait task for: Alexey Chervonenkis
+2026-01-29 09:36:27,923 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Alexey Chervonenkis
+2026-01-29 09:36:27,923 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Alexey Chervonenkis (Mode: Vertical (3:4))
+2026-01-29 09:36:27,923 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:36:27,938 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['Alexey', 'COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:36:27,939 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:36:27,939 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:36:27,939 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:36:27,940 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:36:45,763 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:36:45,949 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 255
+2026-01-29 09:36:45,976 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 18.0s
+2026-01-29 09:36:46,032 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmphl8ca5jk.png (18.0s)
+2026-01-29 09:36:46,032 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:36:46,460 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:36:46,491 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/AlexeyChervonenkis.jpg
+2026-01-29 09:36:46,491 - Pipeline - INFO - Adding portrait task for: David Rumelhart
+2026-01-29 09:36:46,491 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: David Rumelhart
+2026-01-29 09:36:46,491 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: David Rumelhart (Mode: Vertical (3:4))
+2026-01-29 09:36:46,492 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:36:46,509 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:36:46,509 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:36:46,510 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:36:46,510 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:37:04,748 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:37:04,942 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 158
+2026-01-29 09:37:04,965 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 18.5s
+2026-01-29 09:37:05,017 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpqzmfvj7c.png (18.5s)
+2026-01-29 09:37:05,017 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:37:05,677 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:37:05,713 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/DavidRumelhart.jpg
+2026-01-29 09:37:05,713 - Pipeline - INFO - Adding portrait task for: Geoffrey Hinton
+2026-01-29 09:37:05,713 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Geoffrey Hinton
+2026-01-29 09:37:05,713 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Geoffrey Hinton (Mode: Vertical (3:4))
+2026-01-29 09:37:05,713 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:37:05,731 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:37:05,731 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:37:05,732 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:37:05,732 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:37:27,194 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:37:27,378 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 367
+2026-01-29 09:37:27,406 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 21.7s
+2026-01-29 09:37:27,462 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpta011vly.png (21.7s)
+2026-01-29 09:37:27,462 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:37:27,877 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:37:27,900 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/GeoffreyHinton.jpg
+2026-01-29 09:37:27,900 - Pipeline - INFO - Adding portrait task for: Yann LeCun
+2026-01-29 09:37:27,900 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Yann LeCun
+2026-01-29 09:37:27,900 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Yann LeCun (Mode: Vertical (3:4))
+2026-01-29 09:37:27,900 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - INFO - Detected 8 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:37:27,916 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:37:27,916 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:37:27,917 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:37:27,917 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:37:48,450 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:37:48,643 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 256
+2026-01-29 09:37:48,669 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 20.8s
+2026-01-29 09:37:48,725 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpt9i1kx13.png (20.8s)
+2026-01-29 09:37:48,726 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:37:49,261 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:37:49,297 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/YannLeCun.jpg
+2026-01-29 09:37:49,297 - Pipeline - INFO - Adding portrait task for: Ashish Vaswani
+2026-01-29 09:37:49,297 - slides_to_textbook.modules.image_generators - INFO - Generating portrait for: Ashish Vaswani
+2026-01-29 09:37:49,297 - slides_to_textbook.modules.image_generators - INFO - Generating portrait via SICE package: Ashish Vaswani (Mode: Vertical (3:4))
+2026-01-29 09:37:49,297 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - INFO - Detected 9 chemical formulas in prompt: ['COMPOSITION', 'RATIO', 'Close', 'DESCRIPTION', 'Ashish', 'NO', 'STYLE', 'ASPECT', 'REQUIREMENTS']
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - WARNING - Invalid formula detected: RATIO - Invalid chemical element(s): R, A, T
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - WARNING - Invalid formula detected: ASPECT - Invalid chemical element(s): A, E, T
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:37:49,315 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:37:49,315 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:37:49,315 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:37:49,315 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:38:06,676 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:38:06,865 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 271
+2026-01-29 09:38:06,893 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 17.6s
+2026-01-29 09:38:06,951 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpg8_y6617.png (17.6s)
+2026-01-29 09:38:06,951 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:38:07,482 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 09:38:07,519 - slides_to_textbook.modules.image_generators - INFO - Generated portrait via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits/Chapter-Introduction/AshishVaswani.jpg
+2026-01-29 09:38:07,520 - Pipeline - INFO - Generating figures for 7 concepts...
+2026-01-29 09:38:07,520 - Pipeline - INFO - Adding figure task for: Supervised Learning (Regression, Classification)
+2026-01-29 09:38:07,520 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-SupervisedLearning(Regression,Classification).png
+2026-01-29 09:38:07,520 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-SupervisedLearning(Regression,Classification).png
+2026-01-29 09:38:07,520 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:38:07,546 - create_scientific_image.core.api - INFO - Detected 6 chemical formulas in prompt: ['COMPOSITION', 'Clean', 'DESCRIPTION', 'STYLE', 'Classification', 'REQUIREMENTS']
+2026-01-29 09:38:07,546 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:38:07,546 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:38:07,546 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:38:07,546 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:38:07,546 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:38:07,546 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:38:07,547 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:38:07,547 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:38:30,435 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:38:30,641 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 362
+2026-01-29 09:38:30,658 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 23.1s
+2026-01-29 09:38:30,729 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpmr0bukm8.png (23.1s)
+2026-01-29 09:38:30,729 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:38:30,731 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-SupervisedLearning(Regression,Classification).png
+2026-01-29 09:38:30,731 - Pipeline - INFO - Created figure: Fig-SupervisedLearning(Regression,Classification).png
+2026-01-29 09:38:30,731 - Pipeline - INFO - Adding figure task for: Unsupervised Learning (Clustering)
+2026-01-29 09:38:30,731 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-UnsupervisedLearning(Clustering).png
+2026-01-29 09:38:30,731 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-UnsupervisedLearning(Clustering).png
+2026-01-29 09:38:30,732 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:38:30,746 - create_scientific_image.core.api - INFO - Detected 6 chemical formulas in prompt: ['COMPOSITION', 'Clean', 'DESCRIPTION', 'Clustering', 'STYLE', 'REQUIREMENTS']
+2026-01-29 09:38:30,746 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:38:30,746 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:38:30,746 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:38:30,746 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:38:30,746 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:38:30,746 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:38:30,747 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:38:30,747 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:38:57,979 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:38:58,178 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 417
+2026-01-29 09:38:58,200 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 27.5s
+2026-01-29 09:38:58,267 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpfgvesfel.png (27.5s)
+2026-01-29 09:38:58,267 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:38:58,269 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-UnsupervisedLearning(Clustering).png
+2026-01-29 09:38:58,269 - Pipeline - INFO - Created figure: Fig-UnsupervisedLearning(Clustering).png
+2026-01-29 09:38:58,269 - Pipeline - INFO - Adding figure task for: Reinforcement Learning
+2026-01-29 09:38:58,269 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-ReinforcementLearning.png
+2026-01-29 09:38:58,269 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-ReinforcementLearning.png
+2026-01-29 09:38:58,269 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:38:58,282 - create_scientific_image.core.api - INFO - Detected 5 chemical formulas in prompt: ['COMPOSITION', 'Clean', 'DESCRIPTION', 'STYLE', 'REQUIREMENTS']
+2026-01-29 09:38:58,282 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:38:58,282 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:38:58,282 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:38:58,282 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:38:58,282 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:38:58,282 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:38:58,282 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:38:58,282 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:39:22,350 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:39:22,525 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 231
+2026-01-29 09:39:22,540 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 24.3s
+2026-01-29 09:39:22,611 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpfbbnp5pn.png (24.3s)
+2026-01-29 09:39:22,611 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:39:22,612 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-ReinforcementLearning.png
+2026-01-29 09:39:22,612 - Pipeline - INFO - Created figure: Fig-ReinforcementLearning.png
+2026-01-29 09:39:22,612 - Pipeline - INFO - Adding figure task for: Feature Engineering
+2026-01-29 09:39:22,612 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-FeatureEngineering.png
+2026-01-29 09:39:22,612 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-FeatureEngineering.png
+2026-01-29 09:39:22,612 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:39:22,626 - create_scientific_image.core.api - INFO - Detected 6 chemical formulas in prompt: ['Feature', 'COMPOSITION', 'Clean', 'DESCRIPTION', 'STYLE', 'REQUIREMENTS']
+2026-01-29 09:39:22,626 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:39:22,626 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:39:22,626 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:39:22,626 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:39:22,626 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:39:22,626 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:39:22,627 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:39:22,627 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:40:00,998 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:40:01,181 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 1156
+2026-01-29 09:40:01,198 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 38.6s
+2026-01-29 09:40:01,264 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp2zwxp9ga.png (38.6s)
+2026-01-29 09:40:01,264 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:40:01,266 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-FeatureEngineering.png
+2026-01-29 09:40:01,266 - Pipeline - INFO - Created figure: Fig-FeatureEngineering.png
+2026-01-29 09:40:01,266 - Pipeline - INFO - Adding figure task for: Model Evaluation
+2026-01-29 09:40:01,266 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-ModelEvaluation.png
+2026-01-29 09:40:01,266 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-ModelEvaluation.png
+2026-01-29 09:40:01,266 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:40:01,279 - create_scientific_image.core.api - INFO - Detected 5 chemical formulas in prompt: ['COMPOSITION', 'Clean', 'DESCRIPTION', 'STYLE', 'REQUIREMENTS']
+2026-01-29 09:40:01,279 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:40:01,279 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:40:01,279 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:40:01,280 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:40:01,280 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:40:01,280 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:40:01,280 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:40:01,280 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:40:29,105 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:40:29,281 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 454
+2026-01-29 09:40:29,297 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 28.0s
+2026-01-29 09:40:29,368 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp_edmwzuq.png (28.0s)
+2026-01-29 09:40:29,368 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:40:29,370 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-ModelEvaluation.png
+2026-01-29 09:40:29,370 - Pipeline - INFO - Created figure: Fig-ModelEvaluation.png
+2026-01-29 09:40:29,370 - Pipeline - INFO - Adding figure task for: Independent Verification
+2026-01-29 09:40:29,370 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-IndependentVerification.png
+2026-01-29 09:40:29,370 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-IndependentVerification.png
+2026-01-29 09:40:29,370 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:40:29,384 - create_scientific_image.core.api - INFO - Detected 5 chemical formulas in prompt: ['COMPOSITION', 'Clean', 'DESCRIPTION', 'STYLE', 'REQUIREMENTS']
+2026-01-29 09:40:29,384 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:40:29,384 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:40:29,384 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:40:29,384 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:40:29,384 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:40:29,384 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:40:29,385 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:40:29,385 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:41:00,016 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:41:00,222 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 712
+2026-01-29 09:41:00,242 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 30.9s
+2026-01-29 09:41:00,312 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmp7tvffhxd.png (30.9s)
+2026-01-29 09:41:00,312 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:41:00,314 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-IndependentVerification.png
+2026-01-29 09:41:00,314 - Pipeline - INFO - Created figure: Fig-IndependentVerification.png
+2026-01-29 09:41:00,314 - Pipeline - INFO - Adding figure task for: Volume, Veracity, Variety, Variability, Velocity, Visualization, Value
+2026-01-29 09:41:00,314 - slides_to_textbook.modules.image_generators - INFO - Generating figure: Fig-Volume,Veracity,Variety,Variability,Velocity,Visualization,Value.png
+2026-01-29 09:41:00,314 - slides_to_textbook.modules.image_generators - INFO - Generating figure via SICE package: Fig-Volume,Veracity,Variety,Variability,Velocity,Visualization,Value.png
+2026-01-29 09:41:00,314 - create_scientific_image.core.api - INFO - Creating scientific image using google-gemini
+2026-01-29 09:41:00,327 - create_scientific_image.core.api - INFO - Detected 5 chemical formulas in prompt: ['COMPOSITION', 'Clean', 'DESCRIPTION', 'STYLE', 'REQUIREMENTS']
+2026-01-29 09:41:00,327 - create_scientific_image.core.api - WARNING - Invalid formula detected: COMPOSITION - Invalid chemical element(s): M, T
+2026-01-29 09:41:00,327 - create_scientific_image.core.api - WARNING - Invalid formula detected: DESCRIPTION - Invalid chemical element(s): D, E, R, T
+2026-01-29 09:41:00,327 - create_scientific_image.core.api - WARNING - Invalid formula detected: STYLE - Invalid chemical element(s): T, Y, L, E
+2026-01-29 09:41:00,327 - create_scientific_image.core.api - WARNING - Invalid formula detected: REQUIREMENTS - Invalid chemical element(s): R, E, Q, U, R, E, M, E, T
+2026-01-29 09:41:00,327 - create_scientific_image.core.api - INFO - Attempt 1/3
+2026-01-29 09:41:00,327 - create_scientific_image.generation.image_generator - INFO - Generating image (attempt 1) using google-gemini
+2026-01-29 09:41:00,328 - create_scientific_image.generation.api_clients - INFO - Generating with gemini-3-pro-image-preview (high thinking via XML prompt)
+2026-01-29 09:41:00,328 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:41:28,189 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent "HTTP/1.1 200 OK"
+2026-01-29 09:41:28,385 - create_scientific_image.generation.api_clients - INFO -   High-level thinking tokens: 295
+2026-01-29 09:41:28,406 - create_scientific_image.generation.api_clients - INFO - Gemini 3 Pro generated image in 28.1s
+2026-01-29 09:41:28,469 - create_scientific_image.generation.image_generator - INFO - Image generated and saved to /var/folders/7v/3knnn0wn6z72jwngrp_m0tx00000gp/T/tmpjuxjjrhy.png (28.1s)
+2026-01-29 09:41:28,469 - create_scientific_image.core.api - INFO - ✓ Image generated successfully on attempt 1
+2026-01-29 09:41:28,471 - slides_to_textbook.modules.image_generators - INFO - Generated figure via SICE: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Figures/Chapter-Introduction/Fig-Volume,Veracity,Variety,Variability,Velocity,Visualization,Value.png
+2026-01-29 09:41:28,471 - Pipeline - INFO - Created figure: Fig-Volume,Veracity,Variety,Variability,Velocity,Visualization,Value.png
+2026-01-29 09:41:28,471 - Pipeline - INFO - Overriding topic title to 'Introduction' per user request.
+2026-01-29 09:41:28,471 - slides_to_textbook.modules.latex_builder - INFO - Building book: Machine Learning
+2026-01-29 09:41:28,476 - slides_to_textbook.modules.latex_builder - INFO - Written main.tex to /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/main.tex
+2026-01-29 09:41:28,476 - slides_to_textbook.modules.latex_builder - INFO - Building chapter: Introduction
+2026-01-29 09:41:28,478 - slides_to_textbook.modules.quality_validator - INFO - Starting Quality Validation for: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook
+2026-01-29 09:41:28,479 - slides_to_textbook.modules.quality_validator - INFO - Validation Complete. Status: failed
+2026-01-29 09:41:28,479 - Pipeline - ERROR - Quality Validation FAILED:
+2026-01-29 09:41:28,480 - Pipeline - ERROR -  - No portraits generated in /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits

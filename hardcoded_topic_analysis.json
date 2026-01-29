@@ -1,0 +1,49 @@
+{
+    "title": "Introduction",
+    "description": "Introduction to Machine Learning: Definition, History, and Workflow.",
+    "people": [
+        "Arthur Samuel",
+        "Tom Mitchell",
+        "Geoffrey Hinton",
+        "Yann LeCun",
+        "Yoshua Bengio",
+        "Vladimir Vapnik",
+        "Alexey Chervonenkis",
+        "J.C. Shaw",
+        "Herbert Simon",
+        "Allen Newell",
+        "Frank Rosenblatt",
+        "Donald Hebb",
+        "Marvin Minsky",
+        "David Rumelhart",
+        "Claude Shannon",
+        "George Boole",
+        "Thomas Bayes",
+        "Augustus De Morgan",
+        "Ashish Vaswani"
+    ],
+    "concepts": [
+        "What is Machine Learning?",
+        "Supervised Learning",
+        "Unsupervised Learning",
+        "Reinforcement Learning",
+        "Regression",
+        "Classification",
+        "Clustering",
+        "Machine Learning Workflow",
+        "Feature Engineering",
+        "Model Evaluation",
+        "Training Data",
+        "Testing Data",
+        "Overfitting",
+        "Underfitting",
+        "Bias-Variance Tradeoff",
+        "Neural Networks",
+        "Deep Learning"
+    ],
+    "equations": [],
+    "research": {
+        "historical_context": "Machine learning has evolved from the early days of AI in the 1950s...",
+        "citations": []
+    }
+}

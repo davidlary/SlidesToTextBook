@@ -1,0 +1,31 @@
+2026-01-29 09:51:10,266 - Pipeline - INFO - Starting pipeline for Lecture 1 (Excellence Mode)...
+2026-01-29 09:51:10,266 - Pipeline - INFO - Key ANTHROPIC_API_KEY: MISSING (N/A)
+2026-01-29 09:51:10,266 - Pipeline - INFO - Key GOOGLE_API_KEY: SET (AIzaS...)
+2026-01-29 09:51:10,266 - Pipeline - INFO - Key GITHUB_TOKEN: MISSING (N/A)
+2026-01-29 09:51:10,784 - slides_to_textbook.modules.pdf_analyzer - INFO - Analyzing PDF: Lecture-1.pdf
+2026-01-29 09:51:28,934 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:51:29,106 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 09:51:29,107 - slides_to_textbook.modules.pdf_analyzer - ERROR - LLM analysis failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-01-29 09:51:29,125 - slides_to_textbook.modules.topic_researcher - INFO - Researching topic: Unknown
+2026-01-29 09:51:29,125 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:51:29,251 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 09:51:29,252 - slides_to_textbook.modules.topic_researcher - ERROR - Failed to get historical context: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-01-29 09:51:29,253 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:51:29,353 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 09:51:29,353 - slides_to_textbook.modules.topic_researcher - ERROR - Failed to get citation candidates: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-01-29 09:51:29,354 - Pipeline - INFO - Overriding topic title to 'Introduction' per user request (EARLY).
+2026-01-29 09:51:29,378 - slides_to_textbook.modules.content_author - INFO - Generating content for chapter: Introduction
+2026-01-29 09:51:29,378 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 09:51:29,502 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 09:51:29,503 - slides_to_textbook.modules.content_author - ERROR - Failed to generate section Introduction: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-01-29 09:51:29,571 - Pipeline - INFO - Enriched Topic People count: 0
+2026-01-29 09:51:29,571 - Pipeline - INFO - Enriched Topic Concepts count: 0
+2026-01-29 09:51:29,572 - slides_to_textbook.modules.latex_builder - INFO - Building book: Machine Learning
+2026-01-29 09:51:29,576 - slides_to_textbook.modules.latex_builder - INFO - Written main.tex to /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/main.tex
+2026-01-29 09:51:29,576 - slides_to_textbook.modules.latex_builder - INFO - Building chapter: Introduction
+2026-01-29 09:51:29,578 - slides_to_textbook.modules.quality_validator - INFO - Starting Quality Validation for: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook
+2026-01-29 09:51:29,579 - slides_to_textbook.modules.quality_validator - INFO - Validation Complete. Status: failed
+2026-01-29 09:51:29,579 - Pipeline - ERROR - Quality Validation FAILED:
+2026-01-29 09:51:29,579 - Pipeline - ERROR -  - No portraits generated in /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits
+2026-01-29 09:51:29,579 - Pipeline - ERROR -  - No scientific figures generated.
+2026-01-29 09:51:29,579 - Pipeline - ERROR -  - bibliography.bib is suspiciously empty

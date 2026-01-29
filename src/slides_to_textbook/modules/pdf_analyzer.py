@@ -44,9 +44,14 @@ class PDFAnalyzer:
                 
                 # Fallback to OCR if empty
                 if not text.strip():
-                    # converting to image for OCR
-                    im = page.to_image(resolution=300).original
-                    text = pytesseract.image_to_string(im)
+                    try:
+                        # converting to image for OCR
+                        # Convert to RGB to avoid PIL/Tesseract saving issues
+                        im = page.to_image(resolution=300).original.convert("RGB")
+                        text = pytesseract.image_to_string(im)
+                    except Exception as e:
+                        logging.warning(f"OCR failed for page {i+1}: {e}")
+                        text = ""
                 
                 pages_content.append({
                     "page_number": i + 1,

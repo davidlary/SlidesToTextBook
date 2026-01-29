@@ -1,0 +1,77 @@
+2026-01-29 10:50:38,058 - Pipeline - INFO - Starting pipeline for Lecture 1 (Excellence Mode)...
+2026-01-29 10:50:38,058 - Pipeline - INFO - Key ANTHROPIC_API_KEY: SET (sk-an...)
+2026-01-29 10:50:38,058 - Pipeline - INFO - Key GOOGLE_API_KEY: SET (AIzaS...)
+2026-01-29 10:50:38,058 - Pipeline - INFO - Key GITHUB_TOKEN: MISSING (N/A)
+2026-01-29 10:50:38,553 - slides_to_textbook.modules.pdf_analyzer - INFO - Analyzing PDF: Lecture-1.pdf
+2026-01-29 10:51:00,740 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 10:51:00,777 - slides_to_textbook.modules.topic_researcher - INFO - Researching topic: Machine Learning
+2026-01-29 10:51:06,880 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 10:51:09,163 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 10:51:09,164 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Perceptrons: An Introduction to Computational Geometry
+2026-01-29 10:51:09,164 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Learning Representations by Back-Propagating Errors
+2026-01-29 10:51:09,164 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Reinforcement Learning: An Introduction
+2026-01-29 10:51:09,164 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): Unsupervised Learning
+2026-01-29 10:51:09,164 - slides_to_textbook.modules.topic_researcher - INFO - Adding candidate (Verification Skipped): The Elements of Statistical Learning
+2026-01-29 10:51:09,165 - Pipeline - INFO - loading hardcoded topic analysis (Bypass AI)
+2026-01-29 10:51:09,165 - Pipeline - INFO - Overriding topic title to 'Introduction' per user request (EARLY).
+2026-01-29 10:51:09,191 - slides_to_textbook.modules.content_author - INFO - Generating content for chapter: Introduction
+2026-01-29 10:51:16,880 - httpx - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-01-29 10:51:16,880 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Feature Engineering
+2026-01-29 10:51:16,880 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Model Evaluation
+2026-01-29 10:51:16,880 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Reinforcement Learning
+2026-01-29 10:51:16,880 - slides_to_textbook.modules.content_author - INFO - Injecting missing figure for concept: Independent Verification
+2026-01-29 10:51:16,880 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Alan Turing
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Alexey Chervonenkis
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Allen Newell
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Arthur Samuel
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Ashish Vaswani
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Donald Hebb
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Frank Rosenblatt
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Geoffrey Hinton
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: George Boole
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: John McCarthy
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Marvin Minsky
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Vladimir Vapnik
+2026-01-29 10:51:16,881 - slides_to_textbook.modules.content_author - INFO - Injecting missing portrait for: Yann LeCun
+2026-01-29 10:51:17,232 - Pipeline - INFO - Enriched Topic People count: 17
+2026-01-29 10:51:17,232 - Pipeline - INFO - Enriched Topic Concepts count: 7
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Alan Turing
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Alexey Chervonenkis
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Allen Newell
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Arthur Samuel
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Ashish Vaswani
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: David Rumelhart
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Donald Hebb
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Frank Rosenblatt
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Geoffrey Hinton
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: George Boole
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Herbert Simon
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: J.C. Shaw
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: John McCarthy
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Marvin Minsky
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Tom Mitchell
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Vladimir Vapnik
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding portrait task for: Yann LeCun
+2026-01-29 10:51:17,232 - Pipeline - INFO - Generating figures for 7 concepts...
+2026-01-29 10:51:17,232 - Pipeline - INFO - Adding figure task for: Feature Engineering
+2026-01-29 10:51:17,232 - Pipeline - INFO - Created figure: Fig-FeatureEngineering.png
+2026-01-29 10:51:17,233 - Pipeline - INFO - Adding figure task for: Model Evaluation
+2026-01-29 10:51:17,233 - Pipeline - INFO - Created figure: Fig-ModelEvaluation.png
+2026-01-29 10:51:17,233 - Pipeline - INFO - Adding figure task for: Supervised Learning(Regression, Classification)
+2026-01-29 10:51:17,233 - Pipeline - INFO - Created figure: Fig-SupervisedLearning(Regression,Classification).png
+2026-01-29 10:51:17,233 - Pipeline - INFO - Adding figure task for: Unsupervised Learning(Clustering)
+2026-01-29 10:51:17,233 - Pipeline - INFO - Created figure: Fig-UnsupervisedLearning(Clustering).png
+2026-01-29 10:51:17,233 - Pipeline - INFO - Adding figure task for: Reinforcement Learning
+2026-01-29 10:51:17,233 - Pipeline - INFO - Created figure: Fig-ReinforcementLearning.png
+2026-01-29 10:51:17,233 - Pipeline - INFO - Adding figure task for: Independent Verification
+2026-01-29 10:51:17,233 - Pipeline - INFO - Created figure: Fig-IndependentVerification.png
+2026-01-29 10:51:17,233 - Pipeline - INFO - Adding figure task for: Volume, Veracity, Variety, Variability, Velocity, Visualization, Value
+2026-01-29 10:51:17,233 - Pipeline - INFO - Created figure: Fig-Volume,Veracity,Variety,Variability,Velocity,Visualization,Value.png
+2026-01-29 10:51:17,233 - slides_to_textbook.modules.latex_builder - INFO - Building book: Machine Learning
+2026-01-29 10:51:17,236 - slides_to_textbook.modules.latex_builder - INFO - Written main.tex to /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/main.tex
+2026-01-29 10:51:17,236 - slides_to_textbook.modules.latex_builder - INFO - Building chapter: Introduction
+2026-01-29 10:51:17,237 - slides_to_textbook.modules.quality_validator - INFO - Starting Quality Validation for: /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook
+2026-01-29 10:51:17,238 - slides_to_textbook.modules.quality_validator - INFO - Validation Complete. Status: failed
+2026-01-29 10:51:17,238 - Pipeline - ERROR - Quality Validation FAILED:
+2026-01-29 10:51:17,238 - Pipeline - ERROR -  - No portraits generated in /Users/davidlary/Dropbox/Apps/Overleaf/MachineLearningBook/Portraits
+2026-01-29 10:51:17,238 - Pipeline - ERROR -  - bibliography.bib is suspiciously empty

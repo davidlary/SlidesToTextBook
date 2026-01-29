@@ -1,0 +1,23 @@
+2026-01-29 10:14:15,732 - Pipeline - INFO - Starting pipeline for Lecture 1 (Excellence Mode)...
+2026-01-29 10:14:15,733 - Pipeline - INFO - Key ANTHROPIC_API_KEY: MISSING (N/A)
+2026-01-29 10:14:15,733 - Pipeline - INFO - Key GOOGLE_API_KEY: SET (AIzaS...)
+2026-01-29 10:14:15,733 - Pipeline - INFO - Key GITHUB_TOKEN: MISSING (N/A)
+2026-01-29 10:14:16,222 - slides_to_textbook.modules.pdf_analyzer - INFO - Analyzing PDF: Lecture-1.pdf
+2026-01-29 10:14:34,035 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 10:14:34,249 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 10:14:34,250 - slides_to_textbook.modules.pdf_analyzer - ERROR - LLM analysis failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-01-29 10:14:34,273 - slides_to_textbook.modules.topic_researcher - INFO - Researching topic: Unknown
+2026-01-29 10:14:34,273 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 10:14:34,394 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 10:14:34,398 - slides_to_textbook.modules.topic_researcher - ERROR - Failed to get historical context: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-01-29 10:14:34,398 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 10:14:34,482 - httpx - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-01-29 10:14:34,483 - slides_to_textbook.modules.topic_researcher - ERROR - Failed to get citation candidates: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+Traceback (most recent call last):
+  File "/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/run_lecture1.py", line 173, in <module>
+    main()
+    ~~~~^^
+  File "/Users/davidlary/Dropbox/Environments/Code/SlidesToLatex/run_lecture1.py", line 57, in main
+    hardcoded_path = project_root / "hardcoded_topic_analysis.json"
+                     ^^^^^^^^^^^^
+NameError: name 'project_root' is not defined

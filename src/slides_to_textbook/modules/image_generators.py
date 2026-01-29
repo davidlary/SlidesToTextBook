@@ -3,7 +3,7 @@ import os
 import requests
 from pathlib import Path
 from typing import Dict, Any, Optional
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 from slides_to_textbook.utils.image_clients import get_image_client
 
 class FigureRecreator:
@@ -31,19 +31,24 @@ class FigureRecreator:
             try:
                 from create_scientific_image import create_scientific_image
                 
-                # Scientific Diagram Prompt - High-End Upgrade (Project-Bastion Style)
-                prompt = f"""Generate a stunning, high-end, publication-quality scientific visualization.
+                # Scientific Diagram Prompt - Visual Excellence (Nature/Science Journal Aesthetic)
+                prompt = f"""Generate a masterpiece of scientific visualization.
                 DESCRIPTION: {figure_description}
-                STYLE: Cinematic 3D Scientific Render. Unreal Engine 5 level detail. Octane Render. Glassmorphism.
-                COMPOSITION: Clean, white background, professional typography, distinct color palette (corporate/scientific).
-                REQUIREMENTS: No blurred text. No hand-drawn diagrams. Must look like a professional infographic or 3D render.
+                STYLE: High-End Nature/Science Journal Aesthetic. Wired Magazine. Photorealistic texture with infographic clarity.
+                COMPOSITION: Golden Ratio. Clean white background. Sophisticated, legible typography.
+                REQUIREMENTS:
+                1. VISUAL EXCELLENCE: Strive for award-winning beauty. Use glassmorphism, ray-traced lighting, and physically accurate materials (subsurface scattering for organic, brushed metal for mechanical).
+                2. NO "Colored Blocks" or "Placeholders". Every element must look finished and intentional.
+                3. PHYSICS-AWARE SYNTHESIS: Ensure diagrams respect light transport and physical plausibility.
+                4. TYPOGRAPHY: Must be LLM-optimized for perfect legibility. Sans-serif, professional.
+                5. STRICT: Circles must be perfect. No layout artifacts.
                 """
                 
                 self.logger.info(f"Generating figure via SICE package: {filename}")
                 # The package handles generation and validation
                 img_path = create_scientific_image(
                     prompt, 
-                    resolution=(1200, 800),
+                    resolution=(1024, 768),
                     strict_mode=True,
                     return_metadata=False
                 )
@@ -128,6 +133,8 @@ class PortraitGenerator:
         self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.client = get_image_client()
+        from slides_to_textbook.utils.api_clients import AIClient
+        self.text_client = AIClient()
 
     def generate_portrait(self, person_name: str, years: str = "") -> Optional[Path]:
         """
@@ -156,17 +163,18 @@ class PortraitGenerator:
              # SICE Integration for Portraits
              from create_scientific_image import create_scientific_image
              
-             style_desc = "classic, sepia-toned aesthetic, formal portrait style, soft vignette" if is_historical else "modern professional portrait, color, high quality"
+             style_desc = "classic, sepia-toned aesthetic, formal portrait style, full frame, rectangular" if is_historical else "modern professional portrait, color, high quality"
              
              # Scientific Portrait Prompt - High-End Upgrade
-             # Adaptive Logic: Switch to Landscape (4:3) for groups of 3+ people to prevent squishing.
+             # Adaptive Logic: Switch to Landscape (4:3) for groups of 2+ people (Double or Triple)
+             # User reported Double portraits getting cut off in Vertical mode.
              
              # Simple heuristic: count commas or 'and' to estimate group size
              approx_people = person_name.count(',') + person_name.count(' and ') + 1
-             is_group = approx_people >= 3
+             is_group = approx_people >= 2
              
              if is_group:
-                 # LANDSCAPE STRATEGY (Groups > 2)
+                 # LANDSCAPE STRATEGY (Groups 2+)
                  resolution = (1024, 768)
                  aspect_ratio_desc = "Horizontal (4:3)"
                  composition_desc = "Wide Cinematic Group Shot. All subjects visible side-by-side with equal prominence."
@@ -208,8 +216,14 @@ class PortraitGenerator:
                          raise FileNotFoundError(f"Result path {source} does not exist.")
                  
                  # Save the correctly generated image directly.
-                 # No cropping or resizing needed here as we requested the correct size.
                  if final_img:
+                      # Add Nameplate (User req: Name + Birth-Death Year)
+                      # We need to fetch the years if not provided.
+                      years_text = years
+                      if not years_text:
+                           years_text = self._fetch_years(person_name)
+                      
+                      self._add_nameplate(final_img, person_name, years_text)
                       final_img.save(target_path, quality=95)
                  
                  self.logger.info(f"Generated portrait via SICE: {target_path}")
@@ -223,6 +237,71 @@ class PortraitGenerator:
             raise RuntimeError(f"SICE portrait generation failed: {e}")
             
         return None
+
+    def _fetch_years(self, person_name: str) -> str:
+        """Ask LLM for birth-death years."""
+        try:
+            prompt = f"Provide the birth and death years for '{person_name}' in the format 'YYYY-YYYY' (e.g. 1900-1950). If still alive, 'YYYY-Present'. Return ONLY the string."
+            return self.text_client.generate_text(prompt, model="claude", system_prompt="You are a historian.").strip()
+        except:
+            return ""
+
+    def _add_nameplate(self, image: Image.Image, name: str, years: str):
+        """Overlay a semi-transparent nameplate at the bottom."""
+        draw = ImageDraw.Draw(image)
+        width, height = image.size
+        
+        # Plate dimensions
+        plate_height = int(height * 0.15)
+        plate_y = height - plate_height
+        
+        # Draw semi-transparent background (Black, 60% opacity)
+        # PIL needs RGBA for transparency
+        if image.mode != 'RGBA':
+            image.convert("RGBA")
+            
+        overlay = Image.new('RGBA', image.size, (0,0,0,0))
+        draw_overlay = ImageDraw.Draw(overlay)
+        draw_overlay.rectangle([(0, plate_y), (width, height)], fill=(0, 0, 0, 160))
+        
+        # Composite
+        image.paste(overlay, (0, 0), overlay)
+        
+        # Draw Text
+        # Try to load a nice font, fallback to default
+        try:
+            # Try a standard font
+            font_size = int(plate_height * 0.4)
+            # Mac standard font location
+            font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", font_size)
+        except:
+             font = ImageFont.load_default()
+             
+        # Draw Name
+        draw = ImageDraw.Draw(image) # Re-init draw on composited image
+        
+        # Center Name
+        # getbbox returns (left, top, right, bottom)
+        bbox = draw.textbbox((0, 0), name, font=font)
+        text_w = bbox[2] - bbox[0]
+        text_x = (width - text_w) // 2
+        text_y = plate_y + int(plate_height * 0.2)
+        
+        draw.text((text_x, text_y), name, font=font, fill=(255, 255, 255))
+        
+        # Draw Years (smaller)
+        if years:
+            try:
+                small_font = ImageFont.truetype("/System/Library/Fonts/Helvetica.ttc", int(font_size * 0.7))
+            except:
+                small_font = ImageFont.load_default()
+                
+            y_bbox = draw.textbbox((0, 0), years, font=small_font)
+            y_w = y_bbox[2] - y_bbox[0]
+            y_x = (width - y_w) // 2
+            y_y = text_y + font_size + 5
+            
+            draw.text((y_x, y_y), years, font=small_font, fill=(200, 200, 200))
 
     def _generate_fallback_portrait_code(self, person_name: str, save_path: Path, is_historical: bool) -> bool:
         """Generate a stylized silhouette/placeholder using Matplotlib."""
