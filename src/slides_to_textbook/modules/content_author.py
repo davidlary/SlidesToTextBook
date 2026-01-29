@@ -21,7 +21,8 @@ class ContentAuthor:
         sections_content = []
         for section_title in topic_data.get("sections", []):
             content = self._generate_section(section_title, topic_data, assets_map=assets_map, citation_map=citation_map)
-            sections_content.append(content)
+            # WRAPPER FIX: Explicitly add the section header
+            sections_content.append(f"\\section{{{section_title}}}\n{content}")
             
         full_content = f"\\section{{Introduction}}\n{intro}\n\n"
         full_content += "\n\n".join(sections_content)
@@ -75,9 +76,10 @@ class ContentAuthor:
         # 2. Portraits (Margin Notes)
         for person, filename in assets_map.get("portraits", {}).items():
              if person.lower() in content.lower():
-                 if f"Figures/Portraits/{filename}" not in content:
+                 # Check path using correct Portraits root
+                 if f"Portraits/{filename}" not in content:
                      self.logger.info(f"Injecting missing portrait for: {person}")
-                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{Figures/Portraits/{filename}}} \\textbf{{{person}}}}}"
+                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{filename}}} \\textbf{{{person}}}}}"
                      # Find first mention and replace name with Name + Note? 
                      # Or just insert unique note. Margin notes float, so placement matters less but should be close.
                      # Let's simple replace the first occurrence of the name with "Name\automarginnote{...}"
@@ -102,7 +104,7 @@ class ContentAuthor:
         
         # Format available assets for the prompt
         figures_info = "\n".join([f"- Concept '{k}': Use \\begin{{figure}}[h] \\centering \\includegraphics[width=0.9\\linewidth]{{Figures/{v}}} \\caption{{{k}}} \\label{{fig:{k.replace(' ', '')}}} \\end{{figure}}" for k, v in assets_map.get('figures', {}).items()])
-        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{Figures/Portraits/{v}}} \\textbf{{{k}}}}}" for k, v in assets_map.get('portraits', {}).items()])
+        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{v}}} \\textbf{{{k}}}}}" for k, v in assets_map.get('portraits', {}).items()])
         citations_info = "\n".join([f"- {title}: use \\citep{{{key}}}" for title, key in citation_map.items()])
 
         system_prompt = """

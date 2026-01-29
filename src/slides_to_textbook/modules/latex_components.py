@@ -11,7 +11,7 @@ class MarginNoteGenerator:
             # taking basename for safety if handled elsewhere
             import os
             base = os.path.basename(image_path)
-            note += f"\\includegraphics[width=\\linewidth]{{{base}}}\\\\ "
+            note += f"\\includegraphics[width=\\linewidth, keepaspectratio]{{{base}}}\\\\ "
         
         if caption:
             note += f"\\textbf{{{caption}}} "

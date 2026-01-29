@@ -10,3 +10,4 @@ pylatex>=1.4.0
 pillow>=10.0.0
 requests>=2.31.0
 click>=8.1.0
+google-genai>=0.1.0

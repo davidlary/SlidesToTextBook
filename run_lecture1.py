@@ -69,12 +69,12 @@ def main():
     # Map Concepts to Figures
     for concept in enriched_topic.get("concepts", []):
         safe_concept = concept.replace(" ", "")
-        assets_map["figures"][concept] = f"Fig-{safe_concept}.png"
+        assets_map["figures"][concept] = f"Chapter-Introduction/Fig-{safe_concept}.png"
         
     # Map People to Portraits
     for person in enriched_topic.get("people", []):
         port_filename = f"{person.replace(' ', '')}.jpg" 
-        assets_map["portraits"][person] = port_filename
+        assets_map["portraits"][person] = f"Chapter-Introduction/{port_filename}"
 
     # 4. Content Generation (With Asset Awareness)
     # --------------------------------------------
@@ -87,8 +87,9 @@ def main():
     
     # 5. Images & Portraits (Execute Generation to match maps)
     # ------------------------------------------------------
-    fig_creator = FigureRecreator(OUTPUT_DIR / "Figures")
-    portrait_creator = PortraitGenerator(OUTPUT_DIR / "Figures" / "Portraits")
+    # Structure: Figures/Chapter-Introduction and Portraits/Chapter-Introduction
+    fig_creator = FigureRecreator(OUTPUT_DIR / "Figures" / "Chapter-Introduction")
+    portrait_creator = PortraitGenerator(OUTPUT_DIR / "Portraits" / "Chapter-Introduction")
     
     logger.info(f"Enriched Topic People count: {len(enriched_topic.get('people', []))}")
     logger.info(f"Enriched Topic Concepts count: {len(enriched_topic.get('concepts', []))}")
@@ -110,9 +111,9 @@ def main():
             if i > 12: break
             
             logger.info(f"Adding figure task for: {concept}")
-            fig_desc = f"Scientific diagram explaining {concept} in detail."
-            # Use the EXACT filename mapped earlier
-            target_filename = assets_map["figures"][concept]
+            fig_desc = f"A complex, labeled scientific visualization illustrating the concept of '{concept}'. Include typical metrics, decision boundaries, or structural diagrams as appropriate for a university textbook. Ideally separate into subplots if complex."
+            # Use the EXACT filename mapped earlier (extracted from path)
+            target_filename = Path(assets_map["figures"][concept]).name
             
             fig_path = fig_creator.recreate_figure(fig_desc, target_filename)
             if fig_path:
@@ -122,9 +123,12 @@ def main():
     # --------------
     builder = LaTeXBuilder(OUTPUT_DIR)
     
-    safe_title = enriched_topic.get("title", "Lecture1").replace(" ", "")
+    logger.info("Overriding topic title to 'Introduction' per user request.")
+    enriched_topic["title"] = "Introduction"
+    safe_title = "Introduction"
+    
     chapter_data = {
-        "title": enriched_topic.get("title", "Lecture 1"),
+        "title": "Introduction",
         "safe_title": safe_title,
         "content": chapter_content_body,
         "file_name": f"Chapter-{safe_title}.tex"

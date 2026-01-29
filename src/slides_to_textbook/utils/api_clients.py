@@ -1,12 +1,12 @@
 import os
 import logging
 import anthropic
-import google.generativeai as genai
 from typing import Optional, Dict, Any, List
 
 class AIClient:
     def __init__(self):
         self.anthropic_client = None
+        self.gemini_client = None
         self.gemini_configured = False
         self._setup_clients()
 
@@ -16,23 +16,28 @@ class AIClient:
         if anthropic_key:
             self.anthropic_client = anthropic.Anthropic(api_key=anthropic_key)
         
-        # Setup Gemini
+        # Setup Gemini (New SDK)
         google_key = os.getenv("GOOGLE_API_KEY")
         if google_key:
-            genai.configure(api_key=google_key)
-            self.gemini_configured = True
+            try:
+                from google import genai
+                self.gemini_client = genai.Client(api_key=google_key)
+                self.gemini_configured = True
+            except ImportError:
+                logging.warning("google-genai not installed. Gemini unavailable.")
 
     def generate_text(self, prompt: str, system_prompt: str = "", model: str = "claude") -> str:
         """
         Generate text using specified model.
         model: 'claude' (default) or 'gemini'
         """
+        # Default to Claude if verified working
         if model == "claude" and self.anthropic_client:
             return self._call_claude(prompt, system_prompt)
         elif model == "gemini" and self.gemini_configured:
             return self._call_gemini(prompt, system_prompt)
         else:
-            # Fallback logic or error
+            # Fallback
             if self.anthropic_client:
                 return self._call_claude(prompt, system_prompt)
             elif self.gemini_configured:
@@ -55,8 +60,10 @@ class AIClient:
 
     def _call_gemini(self, prompt: str, system_prompt: str) -> str:
         if not self.gemini_configured: raise ValueError("Gemini not configured")
-        import google.generativeai as genai
-        model = genai.GenerativeModel('gemini-pro')
-        full_prompt = f"System: {system_prompt}\n\nUser: {prompt}"
-        response = model.generate_content(full_prompt)
+        
+        response = self.gemini_client.models.generate_content(
+            model='gemini-2.0-flash-exp', 
+            contents=prompt,
+            config={'system_instruction': system_prompt}
+        )
         return response.text

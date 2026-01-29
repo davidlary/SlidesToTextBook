@@ -58,7 +58,7 @@ class QualityValidator:
     def _check_image_quality(self, report: Dict[str, Any]):
         """Check images for size and existence."""
         # Check Portraits
-        portraits_dir = self.figures_dir / "Portraits"
+        portraits_dir = self.book_dir / "Portraits"
         
         if not portraits_dir.exists():
              report["errors"].append(f"Portraits directory missing: {portraits_dir}")

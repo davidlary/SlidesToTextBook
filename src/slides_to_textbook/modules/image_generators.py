@@ -25,41 +25,73 @@ class FigureRecreator:
             
         self.logger.info(f"Generating figure: {filename}")
         
-        # Priority: Python Code for Scientific Diagrams (Excellence)
-        if self._generate_via_python(figure_description, target_path):
-            self.logger.info(f"Generated figure via Python: {target_path}")
-            return target_path
-
-        # Fallback to Image Gen
+        # Priority: SICE / Gemini Imagen (Excellence)
+        # Priority: SICE / Gemini Imagen (Excellence)
         if self.client:
-             try:
-                # Scientific Diagram Prompt
-                prompt = f"""Generate a high-quality scientific diagram.
+            try:
+                from create_scientific_image import create_scientific_image
+                
+                # Scientific Diagram Prompt - High-End Upgrade (Project-Bastion Style)
+                prompt = f"""Generate a stunning, high-end, publication-quality scientific visualization.
                 DESCRIPTION: {figure_description}
-                Clean, vector-like aesthetic, white background."""
-                img = self.client.generate(prompt, resolution=(1200, 800))
-                img.save(target_path)
-                return target_path
-             except Exception as e:
-                self.logger.error(f"Image gen failed: {e}")
+                STYLE: Cinematic 3D Scientific Render. Unreal Engine 5 level detail. Octane Render. Glassmorphism.
+                COMPOSITION: Clean, white background, professional typography, distinct color palette (corporate/scientific).
+                REQUIREMENTS: No blurred text. No hand-drawn diagrams. Must look like a professional infographic or 3D render.
+                """
+                
+                self.logger.info(f"Generating figure via SICE package: {filename}")
+                # The package handles generation and validation
+                img_path = create_scientific_image(
+                    prompt, 
+                    resolution=(1200, 800),
+                    strict_mode=True,
+                    return_metadata=False
+                )
+                
+                if img_path:
+                    # It returns a Path object directly now
+                    from PIL import Image
+                    if isinstance(img_path, Image.Image):
+                        img_path.save(target_path)
+                    else:
+                        import shutil
+                        from pathlib import Path
+                        source = Path(img_path)
+                        if source.exists():
+                             shutil.copy(str(source), target_path)
+                        else:
+                             raise FileNotFoundError(f"Result path {source} does not exist.")
+                    
+                    self.logger.info(f"Generated figure via SICE: {target_path}")
+                    return target_path
+
+            except ImportError as e:
+                self.logger.error(f"SICE package not found: {e}")
+                raise RuntimeError("SICE package required for figure generation.") from e
+            except Exception as e:
+                self.logger.error(f"SICE generation failed: {e}")
+                raise RuntimeError(f"SICE generation failed: {e}") from e
         
         return None
 
     def _generate_via_python(self, description: str, save_path: Path) -> bool:
         """Generate figure by writing and executing a Python script."""
         prompt = f"""
-        Write a complete, standalone Python script using 'matplotlib' to generate a scientific figure.
+        Write a complete, standalone Python script using 'matplotlib' and 'seaborn' (if useful) to generate a **publication-quality** scientific figure.
         
-        FIGURE DESCRIPTION: {description}
+        FIGURE CONCEPT: {description}
         OUTPUT FILE: "{save_path.absolute()}"
         
         REQUIREMENTS:
         1. Use 'matplotlib.pyplot'.
-        2. Create high-quality, professional looking plot (use plt.style.use('ggplot') or similar standard style).
-        3. Save the figure to the OUTPUT FILE path provided.
-        4. Do NOT use plt.show().
-        5. Aspect ratio should be 4:3.
-        6. Font sizes should be legible (12+).
+        2. **STYLE**: Use a professional, clean style (e.g., `plt.style.use('seaborn-v0_8-whitegrid')` or strictly classic with high-DPI settings).
+        3. **COMPLEXITY**: The plot must be detailed (e.g., multiple curves, scatter with regression, 3D surface, or complex bar chart). Avoid simple single lines.
+        4. **LABELS**: strictly label X and Y axes, include a Legend, and add meaningful Annotations pointing to key features.
+        5. **COLOR**: Use a professional color palette (e.g., 'viridis', 'plasma', or 'Set2').
+        6. Save the figure to the OUTPUT FILE path provided.
+        7. Do NOT use plt.show().
+        8. Aspect ratio should be 4:3 or 16:9.
+        9. Font sizes should be legible (12+).
         
         Return ONLY the python code in a markdown block.
         """
@@ -110,10 +142,6 @@ class PortraitGenerator:
             
         self.logger.info(f"Generating portrait for: {person_name}")
         
-        if not self.client:
-            self.logger.warning("No Image Client available. Skipping portrait.")
-            return None
-
         # Determine style based on years
         is_historical = True
         if years and "19" in years:
@@ -124,21 +152,77 @@ class PortraitGenerator:
              except:
                  pass
 
-        style_prompt = "Sepia-toned aesthetic, formal portrait" if is_historical else "Modern professional portrait, color"
-        prompt = f"Portrait of {person_name} ({years}). {style_prompt}. High quality, dignified."
-
         try:
-             img = self.client.generate(prompt, resolution=(900, 1200))
-             img.save(target_path)
-             self.logger.info(f"Generated portrait saved to {target_path}")
-             return target_path
+             # SICE Integration for Portraits
+             from create_scientific_image import create_scientific_image
+             
+             style_desc = "classic, sepia-toned aesthetic, formal portrait style, soft vignette" if is_historical else "modern professional portrait, color, high quality"
+             
+             # Scientific Portrait Prompt - High-End Upgrade
+             # Adaptive Logic: Switch to Landscape (4:3) for groups of 3+ people to prevent squishing.
+             
+             # Simple heuristic: count commas or 'and' to estimate group size
+             approx_people = person_name.count(',') + person_name.count(' and ') + 1
+             is_group = approx_people >= 3
+             
+             if is_group:
+                 # LANDSCAPE STRATEGY (Groups > 2)
+                 resolution = (1024, 768)
+                 aspect_ratio_desc = "Horizontal (4:3)"
+                 composition_desc = "Wide Cinematic Group Shot. All subjects visible side-by-side with equal prominence."
+             else:
+                 # PORTRAIT STRATEGY (Individuals or Pairs)
+                 resolution = (768, 1024)
+                 aspect_ratio_desc = "Vertical (3:4)"
+                 composition_desc = "Extreme Close-up, head and shoulders only. Face must fill 85% of the frame. Minimal background."
+
+             portrait_prompt = f"""Generate a high-end, publication-quality scientific image of {person_name}.
+             DESCRIPTION: {person_name}
+             COMPOSITION: {composition_desc} NO wasted whitespace.
+             ASPECT RATIO: {aspect_ratio_desc}.
+             STYLE: {style_desc}
+             REQUIREMENTS: Photorealistic or Hyper-detailed oil painting style (depending on era). No text. No borders.
+             """
+             
+             self.logger.info(f"Generating portrait via SICE package: {person_name} (Mode: {aspect_ratio_desc})")
+             
+             img_path = create_scientific_image(
+                 portrait_prompt, 
+                 resolution=resolution,
+                 strict_mode=True,
+                 return_metadata=False
+             )
+             
+             if img_path:
+                 # It returns a Path object directly now
+                 from PIL import Image
+                 
+                 final_img = None
+                 if isinstance(img_path, Image.Image):
+                    final_img = img_path
+                 else:
+                    source = Path(img_path)
+                    if source.exists():
+                         final_img = Image.open(source)
+                    else:
+                         raise FileNotFoundError(f"Result path {source} does not exist.")
+                 
+                 # Save the correctly generated image directly.
+                 # No cropping or resizing needed here as we requested the correct size.
+                 if final_img:
+                      final_img.save(target_path, quality=95)
+                 
+                 self.logger.info(f"Generated portrait via SICE: {target_path}")
+                 return target_path
+                 
+        except ImportError:
+             self.logger.error("SICE package not found.")
+             raise RuntimeError("SICE package required for portrait generation.")
         except Exception as e:
             self.logger.error(f"Failed to generate portrait {filename}: {e}")
-            # Try Python Fallback (Silhouette)
-            self.logger.info(f"Attempting Python Silhouette fallback for {person_name}")
-            if self._generate_fallback_portrait_code(person_name, target_path, is_historical):
-                return target_path
-            return None
+            raise RuntimeError(f"SICE portrait generation failed: {e}")
+            
+        return None
 
     def _generate_fallback_portrait_code(self, person_name: str, save_path: Path, is_historical: bool) -> bool:
         """Generate a stylized silhouette/placeholder using Matplotlib."""
