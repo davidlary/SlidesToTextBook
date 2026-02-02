@@ -211,9 +211,9 @@ def main():
 
             # Update assets map with actual paths
             for person, path in portrait_paths.items():
-                # Relative path from OUTPUT_DIR
-                rel_path = path.relative_to(OUTPUT_DIR)
-                assets_map["portraits"][person] = str(rel_path)
+                # Relative path from OUTPUT_DIR - just the filename within Portraits/Chapter-X/
+                chapter_rel_path = path.relative_to(OUTPUT_DIR)
+                assets_map["portraits"][person] = str(chapter_rel_path)
 
             logger.info(f"Generated/verified {len(portrait_paths)} portraits")
 

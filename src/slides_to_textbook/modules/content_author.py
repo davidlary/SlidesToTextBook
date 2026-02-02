@@ -1,4 +1,5 @@
 import logging
+import re
 from typing import Dict, Any, List
 from slides_to_textbook.utils.api_clients import AIClient
 
@@ -40,6 +41,12 @@ class ContentAuthor:
         If a concept/person is mentioned but the asset code is missing, append it.
         """
         if not assets_map: return content
+
+        # FIRST: Remove any AI-inserted portrait margin notes to avoid duplicates
+        # Pattern: \automarginnote{\includegraphics[...]{Portraits/...}}
+        portrait_pattern = r'\\automarginnote\{\\includegraphics\[width=\\linewidth\]\{Portraits/[^}]+\}\}'
+        content = re.sub(portrait_pattern, '', content)
+        self.logger.info("Stripped AI-inserted portrait margin notes to avoid duplicates")
         
         # 1. Figures
         for concept, filename in assets_map.get("figures", {}).items():
@@ -54,7 +61,6 @@ class ContentAuthor:
                     figure_code = f"\n\\begin{{figure}}[h]\n\\centering\n\\includegraphics[width=0.9\\linewidth]{{Figures/{filename}}}\n\\caption{{{concept}}}\n\\label{{fig:{concept.replace(' ', '')}}}\n\\end{{figure}}\n"
                     
                     # Try to insert after the paragraph containing the first mention
-                    import re
                     # Split by double newline (paragraphs)
                     paragraphs = content.split("\n\n")
                     new_paragraphs = []
@@ -78,10 +84,10 @@ class ContentAuthor:
         # 2. Portraits (Margin Notes)
         for person, filename in assets_map.get("portraits", {}).items():
              if person.lower() in content.lower():
-                 # Check path using correct Portraits root
-                 if f"Portraits/{filename}" not in content:
-                     self.logger.info(f"Injecting missing portrait for: {person}")
-                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{filename}}}}}"
+                 # Check if portrait is already injected (filename already contains full path from OUTPUT_DIR)
+                 if filename not in content:
+                     self.logger.info(f"Injecting portrait for: {person}")
+                     note_code = f"\\automarginnote{{\\includegraphics[width=\\linewidth]{{{filename}}}}}"
                      # Find first mention and replace name with Name + Note? 
                      # Or just insert unique note. Margin notes float, so placement matters less but should be close.
                      # Let's simple replace the first occurrence of the name with "Name\automarginnote{...}"
@@ -105,17 +111,86 @@ class ContentAuthor:
         citation_map = citation_map or {}
         
         # Format available assets for the prompt
+        # Note: assets_map paths are already relative to OUTPUT_DIR (e.g., "Portraits/Chapter-X/Name.png")
         figures_info = "\n".join([f"- Concept '{k}': Use \\begin{{figure}}[h] \\centering \\includegraphics[width=0.9\\linewidth]{{Figures/{v}}} \\caption{{{k}}} \\label{{fig:{k.replace(' ', '')}}} \\end{{figure}}" for k, v in assets_map.get('figures', {}).items()])
-        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{v}}}}}" for k, v in assets_map.get('portraits', {}).items()])
+        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{{v}}}}}" for k, v in assets_map.get('portraits', {}).items()])
         citations_info = "\n".join([f"- {title}: use \\citep{{{key}}}" for title, key in citation_map.items()])
 
         system_prompt = """
-        You are an expert textbook author. Write engaging, accessible, and mathematically precise content.
-        Follow these rules:
-        - Use LaTeX formatting for math ($...$ or $$...$$) and emphasis (\\textit{}, \\textbf{}).
-        - **MANDATORY**: You MUST include the specific Figures and Margin Notes listed in the prompt if the text mentions the concept or person. 
-        - **MANDATORY**: Use the specific Citation Keys provided. Do NOT invent citation keys.
-        - Do NOT include section headers (like \\section{...}) in the output, just the body text.
+        You are an expert textbook author writing in the style of the Air Quality V3 textbook.
+
+        CRITICAL WRITING STYLE GUIDELINES:
+
+        1. **Tone and Voice**:
+           - Accessible yet authoritative - teach, don't lecture
+           - Conversational transitions: "Now that we have...", "Let us turn our attention to..."
+           - Engage the reader, don't present dry facts
+
+        2. **Opening Sentences**:
+           - Start with context or definition, NOT abstract concepts
+           - Use patterns like "There is...", direct definitions
+           - Establish relevance immediately
+
+        3. **Concrete Details**:
+           - MUST include specific examples with real places, dates, numbers
+           - Quantitative details make concepts tangible
+           - Example: "7-15 times the Mississippi" NOT "an order of magnitude"
+
+        4. **Historical Context**:
+           - Include etymology of key terms
+           - Historical development of concepts
+           - Cultural origins of terminology
+           - Make history narrative and engaging
+
+        5. **Technical Content**:
+           - Define technical terms naturally in flowing text
+           - Units always provided
+           - Abbreviations defined on first use
+           - Math integrated naturally, not prominently displayed
+
+        6. **Paragraph Structure**:
+           - Opening sentence establishes topic
+           - Middle sentences develop with examples
+           - Closing sentence connects to broader context
+           - 4-8 sentences typical
+
+        7. **Citations**:
+           - Integrated smoothly using \\citep{key}
+           - At end of sentence/clause
+           - Common knowledge doesn't need citations
+
+        8. **Cause-and-Effect**:
+           - Clear causal chains step-by-step
+           - Use "in turn" for cascading effects
+           - Multi-step processes broken down
+
+        9. **Real-World Connections**:
+           - Constant connection to human impacts
+           - Health implications
+           - Environmental consequences
+           - Practical applications
+
+        10. **Active Voice**:
+            - Prefer active over passive
+            - Concrete verbs over abstract nouns
+            - "Fog forms..." NOT "It is characterized by..."
+
+        FORBIDDEN:
+        - Do NOT start with abstract mathematics
+        - Do NOT use dense academic prose
+        - Do NOT overuse passive voice
+        - Do NOT cite every sentence
+        - Do NOT use jargon without explanation
+        - Do NOT include section headers (like \\section{...}) in output
+        - Do NOT add any \\automarginnote or \\includegraphics commands for portraits
+        - Do NOT add meta-commentary like "Here is the content..."
+
+        REQUIRED FORMAT:
+        - Just write the textbook prose directly
+        - Mention people by name in italics: \\textit{Name}
+        - Portraits will be injected automatically
+        - Use \\citep{key} for citations from the provided list
+        - Use LaTeX formatting: $math$, \\textit{}, \\textbf{}
         """
         
         topic_context = ""
@@ -123,31 +198,37 @@ class ContentAuthor:
             topic_context = f"Historical Context: {topic_data.get('research', {}).get('historical_context', '')}"
             
         prompt = f"""
-        Write the content for the section "{section_title}" of the chapter "{topic_data.get('title')}".
+        Write a comprehensive, engaging textbook section for "{section_title}" in the chapter "{topic_data.get('title')}".
 
-        Context/Background Info:
+        CONTEXT:
         {topic_data.get('description', '')}
         {topic_context}
 
-        Key Concepts to cover: {', '.join(topic_data.get('concepts', []))}
-        Key People: {', '.join(topic_data.get('people', []))}
+        KEY CONCEPTS TO COVER: {', '.join(topic_data.get('concepts', []))}
 
-        # REQUIRED ASSETS REMOVED TO PREVENT HALLUCINATIONS
-        # We will inject them deterministically in post-processing.
+        KEY PEOPLE TO MENTION: {', '.join(topic_data.get('people', []))}
+        - Mention people naturally in the narrative using \\textit{{Name}}
+        - Include their contributions and historical context
+        - Portraits will be automatically added - you just write the text
 
-        Use these Citations:
+        CITATIONS (use \\citep{{key}}):
         {citations_info}
 
-        Write an EXTREMELY DETAILED, COMPREHENSIVE textbook chapter section.
-        Aim for at least 1500 words PER SECTION.
-        Deeply explain every concept with historical context, mathematical derivation, and practical examples.
-        DO NOT SUMMARIZE. EXPAND on every detail.
+        TARGET LENGTH: 1500+ words - write in depth with rich details
 
-        STRICT RULES:
-        1. DO NOT generate manual figure captions like textit or Figure 1 labels. LaTeX handles this.
-        2. DO NOT add text-based automarginnote commands unless it is a critical side-note.
-        3. DO NOT repeat portrait margin notes if the person was already introduced.
-        4. Portraits ALREADY include captions in the image - do NOT add additional caption text.
+        WRITING APPROACH:
+        - Start with an engaging opening that establishes context
+        - Include etymology of key terms
+        - Provide specific examples with places, dates, numbers
+        - Explain historical development narratively
+        - Show causal relationships step-by-step
+        - Connect to real-world impacts (health, environment)
+        - Use analogies for complex concepts
+        - Write flowing paragraphs with natural transitions
+        - Integrate citations smoothly at end of claims
+        - Use active voice and concrete verbs
+
+        Write the textbook prose directly below (no meta-commentary):
         """
 
         try:
@@ -162,8 +243,6 @@ class ContentAuthor:
         1. Remove duplicate section headers at the start.
         2. Convert markdown bolding (**text**) to LaTeX (\\textbf{text}).
         """
-        import re
-        
         # 1. Remove duplicate header if strictly at the start
         # Check for "Section Title" or "\section{Section Title}" or "# Section Title"
         # Normalize: strip whitespace
