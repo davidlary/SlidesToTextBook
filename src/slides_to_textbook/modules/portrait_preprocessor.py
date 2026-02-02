@@ -175,12 +175,27 @@ class PortraitPreprocessor:
         people = []
         seen_names = set()
 
+        # Common false positives to filter out
+        false_positives = {
+            'Machine Learning', 'Deep Learning', 'Neural Networks',
+            'Artificial Intelligence', 'Computer Science', 'Data Science',
+            'Supervised Learning', 'Unsupervised Learning', 'Reinforcement Learning',
+            'Natural Language', 'Pattern Recognition', 'Computer Vision',
+            'Decision Trees', 'Random Forests', 'Support Vector',
+            'K Nearest', 'Logistic Regression', 'Linear Regression',
+            'Cross Validation', 'Feature Engineering', 'Model Selection',
+            'Training Data', 'Test Data', 'Validation Set',
+            'Fit Metrics', 'Performance Metrics', 'Loss Function',
+            'Excellent Manual', 'Mechanical Automata', 'Component Analysis',
+            'Dimensionality Reduction', 'Principal Component', 'Feature Extraction'
+        }
+
         # Pattern 1: Name with dates (birth-death)
         # Matches: "Arthur Samuel (1901–1990)" or "Geoffrey Hinton (1947-)"
         date_pattern = r'([A-Z][a-z]+ [A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s*\((\d{4})[–\-]'
         for match in re.finditer(date_pattern, content):
             name = match.group(1)
-            if name not in seen_names and len(name.split()) >= 2:
+            if name not in seen_names and name not in false_positives and len(name.split()) >= 2:
                 people.append({
                     "name": name,
                     "context": f"Born {match.group(2)}"
@@ -192,7 +207,7 @@ class PortraitPreprocessor:
         bio_pattern = r'([A-Z][a-z]+ [A-Z][a-z]+)(?:\'s|,| developed| discovered| invented| proposed| created| introduced)'
         for match in re.finditer(bio_pattern, content):
             name = match.group(1)
-            if name not in seen_names and len(name.split()) >= 2:
+            if name not in seen_names and name not in false_positives and len(name.split()) >= 2:
                 # Extract context (next 50 chars)
                 start_pos = match.end()
                 context = content[start_pos:start_pos + 50].split('.')[0]
@@ -209,7 +224,7 @@ class PortraitPreprocessor:
         self,
         people: List[Dict[str, Any]],
         output_path: Path,
-        style: str = "Photorealistic",
+        style: str = "Painting",
         naming_format: str = "{name}_Painting"
     ) -> Path:
         """
@@ -292,7 +307,7 @@ class PortraitPreprocessor:
         return result
 
 
-def main():
+def main():  # pragma: no cover
     """CLI entrypoint for portrait preprocessing."""
     import argparse
 

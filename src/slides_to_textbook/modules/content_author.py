@@ -144,8 +144,8 @@ class ContentAuthor:
         DO NOT SUMMARIZE. EXPAND on every detail.
 
         STRICT RULES:
-        1. DO NOT generate manual figure captions like "\\textit{Figure 1: ...}". LaTeX handles this.
-        2. DO NOT add text-based \\automarginnote{{...}} unless it is a critical side-note.
+        1. DO NOT generate manual figure captions like textit or Figure 1 labels. LaTeX handles this.
+        2. DO NOT add text-based automarginnote commands unless it is a critical side-note.
         3. DO NOT repeat portrait margin notes if the person was already introduced.
         4. Portraits ALREADY include captions in the image - do NOT add additional caption text.
         """
