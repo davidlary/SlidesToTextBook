@@ -106,7 +106,7 @@ class ContentAuthor:
         
         # Format available assets for the prompt
         figures_info = "\n".join([f"- Concept '{k}': Use \\begin{{figure}}[h] \\centering \\includegraphics[width=0.9\\linewidth]{{Figures/{v}}} \\caption{{{k}}} \\label{{fig:{k.replace(' ', '')}}} \\end{{figure}}" for k, v in assets_map.get('figures', {}).items()])
-        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{v}}} \\textbf{{{k}}}}}" for k, v in assets_map.get('portraits', {}).items()])
+        portraits_info = "\n".join([f"- Person '{k}': Use \\automarginnote{{\\includegraphics[width=\\linewidth]{{Portraits/{v}}}}}" for k, v in assets_map.get('portraits', {}).items()])
         citations_info = "\n".join([f"- {title}: use \\citep{{{key}}}" for title, key in citation_map.items()])
 
         system_prompt = """
@@ -124,26 +124,32 @@ class ContentAuthor:
             
         prompt = f"""
         Write the content for the section "{section_title}" of the chapter "{topic_data.get('title')}".
-        
+
         Context/Background Info:
         {topic_data.get('description', '')}
         {topic_context}
-        
+
         Key Concepts to cover: {', '.join(topic_data.get('concepts', []))}
         Key People: {', '.join(topic_data.get('people', []))}
-        
+
         # REQUIRED ASSETS REMOVED TO PREVENT HALLUCINATIONS
         # We will inject them deterministically in post-processing.
-        
+
         Use these Citations:
         {citations_info}
-        
+
         Write an EXTREMELY DETAILED, COMPREHENSIVE textbook chapter section.
-        Aim for at least 1500 words PER SECTION. 
+        Aim for at least 1500 words PER SECTION.
         Deeply explain every concept with historical context, mathematical derivation, and practical examples.
         DO NOT SUMMARIZE. EXPAND on every detail.
+
+        STRICT RULES:
+        1. DO NOT generate manual figure captions like "\\textit{Figure 1: ...}". LaTeX handles this.
+        2. DO NOT add text-based \\automarginnote{{...}} unless it is a critical side-note.
+        3. DO NOT repeat portrait margin notes if the person was already introduced.
+        4. Portraits ALREADY include captions in the image - do NOT add additional caption text.
         """
-        
+
         try:
             return self.ai_client.generate_text(prompt, system_prompt, model="claude")
         except Exception as e:

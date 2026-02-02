@@ -62,7 +62,7 @@ class AIClient:
         if not self.gemini_configured: raise ValueError("Gemini not configured")
         
         response = self.gemini_client.models.generate_content(
-            model='gemini-1.5-flash', 
+            model='gemini-2.0-flash', 
             contents=prompt,
             config={'system_instruction': system_prompt}
         )

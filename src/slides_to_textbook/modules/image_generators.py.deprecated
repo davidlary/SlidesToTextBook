@@ -68,6 +68,11 @@ class FigureRecreator:
                              raise FileNotFoundError(f"Result path {source} does not exist.")
                     
                     self.logger.info(f"Generated figure via SICE: {target_path}")
+                    
+                    # Requirement 3: Save prompt
+                    prompt_file = target_path.with_suffix(".md")
+                    prompt_file.write_text(f"## Prompt for {filename}\n\n{prompt}")
+                    
                     return target_path
 
             except ImportError as e:
@@ -227,6 +232,11 @@ class PortraitGenerator:
                       final_img.save(target_path, quality=95)
                  
                  self.logger.info(f"Generated portrait via SICE: {target_path}")
+                 
+                 # Requirement 3: Save prompt
+                 prompt_file = target_path.with_suffix(".md")
+                 prompt_file.write_text(f"## Prompt for {filename}\n\n{portrait_prompt}")
+
                  return target_path
                  
         except ImportError:

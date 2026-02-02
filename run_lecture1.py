@@ -13,7 +13,8 @@ load_dotenv()
 from slides_to_textbook.modules.pdf_analyzer import PDFAnalyzer
 from slides_to_textbook.modules.topic_researcher import TopicResearcher
 from slides_to_textbook.modules.content_author import ContentAuthor
-from slides_to_textbook.modules.image_generators import FigureRecreator, PortraitGenerator
+# NOTE: FigureRecreator deleted - figure generation not working
+# NOTE: PortraitGenerator moved to standalone CLI package at https://github.com/davidlary/PortraitGenerator
 from slides_to_textbook.modules.latex_builder import LaTeXBuilder
 from slides_to_textbook.modules.latex_components import MarginNoteGenerator, BibliographyManager
 from slides_to_textbook.modules.progress_tracker import ProgressTracker
@@ -86,9 +87,9 @@ def main():
         safe_concept = concept.replace(" ", "")
         assets_map["figures"][concept] = f"Chapter-Introduction/Fig-{safe_concept}.png"
         
-    # Map People to Portraits
+    # Map People to Portraits (using new filename format: PersonName_Painting.png)
     for person in enriched_topic.get("people", []):
-        port_filename = f"{person.replace(' ', '')}.jpg" 
+        port_filename = f"{person.replace(' ', '')}_Painting.png"
         assets_map["portraits"][person] = f"Chapter-Introduction/{port_filename}"
 
     # 4. Content Generation (With Asset Awareness)
@@ -100,39 +101,36 @@ def main():
     # PASS THE MAPS!
     chapter_content_body = author.generate_chapter_content(enriched_topic, assets_map=assets_map, citation_map=citation_map)
     
-    # 5. Images & Portraits (Execute Generation to match maps)
-    # ------------------------------------------------------
-    # Structure: Figures/Chapter-Introduction and Portraits/Chapter-Introduction
-    fig_creator = FigureRecreator(OUTPUT_DIR / "Figures" / "Chapter-Introduction")
-    portrait_creator = PortraitGenerator(OUTPUT_DIR / "Portraits" / "Chapter-Introduction")
-    
-    logger.info(f"Enriched Topic People count: {len(enriched_topic.get('people', []))}")
-    logger.info(f"Enriched Topic Concepts count: {len(enriched_topic.get('concepts', []))}")
+    # 5. Portraits (Using Standalone CLI Package)
+    # --------------------------------------------
+    # NOTE: Figure generation DELETED - not working
+    # NOTE: Portraits now use standalone PortraitGenerator CLI from:
+    #       https://github.com/davidlary/PortraitGenerator
 
-    # Generate Portraits (Using pre-calc filenames)
+    logger.info(f"Enriched Topic People count: {len(enriched_topic.get('people', []))}")
+
+    # TODO: Generate Portraits using standalone CLI
+    # The new workflow should be:
+    # 1. Create a portrait preprocessor that extracts names from PDFs
+    # 2. Save names to a JSON file
+    # 3. Call PortraitGenerator CLI in batch mode:
+    #    portrait-generator batch --input people.json --output-dir /path/to/Portraits/Chapter-Introduction/
+    # 4. CLI generates files with naming: PersonName_Painting.png
+    # 5. Only generate Photorealistic paintings (no other styles)
+
+    portrait_dir = OUTPUT_DIR / "Portraits" / "Chapter-Introduction"
+    portrait_dir.mkdir(parents=True, exist_ok=True)
+
+    # For now, log the people that need portraits
     for person in enriched_topic.get("people", []):
-         logger.info(f"Adding portrait task for: {person}")
-         # Note: PortraitGenerator uses internal naming logic, we should probably force it or assume it matches.
-         # Checking PortraitGenerator logic... it takes a name and usually sanitizes it. 
-         # Let's trust it matches {person.replace(" ", "")} or update it. 
-         # For robustness, we'll let it generate and hope it matches, OR update it to be strict.
-         # Update: For this step, we'll assume standard sanitization.
-         portrait_path = portrait_creator.generate_portrait(person)
-         
-    # Generate Concept Figures (Using pre-calc filenames)
-    if enriched_topic.get("concepts"):
-        logger.info(f"Generating figures for {len(enriched_topic['concepts'])} concepts...")
-        for i, concept in enumerate(enriched_topic["concepts"]):
-            if i > 12: break
-            
-            logger.info(f"Adding figure task for: {concept}")
-            fig_desc = f"A complex, labeled scientific visualization illustrating the concept of '{concept}'. Include typical metrics, decision boundaries, or structural diagrams as appropriate for a university textbook. Ideally separate into subplots if complex."
-            # Use the EXACT filename mapped earlier (extracted from path)
-            target_filename = Path(assets_map["figures"][concept]).name
-            
-            fig_path = fig_creator.recreate_figure(fig_desc, target_filename)
-            if fig_path:
-                logger.info(f"Created figure: {fig_path.name}")
+        expected_filename = f"{person.replace(' ', '')}_Painting.png"
+        expected_path = portrait_dir / expected_filename
+        if expected_path.exists():
+            logger.info(f"Portrait already exists: {expected_filename}")
+        else:
+            logger.warning(f"Portrait missing (needs generation): {expected_filename}")
+            logger.info(f"  Person: {person}")
+            logger.info(f"  Expected: {expected_path}")
 
     # 6. Build LaTeX
     # --------------
