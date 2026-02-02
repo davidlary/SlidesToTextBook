@@ -1,0 +1,21 @@
+# Include documentation files
+include README.md
+include LICENSE
+include ImplementationPlan.md
+include CHANGES_2026-02-02.md
+include ENVIRONMENT_SETUP.md
+
+# Include examples
+graft Examples
+
+# Include test fixtures
+recursive-include tests/fixtures *
+
+# Exclude sensitive files
+exclude .env
+exclude .env.*
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store
+global-exclude *.key
+global-exclude *_api_key*
